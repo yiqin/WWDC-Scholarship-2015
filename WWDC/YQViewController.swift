@@ -8,7 +8,7 @@
 
 import UIKit
 
-class YQViewController: ViewController {
+class YQViewController: UIViewController {
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)

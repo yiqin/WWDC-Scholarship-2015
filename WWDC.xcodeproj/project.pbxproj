@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		8D41631D1AE83CAB00D15AD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D41631C1AE83CAB00D15AD2 /* AppDelegate.swift */; };
-		8D41631F1AE83CAB00D15AD2 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D41631E1AE83CAB00D15AD2 /* ViewController.swift */; };
 		8D4163221AE83CAB00D15AD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D4163201AE83CAB00D15AD2 /* Main.storyboard */; };
 		8D4163241AE83CAB00D15AD2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D4163231AE83CAB00D15AD2 /* Images.xcassets */; };
 		8D4163271AE83CAB00D15AD2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D4163251AE83CAB00D15AD2 /* LaunchScreen.xib */; };
@@ -17,6 +16,7 @@
 		8D4163411AE8526700D15AD2 /* Lato in Resources */ = {isa = PBXBuildFile; fileRef = 8D41633F1AE8526700D15AD2 /* Lato */; };
 		8D4163421AE8526700D15AD2 /* Open_Sans in Resources */ = {isa = PBXBuildFile; fileRef = 8D4163401AE8526700D15AD2 /* Open_Sans */; };
 		8D4163441AE854A500D15AD2 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4163431AE854A500D15AD2 /* MainNavigationController.swift */; };
+		8D4163461AE867F400D15AD2 /* Playfair_Display in Resources */ = {isa = PBXBuildFile; fileRef = 8D4163451AE867F400D15AD2 /* Playfair_Display */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,7 +33,6 @@
 		8D4163171AE83CAB00D15AD2 /* WWDC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWDC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D41631B1AE83CAB00D15AD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D41631C1AE83CAB00D15AD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		8D41631E1AE83CAB00D15AD2 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		8D4163211AE83CAB00D15AD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		8D4163231AE83CAB00D15AD2 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
 		8D4163261AE83CAB00D15AD2 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LaunchScreen.xib; sourceTree = "<group>"; };
@@ -44,6 +43,7 @@
 		8D41633F1AE8526700D15AD2 /* Lato */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Lato; sourceTree = "<group>"; };
 		8D4163401AE8526700D15AD2 /* Open_Sans */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Open_Sans; sourceTree = "<group>"; };
 		8D4163431AE854A500D15AD2 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
+		8D4163451AE867F400D15AD2 /* Playfair_Display */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Playfair_Display; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -88,7 +88,6 @@
 				8D41631C1AE83CAB00D15AD2 /* AppDelegate.swift */,
 				8D41633D1AE851D400D15AD2 /* YQViewController.swift */,
 				8D4163431AE854A500D15AD2 /* MainNavigationController.swift */,
-				8D41631E1AE83CAB00D15AD2 /* ViewController.swift */,
 				8D41633C1AE83F5700D15AD2 /* Storyboard */,
 				8D4163231AE83CAB00D15AD2 /* Images.xcassets */,
 				8D4163251AE83CAB00D15AD2 /* LaunchScreen.xib */,
@@ -101,6 +100,7 @@
 			isa = PBXGroup;
 			children = (
 				8D41631B1AE83CAB00D15AD2 /* Info.plist */,
+				8D4163451AE867F400D15AD2 /* Playfair_Display */,
 				8D41633F1AE8526700D15AD2 /* Lato */,
 				8D4163401AE8526700D15AD2 /* Open_Sans */,
 			);
@@ -217,6 +217,7 @@
 				8D4163271AE83CAB00D15AD2 /* LaunchScreen.xib in Resources */,
 				8D4163421AE8526700D15AD2 /* Open_Sans in Resources */,
 				8D4163241AE83CAB00D15AD2 /* Images.xcassets in Resources */,
+				8D4163461AE867F400D15AD2 /* Playfair_Display in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -236,7 +237,6 @@
 			files = (
 				8D41633E1AE851D400D15AD2 /* YQViewController.swift in Sources */,
 				8D4163441AE854A500D15AD2 /* MainNavigationController.swift in Sources */,
-				8D41631F1AE83CAB00D15AD2 /* ViewController.swift in Sources */,
 				8D41631D1AE83CAB00D15AD2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
