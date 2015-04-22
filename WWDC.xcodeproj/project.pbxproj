@@ -13,6 +13,10 @@
 		8D4163241AE83CAB00D15AD2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D4163231AE83CAB00D15AD2 /* Images.xcassets */; };
 		8D4163271AE83CAB00D15AD2 /* LaunchScreen.xib in Resources */ = {isa = PBXBuildFile; fileRef = 8D4163251AE83CAB00D15AD2 /* LaunchScreen.xib */; };
 		8D4163331AE83CAB00D15AD2 /* WWDCTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4163321AE83CAB00D15AD2 /* WWDCTests.swift */; };
+		8D41633E1AE851D400D15AD2 /* YQViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D41633D1AE851D400D15AD2 /* YQViewController.swift */; };
+		8D4163411AE8526700D15AD2 /* Lato in Resources */ = {isa = PBXBuildFile; fileRef = 8D41633F1AE8526700D15AD2 /* Lato */; };
+		8D4163421AE8526700D15AD2 /* Open_Sans in Resources */ = {isa = PBXBuildFile; fileRef = 8D4163401AE8526700D15AD2 /* Open_Sans */; };
+		8D4163441AE854A500D15AD2 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4163431AE854A500D15AD2 /* MainNavigationController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,10 @@
 		8D41632C1AE83CAB00D15AD2 /* WWDCTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = WWDCTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D4163311AE83CAB00D15AD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D4163321AE83CAB00D15AD2 /* WWDCTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WWDCTests.swift; sourceTree = "<group>"; };
+		8D41633D1AE851D400D15AD2 /* YQViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YQViewController.swift; sourceTree = "<group>"; };
+		8D41633F1AE8526700D15AD2 /* Lato */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Lato; sourceTree = "<group>"; };
+		8D4163401AE8526700D15AD2 /* Open_Sans */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Open_Sans; sourceTree = "<group>"; };
+		8D4163431AE854A500D15AD2 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,8 +86,10 @@
 			isa = PBXGroup;
 			children = (
 				8D41631C1AE83CAB00D15AD2 /* AppDelegate.swift */,
+				8D41633D1AE851D400D15AD2 /* YQViewController.swift */,
+				8D4163431AE854A500D15AD2 /* MainNavigationController.swift */,
 				8D41631E1AE83CAB00D15AD2 /* ViewController.swift */,
-				8D4163201AE83CAB00D15AD2 /* Main.storyboard */,
+				8D41633C1AE83F5700D15AD2 /* Storyboard */,
 				8D4163231AE83CAB00D15AD2 /* Images.xcassets */,
 				8D4163251AE83CAB00D15AD2 /* LaunchScreen.xib */,
 				8D41631A1AE83CAB00D15AD2 /* Supporting Files */,
@@ -91,6 +101,8 @@
 			isa = PBXGroup;
 			children = (
 				8D41631B1AE83CAB00D15AD2 /* Info.plist */,
+				8D41633F1AE8526700D15AD2 /* Lato */,
+				8D4163401AE8526700D15AD2 /* Open_Sans */,
 			);
 			name = "Supporting Files";
 			sourceTree = "<group>";
@@ -110,6 +122,14 @@
 				8D4163311AE83CAB00D15AD2 /* Info.plist */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		8D41633C1AE83F5700D15AD2 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				8D4163201AE83CAB00D15AD2 /* Main.storyboard */,
+			);
+			name = Storyboard;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -192,8 +212,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D4163411AE8526700D15AD2 /* Lato in Resources */,
 				8D4163221AE83CAB00D15AD2 /* Main.storyboard in Resources */,
 				8D4163271AE83CAB00D15AD2 /* LaunchScreen.xib in Resources */,
+				8D4163421AE8526700D15AD2 /* Open_Sans in Resources */,
 				8D4163241AE83CAB00D15AD2 /* Images.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -212,6 +234,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D41633E1AE851D400D15AD2 /* YQViewController.swift in Sources */,
+				8D4163441AE854A500D15AD2 /* MainNavigationController.swift in Sources */,
 				8D41631F1AE83CAB00D15AD2 /* ViewController.swift in Sources */,
 				8D41631D1AE83CAB00D15AD2 /* AppDelegate.swift in Sources */,
 			);
@@ -409,6 +433,7 @@
 				8D4163381AE83CAB00D15AD2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		8D4163391AE83CAB00D15AD2 /* Build configuration list for PBXNativeTarget "WWDCTests" */ = {
 			isa = XCConfigurationList;
@@ -417,6 +442,7 @@
 				8D41633B1AE83CAB00D15AD2 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

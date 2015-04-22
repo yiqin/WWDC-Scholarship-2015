@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  YQNavigationController.swift
 //  WWDC
 //
 //  Created by Yi Qin on 4/22/15.
@@ -8,26 +8,22 @@
 
 import UIKit
 
-class ViewController: UIViewController {
-
+class MainNavigationController: UINavigationController {
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
     }
-
+    
+    override init(rootViewController: UIViewController) {
+        super.init(rootViewController: rootViewController)
+    }
+    
+    
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
+    
+    
 
 }
-
