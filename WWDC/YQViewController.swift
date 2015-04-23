@@ -101,7 +101,7 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
             cell = ProfileSummaryTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: profileSummaryCellIdentifier)
         }
         cell?.textLabel!.text = "profile"
-        let object = ResumeDataManager.shareInstance.getObject(indexPath) as! ProfileSummary
+        let object: AnyObject = ResumeDataManager.shareInstance.getObject(indexPath)
         
         cell?.setContentValue(object)
         
@@ -115,7 +115,7 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
             cell = QuoteTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: quoteCellIdentifier)
         }
         
-        let object = ResumeDataManager.shareInstance.getObject(indexPath) as! Quote
+        let object: AnyObject = ResumeDataManager.shareInstance.getObject(indexPath)
         
         cell?.setContentValue(object)
         
@@ -128,7 +128,7 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
             cell = SoftwareProjectTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: softwareProjectCellIdentifier)
         }
         
-        let object = ResumeDataManager.shareInstance.getObject(indexPath) as! SoftwareProject
+        let object: AnyObject = ResumeDataManager.shareInstance.getObject(indexPath)
         
         cell?.setContentValue(object)
         

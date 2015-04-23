@@ -32,14 +32,14 @@ public class ResumeDataManager: NSObject {
         quoteSection2.rowObjects = [quote2]
         
         
-        let softwareProject1 = SoftwareProject(title: "Lead iOS Developer, at FireStop Inc",subTitle: "June 2014 - December 2014", projectImage: UIImage())
+        let softwareProject1 = SoftwareProject(title: "Lead iOS Developer, at FireStop Inc",subtitle: "June 2014 - December 2014", projectImage: UIImage())
         
         
         var softwareProjectSection1 = SoftwareProjectSection()
         softwareProjectSection1.rowObjects = [softwareProject1]
         
         
-        objects = NSArray(array: [profileSummarySection, quoteSection1, quoteSection2, quoteSection1, softwareProjectSection1])
+        objects = NSArray(array: [profileSummarySection, quoteSection1, softwareProjectSection1,quoteSection2, quoteSection1])
         
         super.init()
     }

@@ -16,7 +16,7 @@ class ProfileSummaryTableViewCell: BaseTableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        profileBackgroundImageView.frame = CGRectMake(0, 0, 102, 102)
+        profileBackgroundImageView.frame = CGRectMake(0, 0, 104, 104)
         profileBackgroundImageView.layer.cornerRadius = CGRectGetWidth(profileBackgroundImageView.frame)*0.5
         profileBackgroundImageView.backgroundColor = UIColor.whiteColor()
         
@@ -49,11 +49,18 @@ class ProfileSummaryTableViewCell: BaseTableViewCell {
         profileBackgroundImageView.center = profileImageView.center
     }
     
-    func setContentValue(profileSummary:ProfileSummary){
-        
+    
+    func setContentValue(object:AnyObject){
+        let profileSummary = object as! ProfileSummary
         // This would cause a crash if profileSummary images are nil!
         // fatal error: unexpectedly found nil while unwrapping an Optional value
-        profileImageView.image = profileSummary.profileImage
+        if let tempProfileImage = profileSummary.profileImage {
+            profileImageView.image = profileSummary.profileImage
+        }
+        else {
+            profileImageView.image = UIImage()
+        }
+        
         backgroundImageView.image = profileSummary.backgroundImage
     }
     

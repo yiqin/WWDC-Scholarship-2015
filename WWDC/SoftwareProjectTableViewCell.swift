@@ -10,6 +10,10 @@ import UIKit
 
 class SoftwareProjectTableViewCell: BaseTableViewCell {
     
+    static let xPadding1: CGFloat = 30
+    static let xPadding2: CGFloat = 30
+    
+    
     let titleLabel:UILabel
     
     
@@ -52,7 +56,9 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         
     }
     
-    func setContentValue(softwareProject:SoftwareProject){
+    func setContentValue(object:AnyObject){
+        
+        let softwareProject = object as! SoftwareProject
         
         println(softwareProject.title)
         titleLabel.text = softwareProject.title

@@ -47,8 +47,8 @@ class QuoteTableViewCell: BaseTableViewCell {
         
     }
     
-    func setContentValue(quote:Quote){
-        
+    func setContentValue(object:AnyObject){
+        let quote = object as! Quote
         // This would cause a crash if profileSummary images are nil!
         // fatal error: unexpectedly found nil while unwrapping an Optional value
         titleLabel.text = quote.title
