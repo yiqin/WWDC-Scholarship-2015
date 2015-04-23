@@ -32,6 +32,12 @@ public class ResumeDataManager: NSObject {
         quoteSection2.rowObjects = [quote2]
         
         
+        let softwareProject1 = SoftwareProject(text: "Lead iOS Developer, at FireStop Inc", projectImage: UIImage())
+        var softwareProjectSection1 = SoftwareProjectSection()
+        softwareProjectSection1.rowObjects = [softwareProject1]
+        
+        
+        
         objects = NSArray(array: [profileSummarySection, quoteSection1, quoteSection2, quoteSection1])
         
         super.init()
@@ -66,12 +72,19 @@ public class ResumeDataManager: NSObject {
         let cellClassName = ResumeDataManager.shareInstance.getCellClass(indexPath)
         
         switch cellClassName {
+            
         case "WWDC.ProfileSummarySection":
             let baseSection = objects.objectAtIndex(indexPath.section) as! ProfileSummarySection
             return ProfileSummaryTableViewCell.cellHeight(baseSection.rowObjects[indexPath.row])
+            
         case "WWDC.QuoteSection":
             let baseSection = objects.objectAtIndex(indexPath.section) as! QuoteSection
             return QuoteTableViewCell.cellHeight(baseSection.rowObjects[indexPath.row])
+            
+        case "WWDC.SoftwareProjectSection":
+            let baseSection = objects.objectAtIndex(indexPath.section) as! SoftwareProjectSection
+            return SoftwareProjectTableViewCell.cellHeight(baseSection.rowObjects[indexPath.row])
+            
         default:
             return 44
             
@@ -82,15 +95,25 @@ public class ResumeDataManager: NSObject {
         let cellClassName = ResumeDataManager.shareInstance.getCellClass(indexPath)
         
         switch cellClassName {
+            
         case "WWDC.ProfileSummarySection":
             let baseSection = objects.objectAtIndex(indexPath.section) as! ProfileSummarySection
             return baseSection.rowObjects[indexPath.row]
+            
         case "WWDC.QuoteSection":
             let baseSection = objects.objectAtIndex(indexPath.section) as! QuoteSection
             if indexPath.row >= baseSection.rowObjects.count {
                 return Quote()
             }
             return baseSection.rowObjects[indexPath.row]
+            
+        case "WWDC.SoftwareProjectSection":
+            let baseSection = objects.objectAtIndex(indexPath.section) as! SoftwareProjectSection
+            if indexPath.row >= baseSection.rowObjects.count {
+                return SoftwareProject()
+            }
+            return baseSection.rowObjects[indexPath.row]
+            
         default:
             return UITableViewCell()
             

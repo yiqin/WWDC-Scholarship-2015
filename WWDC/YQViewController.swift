@@ -12,6 +12,7 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
     
     let profileSummaryCellIdentifier = "profileSummaryCellIdentifier"
     let quoteCellIdentifier = "quoteCellIdentifier"
+    let softwareProjectCellIdentifier = "softwareCellIdentifier"
     
     var tableView: UITableView
     
@@ -114,7 +115,18 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
         
         let object = ResumeDataManager.shareInstance.getObject(indexPath) as! Quote
         
-        cell?.textLabel!.text = object.title
+        cell?.setContentValue(object)
+        
+        return cell!
+    }
+    
+    func getSoftwareProjectTableViewCell(indexPath: NSIndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier(softwareProjectCellIdentifier) as? SoftwareProjectTableViewCell
+        if cell == nil {
+            cell = SoftwareProjectTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: softwareProjectCellIdentifier)
+        }
+        
+        let object = ResumeDataManager.shareInstance.getObject(indexPath) as! SoftwareProject
         
         cell?.setContentValue(object)
         

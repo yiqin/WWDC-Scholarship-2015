@@ -39,6 +39,9 @@
 		8D27580E1AE95C00006B9390 /* PlayfairDisplay-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D2758081AE95C00006B9390 /* PlayfairDisplay-BoldItalic.ttf */; };
 		8D27580F1AE95C00006B9390 /* PlayfairDisplay-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D2758091AE95C00006B9390 /* PlayfairDisplay-Italic.ttf */; };
 		8D2758101AE95C00006B9390 /* PlayfairDisplay-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 8D27580A1AE95C00006B9390 /* PlayfairDisplay-Regular.ttf */; };
+		8D2758161AE96C2D006B9390 /* SoftwareProject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2758151AE96C2D006B9390 /* SoftwareProject.swift */; };
+		8D2758181AE96CA3006B9390 /* SoftwareProjectSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2758171AE96CA3006B9390 /* SoftwareProjectSection.swift */; };
+		8D27581B1AE96D53006B9390 /* SoftwareProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D27581A1AE96D53006B9390 /* SoftwareProjectTableViewCell.swift */; };
 		8D41631D1AE83CAB00D15AD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D41631C1AE83CAB00D15AD2 /* AppDelegate.swift */; };
 		8D4163221AE83CAB00D15AD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D4163201AE83CAB00D15AD2 /* Main.storyboard */; };
 		8D4163241AE83CAB00D15AD2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D4163231AE83CAB00D15AD2 /* Images.xcassets */; };
@@ -98,6 +101,9 @@
 		8D2758081AE95C00006B9390 /* PlayfairDisplay-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "PlayfairDisplay-BoldItalic.ttf"; path = "Playfair_Display/PlayfairDisplay-BoldItalic.ttf"; sourceTree = "<group>"; };
 		8D2758091AE95C00006B9390 /* PlayfairDisplay-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "PlayfairDisplay-Italic.ttf"; path = "Playfair_Display/PlayfairDisplay-Italic.ttf"; sourceTree = "<group>"; };
 		8D27580A1AE95C00006B9390 /* PlayfairDisplay-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "PlayfairDisplay-Regular.ttf"; path = "Playfair_Display/PlayfairDisplay-Regular.ttf"; sourceTree = "<group>"; };
+		8D2758151AE96C2D006B9390 /* SoftwareProject.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoftwareProject.swift; sourceTree = "<group>"; };
+		8D2758171AE96CA3006B9390 /* SoftwareProjectSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoftwareProjectSection.swift; sourceTree = "<group>"; };
+		8D27581A1AE96D53006B9390 /* SoftwareProjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoftwareProjectTableViewCell.swift; sourceTree = "<group>"; };
 		8D4163171AE83CAB00D15AD2 /* WWDC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWDC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D41631B1AE83CAB00D15AD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D41631C1AE83CAB00D15AD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -217,6 +223,16 @@
 			name = Fonts;
 			sourceTree = "<group>";
 		};
+		8D27581C1AE96D58006B9390 /* SoftwareProject */ = {
+			isa = PBXGroup;
+			children = (
+				8D2758171AE96CA3006B9390 /* SoftwareProjectSection.swift */,
+				8D2758151AE96C2D006B9390 /* SoftwareProject.swift */,
+				8D27581A1AE96D53006B9390 /* SoftwareProjectTableViewCell.swift */,
+			);
+			name = SoftwareProject;
+			sourceTree = "<group>";
+		};
 		8D41630E1AE83CAB00D15AD2 = {
 			isa = PBXGroup;
 			children = (
@@ -246,6 +262,7 @@
 				8D2757A41AE93F52006B9390 /* BaseTableViewCell.swift */,
 				8D21BA671AE8D82900BB6AD5 /* ProfileSummary */,
 				8D21BA681AE8D83200BB6AD5 /* Quote */,
+				8D27581C1AE96D58006B9390 /* SoftwareProject */,
 				8D41633C1AE83F5700D15AD2 /* Storyboard */,
 				8D4163231AE83CAB00D15AD2 /* Images.xcassets */,
 				8D4163251AE83CAB00D15AD2 /* LaunchScreen.xib */,
@@ -421,10 +438,13 @@
 				8D41634A1AE877FF00D15AD2 /* ProfileSummaryTableViewCell.swift in Sources */,
 				8D4163481AE8764200D15AD2 /* ResumeDataManager.swift in Sources */,
 				8D69E6EF1AE8CD5900956B99 /* QuoteSection.swift in Sources */,
+				8D27581B1AE96D53006B9390 /* SoftwareProjectTableViewCell.swift in Sources */,
 				8D21BA661AE8D2D900BB6AD5 /* BaseSection.swift in Sources */,
+				8D2758181AE96CA3006B9390 /* SoftwareProjectSection.swift in Sources */,
 				8D2757A51AE93F52006B9390 /* BaseTableViewCell.swift in Sources */,
 				8D69E6ED1AE8CCC200956B99 /* ProfileSummarySection.swift in Sources */,
 				8D41634C1AE87D8000D15AD2 /* ProfileSummary.swift in Sources */,
+				8D2758161AE96C2D006B9390 /* SoftwareProject.swift in Sources */,
 				8D41633E1AE851D400D15AD2 /* YQViewController.swift in Sources */,
 				8D69E6EB1AE8C2C200956B99 /* QuoteTableViewCell.swift in Sources */,
 				8D4163441AE854A500D15AD2 /* MainNavigationController.swift in Sources */,

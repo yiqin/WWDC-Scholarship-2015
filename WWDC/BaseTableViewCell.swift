@@ -15,10 +15,14 @@ class BaseTableViewCell: UITableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         backgroundColor = UIColor.clearColor()
+        clipsToBounds = true
         
         backgroundImageView.frame = CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame))
         backgroundImageView.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
+        backgroundImageView.contentMode = UIViewContentMode.ScaleAspectFill
         addSubview(backgroundImageView)
+        
+        selectionStyle = UITableViewCellSelectionStyle.None
     }
     
     required init(coder aDecoder: NSCoder) {

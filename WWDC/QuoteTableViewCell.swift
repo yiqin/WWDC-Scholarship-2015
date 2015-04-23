@@ -25,7 +25,8 @@ class QuoteTableViewCell: BaseTableViewCell {
         titleLabel.frame = CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame))
         titleLabel.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
         titleLabel.textAlignment = NSTextAlignment.Center
-        titleLabel.font = UIFont(name: "PlayfairDisplay-BoldItalic", size: 20)
+        titleLabel.numberOfLines = 0
+        titleLabel.font = UIFont(name: "PlayfairDisplay-BoldItalic", size: 23)
         titleLabel.textColor = UIColor.whiteColor()
         addSubview(titleLabel)
     }
@@ -59,7 +60,7 @@ class QuoteTableViewCell: BaseTableViewCell {
     class func cellHeight(object:AnyObject)->CGFloat {
         let readyObject = object as! Quote
         
-        return 150.0+xPadding
+        return 100.0+xPadding
     }
 
 }
