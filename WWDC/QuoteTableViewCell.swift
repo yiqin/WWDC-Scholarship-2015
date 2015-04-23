@@ -25,7 +25,7 @@ class QuoteTableViewCell: BaseTableViewCell {
         titleLabel.frame = CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame))
         titleLabel.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
         titleLabel.textAlignment = NSTextAlignment.Center
-        titleLabel.font = UIFont(name: "Lato-Bold", size: 10)
+        titleLabel.font = UIFont(name: "PlayfairDisplay-BoldItalic", size: 20)
         titleLabel.textColor = UIColor.whiteColor()
         addSubview(titleLabel)
     }
