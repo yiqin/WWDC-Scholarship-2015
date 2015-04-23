@@ -11,10 +11,13 @@ import UIKit
 class SoftwareProject: NSObject {
     
     var title:String
+    var subTitle:String
+    
     var projectImage:UIImage
     
-    init(text:String, projectImage:UIImage) {
-        self.title = text
+    init(title:String, subTitle:String, projectImage:UIImage) {
+        self.title = title
+        self.subTitle = subTitle
         self.projectImage = projectImage
         super.init()
     }

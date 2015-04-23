@@ -87,6 +87,8 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
             return getProfileSummaryTableViewCell(indexPath)
         case "WWDC.QuoteSection":
             return getQuoteTableViewCell(indexPath)
+        case "WWDC.SoftwareProjectSection":
+            return getSoftwareProjectTableViewCell(indexPath)
         default:
             return UITableViewCell()
             

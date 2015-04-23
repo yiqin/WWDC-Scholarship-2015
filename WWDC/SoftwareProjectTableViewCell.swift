@@ -10,9 +10,30 @@ import UIKit
 
 class SoftwareProjectTableViewCell: BaseTableViewCell {
     
+    let titleLabel:UILabel
+    
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        titleLabel = UILabel()
+        
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        titleLabel.frame = CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame))
+        titleLabel.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
+        titleLabel.textAlignment = NSTextAlignment.Right
+        titleLabel.numberOfLines = 0
+        titleLabel.font = UIFont(name: "Lato-Regular", size: 23)
+        titleLabel.textColor = UIColor.blackColor()
+        addSubview(titleLabel)
+        
+        
+        setTestColor()
 
+    }
+    
+    func setTestColor(){
+        titleLabel.backgroundColor = UIColor.yellowColor()
+        
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -31,9 +52,10 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         
     }
     
-    func setContentValue(software:SoftwareProject){
+    func setContentValue(softwareProject:SoftwareProject){
         
-        
+        println(softwareProject.title)
+        titleLabel.text = softwareProject.title
         
     }
     
