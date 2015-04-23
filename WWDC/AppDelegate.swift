@@ -18,6 +18,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         
+        let fontFamilies = UIFont.familyNames()
+        println(fontFamilies)
+        
         
         let yqViewController = YQViewController()
         
