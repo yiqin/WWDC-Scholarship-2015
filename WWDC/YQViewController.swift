@@ -100,6 +100,8 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
         cell?.textLabel!.text = "profile"
         let object = ResumeDataManager.shareInstance.getObject(indexPath) as! ProfileSummary
         
+        cell?.setContentValue(object)
+        
         return cell!
     }
     

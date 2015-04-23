@@ -8,7 +8,7 @@
 
 import UIKit
 
-class QuoteTableViewCell: UITableViewCell {
+class QuoteTableViewCell: BaseTableViewCell {
     
     // UI parameters
     static let xPadding:CGFloat = 30
@@ -19,8 +19,8 @@ class QuoteTableViewCell: UITableViewCell {
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         titleLabel = UILabel()
+        
         super.init(style: style, reuseIdentifier: reuseIdentifier)
-        backgroundColor = UIColor.clearColor()
         
         titleLabel.frame = CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame))
         titleLabel.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
@@ -32,10 +32,6 @@ class QuoteTableViewCell: UITableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        
-    }
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

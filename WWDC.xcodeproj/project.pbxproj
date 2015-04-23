@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8D21BA661AE8D2D900BB6AD5 /* BaseSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D21BA651AE8D2D900BB6AD5 /* BaseSection.swift */; };
+		8D2757A51AE93F52006B9390 /* BaseTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2757A41AE93F52006B9390 /* BaseTableViewCell.swift */; };
 		8D41631D1AE83CAB00D15AD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D41631C1AE83CAB00D15AD2 /* AppDelegate.swift */; };
 		8D4163221AE83CAB00D15AD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D4163201AE83CAB00D15AD2 /* Main.storyboard */; };
 		8D4163241AE83CAB00D15AD2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D4163231AE83CAB00D15AD2 /* Images.xcassets */; };
@@ -39,6 +40,7 @@
 
 /* Begin PBXFileReference section */
 		8D21BA651AE8D2D900BB6AD5 /* BaseSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseSection.swift; sourceTree = "<group>"; };
+		8D2757A41AE93F52006B9390 /* BaseTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTableViewCell.swift; sourceTree = "<group>"; };
 		8D4163171AE83CAB00D15AD2 /* WWDC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWDC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D41631B1AE83CAB00D15AD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D41631C1AE83CAB00D15AD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -126,6 +128,7 @@
 				8D41633D1AE851D400D15AD2 /* YQViewController.swift */,
 				8D4163471AE8764100D15AD2 /* ResumeDataManager.swift */,
 				8D21BA651AE8D2D900BB6AD5 /* BaseSection.swift */,
+				8D2757A41AE93F52006B9390 /* BaseTableViewCell.swift */,
 				8D21BA671AE8D82900BB6AD5 /* ProfileSummary */,
 				8D21BA681AE8D83200BB6AD5 /* Quote */,
 				8D41633C1AE83F5700D15AD2 /* Storyboard */,
@@ -279,6 +282,7 @@
 				8D4163481AE8764200D15AD2 /* ResumeDataManager.swift in Sources */,
 				8D69E6EF1AE8CD5900956B99 /* QuoteSection.swift in Sources */,
 				8D21BA661AE8D2D900BB6AD5 /* BaseSection.swift in Sources */,
+				8D2757A51AE93F52006B9390 /* BaseTableViewCell.swift in Sources */,
 				8D69E6ED1AE8CCC200956B99 /* ProfileSummarySection.swift in Sources */,
 				8D41634C1AE87D8000D15AD2 /* ProfileSummary.swift in Sources */,
 				8D41633E1AE851D400D15AD2 /* YQViewController.swift in Sources */,

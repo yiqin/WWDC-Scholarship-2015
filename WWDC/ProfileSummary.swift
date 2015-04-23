@@ -12,11 +12,14 @@ class ProfileSummary: NSObject {
     
     let name:String = "Yi Qin"
     let tagline:String = "I build iOS apps and robots"
-    let profileImage:UIImage = UIImage()
+    let profileImage:UIImage = UIImage(named: "profileImage")!
+    
+    let backgroundImage:UIImage = UIImage(named: "profileBackgroundImage2")!
     
     override init() {
         
         super.init()
+        
     }
 
 }
