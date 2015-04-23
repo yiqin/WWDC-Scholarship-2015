@@ -17,6 +17,8 @@
 		8D4163421AE8526700D15AD2 /* Open_Sans in Resources */ = {isa = PBXBuildFile; fileRef = 8D4163401AE8526700D15AD2 /* Open_Sans */; };
 		8D4163441AE854A500D15AD2 /* MainNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4163431AE854A500D15AD2 /* MainNavigationController.swift */; };
 		8D4163461AE867F400D15AD2 /* Playfair_Display in Resources */ = {isa = PBXBuildFile; fileRef = 8D4163451AE867F400D15AD2 /* Playfair_Display */; };
+		8D4163481AE8764200D15AD2 /* ResumeDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4163471AE8764100D15AD2 /* ResumeDataManager.swift */; };
+		8D41634A1AE877FF00D15AD2 /* ProfileSummaryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D4163491AE877FF00D15AD2 /* ProfileSummaryTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +46,8 @@
 		8D4163401AE8526700D15AD2 /* Open_Sans */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Open_Sans; sourceTree = "<group>"; };
 		8D4163431AE854A500D15AD2 /* MainNavigationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MainNavigationController.swift; sourceTree = "<group>"; };
 		8D4163451AE867F400D15AD2 /* Playfair_Display */ = {isa = PBXFileReference; lastKnownFileType = folder; path = Playfair_Display; sourceTree = "<group>"; };
+		8D4163471AE8764100D15AD2 /* ResumeDataManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResumeDataManager.swift; sourceTree = "<group>"; };
+		8D4163491AE877FF00D15AD2 /* ProfileSummaryTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSummaryTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,8 +90,10 @@
 			isa = PBXGroup;
 			children = (
 				8D41631C1AE83CAB00D15AD2 /* AppDelegate.swift */,
-				8D41633D1AE851D400D15AD2 /* YQViewController.swift */,
 				8D4163431AE854A500D15AD2 /* MainNavigationController.swift */,
+				8D41633D1AE851D400D15AD2 /* YQViewController.swift */,
+				8D4163471AE8764100D15AD2 /* ResumeDataManager.swift */,
+				8D4163491AE877FF00D15AD2 /* ProfileSummaryTableViewCell.swift */,
 				8D41633C1AE83F5700D15AD2 /* Storyboard */,
 				8D4163231AE83CAB00D15AD2 /* Images.xcassets */,
 				8D4163251AE83CAB00D15AD2 /* LaunchScreen.xib */,
@@ -235,6 +241,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8D41634A1AE877FF00D15AD2 /* ProfileSummaryTableViewCell.swift in Sources */,
+				8D4163481AE8764200D15AD2 /* ResumeDataManager.swift in Sources */,
 				8D41633E1AE851D400D15AD2 /* YQViewController.swift in Sources */,
 				8D4163441AE854A500D15AD2 /* MainNavigationController.swift in Sources */,
 				8D41631D1AE83CAB00D15AD2 /* AppDelegate.swift in Sources */,
