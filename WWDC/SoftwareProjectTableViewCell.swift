@@ -14,17 +14,17 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
     static let xPadding2: CGFloat = 30
     
     
-    let titleLabel:UILabel
-    
+    let titleLabel:YQDynamicHeightLabel
+    var softwareProject:SoftwareProject = SoftwareProject()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        titleLabel = UILabel()
+        titleLabel = YQDynamicHeightLabel()
         
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         titleLabel.frame = CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame))
         titleLabel.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
-        titleLabel.textAlignment = NSTextAlignment.Right
+        titleLabel.textAlignment = NSTextAlignment.Left
         titleLabel.numberOfLines = 0
         titleLabel.font = UIFont(name: "Lato-Regular", size: 23)
         titleLabel.textColor = UIColor.blackColor()
@@ -53,13 +53,12 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        
+        titleLabel.update(CGRectMake(10, 10, 200, 100), font: UIFont(name: "Lato-Regular", size: 10)!, text: softwareProject.title)
     }
     
     func setContentValue(object:AnyObject){
         
-        let softwareProject = object as! SoftwareProject
-        
+        softwareProject = object as! SoftwareProject
         println(softwareProject.title)
         titleLabel.text = softwareProject.title
         
@@ -70,7 +69,10 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
     class func cellHeight(object:AnyObject)->CGFloat {
         let readyObject = object as! SoftwareProject
         
-        return 150.0
+        let titleLabel:YQDynamicHeightLabel = YQDynamicHeightLabel()
+        titleLabel.update(CGRectMake(10, 10, 200, 100), font: UIFont(name: "Lato-Regular", size: 10)!, text: readyObject.title)
+        
+        return CGRectGetMaxY(titleLabel.frame)
     }
 
     

@@ -16,6 +16,6 @@ class SoftwareProjectSection: BaseSection {
         
         super.init()
         
-        rowNumber = 1
+        rowNumber = 4
     }
 }

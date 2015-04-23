@@ -34,9 +34,11 @@ public class ResumeDataManager: NSObject {
         
         let softwareProject1 = SoftwareProject(title: "Lead iOS Developer, at FireStop Inc",subtitle: "June 2014 - December 2014", projectImage: UIImage())
         
+        let softwareProject2 = SoftwareProject(title: "Leaftagger (Best Use of Parse from Facebook + Parse and Best iOS app from Apple at MHacks f2014)",subtitle: "1000+ Hackers, September 2014", projectImage: UIImage())
+        
         
         var softwareProjectSection1 = SoftwareProjectSection()
-        softwareProjectSection1.rowObjects = [softwareProject1]
+        softwareProjectSection1.rowObjects = [softwareProject1, softwareProject2,softwareProject2,softwareProject2,softwareProject2]
         
         
         objects = NSArray(array: [profileSummarySection, quoteSection1, softwareProjectSection1,quoteSection2, quoteSection1])
