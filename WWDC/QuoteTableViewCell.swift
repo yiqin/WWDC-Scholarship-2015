@@ -24,8 +24,10 @@ class QuoteTableViewCell: BaseTableViewCell {
         
         titleLabel.frame = CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame))
         titleLabel.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
-        titleLabel.font = UIFont(name: "PlayfairDisplay-Italic", size: 15)
-        // addSubview(titleLabel)
+        titleLabel.textAlignment = NSTextAlignment.Center
+        titleLabel.font = UIFont(name: "Lato-Bold", size: 10)
+        titleLabel.textColor = UIColor.whiteColor()
+        addSubview(titleLabel)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -37,6 +39,22 @@ class QuoteTableViewCell: BaseTableViewCell {
         super.setSelected(selected, animated: animated)
         
     }
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        
+    }
+    
+    func setContentValue(quote:Quote){
+        
+        // This would cause a crash if profileSummary images are nil!
+        // fatal error: unexpectedly found nil while unwrapping an Optional value
+        titleLabel.text = quote.title
+        backgroundImageView.image = quote.backgroundImage
+    }
+
+    
     
     class func cellHeight(object:AnyObject)->CGFloat {
         let readyObject = object as! Quote

@@ -21,8 +21,9 @@ public class ResumeDataManager: NSObject {
         // Make resume here....
         let profileSummarySection = ProfileSummarySection()
         
-        let quote1 = Quote(text: "Keep Building", image: UIImage())
-        let quote2 = Quote(text: "Brace Yourself", image: UIImage())
+        // Force wrapping....
+        let quote1 = Quote(text: "Keep Building", backgroundImage: UIImage(named: "backgroundImage1")!)
+        let quote2 = Quote(text: "Brace Yourself", backgroundImage: UIImage(named: "backgroundImage2")!)
         
         var quoteSection1 = QuoteSection()
         quoteSection1.rowObjects = [quote1]

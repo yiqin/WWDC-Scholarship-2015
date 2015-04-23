@@ -10,10 +10,18 @@ import UIKit
 
 class ProfileSummaryTableViewCell: BaseTableViewCell {
     
+    let profileBackgroundImageView:UIView = UIView()
     let profileImageView:UIImageView = UIImageView()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        profileBackgroundImageView.frame = CGRectMake(0, 0, 102, 102)
+        profileBackgroundImageView.layer.cornerRadius = CGRectGetWidth(profileBackgroundImageView.frame)*0.5
+        profileBackgroundImageView.backgroundColor = UIColor.whiteColor()
+        
+        addSubview(profileBackgroundImageView)
+        
         
         profileImageView.frame = CGRectMake(CGRectGetWidth(frame)*0.5, 40, 100, 100)
         // profileImageView.autoresizingMask = UIViewAutoresizing.FlexibleLeftMargin | UIViewAutoresizing.FlexibleRightMargin
@@ -29,15 +37,16 @@ class ProfileSummaryTableViewCell: BaseTableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
         profileImageView.center = CGPointMake(center.x, profileImageView.center.y)
-    }
-    
-    override func setSelected(selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-        
+        profileBackgroundImageView.center = profileImageView.center
     }
     
     func setContentValue(profileSummary:ProfileSummary){
@@ -51,7 +60,7 @@ class ProfileSummaryTableViewCell: BaseTableViewCell {
     class func cellHeight(object:AnyObject)->CGFloat {
         let readyObject = object as! ProfileSummary
         
-        return 250.0
+        return 280.0
     }
 
 }

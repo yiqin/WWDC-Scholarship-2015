@@ -11,17 +11,18 @@ import UIKit
 class Quote: NSObject {
     
     var title:String
-    var image:UIImage
+    var backgroundImage:UIImage
     
-    init(text:String, image:UIImage) {
+    
+    init(text:String, backgroundImage:UIImage) {
         self.title = text
-        self.image = image
+        self.backgroundImage = backgroundImage
         super.init()
     }
     
     override init() {
         title = ""
-        image = UIImage()
+        backgroundImage = UIImage()
         super.init()
     }
 }

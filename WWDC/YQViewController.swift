@@ -116,6 +116,8 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
         
         cell?.textLabel!.text = object.title
         
+        cell?.setContentValue(object)
+        
         return cell!
     }
     
