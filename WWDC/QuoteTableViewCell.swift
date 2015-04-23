@@ -10,7 +10,12 @@ import UIKit
 
 class QuoteTableViewCell: UITableViewCell {
     
+    // UI parameters
+    static let xPadding:CGFloat = 30
+    
+    
     let titleLabel:UILabel
+    
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         titleLabel = UILabel()
@@ -40,7 +45,7 @@ class QuoteTableViewCell: UITableViewCell {
     class func cellHeight(object:AnyObject)->CGFloat {
         let readyObject = object as! Quote
         
-        return 150.0
+        return 150.0+xPadding
     }
 
 }
