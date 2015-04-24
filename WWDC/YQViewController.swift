@@ -48,6 +48,11 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
         println(NSStringFromClass(klass))
     }
     
+    func scrollViewDidScroll(scrollView: UIScrollView) {
+        
+    }
+    
+    
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return ResumeDataManager.shareInstance.getNumberOfSections()
     }
@@ -57,7 +62,7 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0
+        return 100
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {

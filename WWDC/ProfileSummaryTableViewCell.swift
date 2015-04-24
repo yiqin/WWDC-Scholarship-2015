@@ -13,6 +13,10 @@ class ProfileSummaryTableViewCell: BaseTableViewCell {
     let profileBackgroundImageView:UIView = UIView()
     let profileImageView:UIImageView = UIImageView()
     
+    
+    let nameLabel: UILabel = UILabel()
+    let taglineLabel: UILabel = UILabel()
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
@@ -63,6 +67,8 @@ class ProfileSummaryTableViewCell: BaseTableViewCell {
         
         backgroundImageView.image = profileSummary.backgroundImage
     }
+    
+    
     
     class func cellHeight(object:AnyObject)->CGFloat {
         let readyObject = object as! ProfileSummary
