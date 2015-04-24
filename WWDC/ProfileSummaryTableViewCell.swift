@@ -10,8 +10,7 @@ import UIKit
 
 class ProfileSummaryTableViewCell: BaseTableViewCell {
     
-    let profileBackgroundImageView:UIView = UIView()
-    let profileImageView:UIImageView = UIImageView()
+    
     
     
     let nameLabel: UILabel = UILabel()
@@ -45,22 +44,7 @@ class ProfileSummaryTableViewCell: BaseTableViewCell {
         
         
         
-        profileBackgroundImageView.frame = CGRectMake(0, 0, 104, 104)
-        profileBackgroundImageView.layer.cornerRadius = CGRectGetWidth(profileBackgroundImageView.frame)*0.5
-        profileBackgroundImageView.backgroundColor = UIColor.whiteColor()
         
-        scrollView.addSubview(profileBackgroundImageView)
-        
-        
-        
-        profileImageView.frame = CGRectMake(CGRectGetWidth(frame)*0.5, 40, 100, 100)
-        // profileImageView.autoresizingMask = UIViewAutoresizing.FlexibleLeftMargin | UIViewAutoresizing.FlexibleRightMargin
-        
-        profileImageView.layer.cornerRadius = CGRectGetWidth(profileImageView.frame)*0.5
-        profileImageView.clipsToBounds = true
-        profileImageView.contentMode = UIViewContentMode.ScaleAspectFill
-        
-        scrollView.addSubview(profileImageView)
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -75,10 +59,10 @@ class ProfileSummaryTableViewCell: BaseTableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        profileImageView.center = CGPointMake(center.x, profileImageView.center.y)
-        profileBackgroundImageView.center = profileImageView.center
+        // profileImageView.center = CGPointMake(center.x, profileImageView.center.y)
+        // profileBackgroundImageView.center = profileImageView.center
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateMove:", name: "updateMove", object: nil)
+        // NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateMove:", name: "updateMove", object: nil)
     }
     
     func updateMove(notification: NSNotification) {
@@ -96,10 +80,10 @@ class ProfileSummaryTableViewCell: BaseTableViewCell {
         // This would cause a crash if profileSummary images are nil!
         // fatal error: unexpectedly found nil while unwrapping an Optional value
         if let tempProfileImage = profileSummary.profileImage {
-            profileImageView.image = profileSummary.profileImage
+            // profileImageView.image = profileSummary.profileImage
         }
         else {
-            profileImageView.image = UIImage()
+            // profileImageView.image = UIImage()
         }
         
         backgroundImageView.image = profileSummary.backgroundImage

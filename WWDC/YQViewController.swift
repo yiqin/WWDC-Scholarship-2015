@@ -18,6 +18,10 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
     
     var backgroundImageScrollView:UIScrollView = UIScrollView()
     
+    let profileBackgroundImageView:UIView = UIView()
+    let profileImageView:UIImageView = UIImageView()
+    
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -30,11 +34,36 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
         backgroundImageScrollView.contentSize = CGSizeMake(screenWidth, 680)
         
         let tempBackgroundImageView = UIImageView(frame: CGRectMake(0, -100, screenWidth, 680))
-        tempBackgroundImageView.contentMode = UIViewContentMode.ScaleToFill
+        tempBackgroundImageView.contentMode = UIViewContentMode.ScaleAspectFill
         tempBackgroundImageView.image = UIImage(named: "profileBackgroundImage2")
         
         backgroundImageScrollView.addSubview(tempBackgroundImageView)
         view.addSubview(backgroundImageScrollView)
+        
+        
+        
+        
+        
+        profileBackgroundImageView.frame = CGRectMake(screenWidth*0.5-52, 38, 104, 104)
+        profileBackgroundImageView.layer.cornerRadius = CGRectGetWidth(profileBackgroundImageView.frame)*0.5
+        profileBackgroundImageView.backgroundColor = UIColor.whiteColor()
+        
+        backgroundImageScrollView.addSubview(profileBackgroundImageView)
+        
+        
+        
+        profileImageView.frame = CGRectMake(screenWidth*0.5-50, 40, 100, 100)
+        // profileImageView.autoresizingMask = UIViewAutoresizing.FlexibleLeftMargin | UIViewAutoresizing.FlexibleRightMargin
+        
+        profileImageView.layer.cornerRadius = CGRectGetWidth(profileImageView.frame)*0.5
+        profileImageView.clipsToBounds = true
+        profileImageView.contentMode = UIViewContentMode.ScaleAspectFill
+        
+        backgroundImageScrollView.addSubview(profileImageView)
+        
+        profileImageView.image = ProfileSummary().profileImage
+        
+        
         
         
         tableView.frame = CGRectMake(0, 0, CGRectGetWidth(view.frame), CGRectGetHeight(view.frame))
@@ -69,7 +98,10 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
         if tableView.contentOffset.y < 280 {
             var selectedDateDictionary = ["yContent": tableView.contentOffset.y]
             
-            backgroundImageScrollView.contentOffset = CGPointMake(0, tableView.contentOffset.y*0.5)
+            let yContent = tableView.contentOffset.y-64*2
+            backgroundImageScrollView.contentOffset = CGPointMake(0, yContent*0.5)
+            println(yContent)
+            
             NSNotificationCenter.defaultCenter().postNotificationName("updateMove", object: nil, userInfo: selectedDateDictionary)
         }
         
