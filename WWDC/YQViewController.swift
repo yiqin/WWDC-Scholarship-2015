@@ -22,6 +22,10 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
     let profileBackgroundImageView:UIView = UIView()
     let profileImageView:UIImageView = UIImageView()
     
+    let nameLabel: UILabel = UILabel()
+    let taglineLabel: UILabel = UILabel()
+    
+    
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         
@@ -29,9 +33,12 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
         view.backgroundColor = UIColor.whiteColor()
         
         
+        backgroundImageScrollView.backgroundColor = UIColor.yellowColor()
+        
+        
+        
         backgroundImageScrollView.frame = CGRectMake(0, 0, screenWidth, 550.0)
         backgroundImageScrollView.scrollEnabled = false
-        backgroundImageScrollView.backgroundColor = UIColor.yellowColor()
         backgroundImageScrollView.contentSize = CGSizeMake(screenWidth, 680)
         
         let tempBackgroundImageView = UIImageView(frame: CGRectMake(0, -100, screenWidth, 680))
@@ -42,20 +49,42 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
         view.addSubview(backgroundImageScrollView)
         
         
-        let profileImageSize:CGFloat = 100
+        let profileImageSize:CGFloat = 90
         
-        profileBackgroundImageView.frame = CGRectMake(screenWidth*0.5-(profileImageSize+4)*0.5, 38, profileImageSize+4, profileImageSize+4)
+        profileBackgroundImageView.frame = CGRectMake(screenWidth*0.5-(profileImageSize+4)*0.5, 34, profileImageSize+4, profileImageSize+4)
         profileBackgroundImageView.layer.cornerRadius = CGRectGetWidth(profileBackgroundImageView.frame)*0.5
         profileBackgroundImageView.backgroundColor = UIColor.whiteColor()
         backgroundImageScrollView.addSubview(profileBackgroundImageView)
         
-        profileImageView.frame = CGRectMake(screenWidth*0.5-profileImageSize*0.5, 40, profileImageSize, profileImageSize)
+        profileImageView.frame = CGRectMake(screenWidth*0.5-profileImageSize*0.5, 36, profileImageSize, profileImageSize)
         profileImageView.layer.cornerRadius = CGRectGetWidth(profileImageView.frame)*0.5
         profileImageView.clipsToBounds = true
         profileImageView.contentMode = UIViewContentMode.ScaleAspectFill
         
         backgroundImageScrollView.addSubview(profileImageView)
         profileImageView.image = ProfileSummary().profileImage
+        
+        
+        
+        
+        let taglineLabelWidth:CGFloat = 165
+        taglineLabel.text = "I build iOS apps and robots"
+        taglineLabel.frame = CGRectMake(screenWidth*0.5-taglineLabelWidth*0.5, 160, taglineLabelWidth, 24)
+        taglineLabel.font = UIFont(name: "PlayfairDisplay-BoldItalic", size: 13)
+        taglineLabel.textColor = UIColor.whiteColor()
+        backgroundImageScrollView.addSubview(taglineLabel)
+        
+        // taglineLabel.backgroundColor = UIColor.yellowColor()
+        
+        
+        nameLabel.text = "Yi Qin".uppercaseString
+        nameLabel.frame = CGRectMake(screenWidth*0.5-taglineLabelWidth*0.5, 160-26, 200, 26)
+        nameLabel.font = UIFont(name: "Lato-Semibold", size: 17.0)
+        nameLabel.textColor = UIColor.whiteColor()
+        backgroundImageScrollView.addSubview(nameLabel)
+        
+        
+        
         
         
         

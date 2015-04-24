@@ -47,13 +47,14 @@ public class ResumeDataManager: NSObject {
         let hackathon2 = SoftwareProject(title: "O2 : API for Bitcoin (Best Bitcoin Hack by Coinbase at PennApps X f2014)",subtitle: "1200+ Hackers, September 2014", projectImage: UIImage())
         hackathon2.descriptionPoint = ["O2 is the world's first fully integrated Bitcoin payment/reward API which can be implemented by one-line of code.","O2 is a tool for companies and developers to reward users for achievements. This not only increases user retention, but also increases the companies’ and developer’s popularity and revenue.","Our mission is to reward users for what they do on a daily basis."]
         
-        
+        let hackathon3 = SoftwareProject(title: "EVOO (Kimono Labs Award at Y Combinator Hackathon 2014)",subtitle: "500+ Hackers, August 2014", projectImage: UIImage())
+        hackathon3.descriptionPoint = ["Designed an iOS app to help people quickly discover and plans meals for diverse dietary needs.","Utilized Kimono to turn recipes and cookbooks websites into structured APIs."]
         
         
         
         
         var hackathons = SoftwareProjectSection()
-        hackathons.rowObjects = [hackathon1, hackathon2]
+        hackathons.rowObjects = [hackathon1, hackathon2, hackathon3]
         
         
         objects = NSArray(array: [profileSummarySection, quoteSection1, softwareProjectSection1,quoteSection2, hackathons, quoteSection1])

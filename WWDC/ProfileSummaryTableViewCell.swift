@@ -10,10 +10,6 @@ import UIKit
 
 class ProfileSummaryTableViewCell: BaseTableViewCell {
     
-    
-    let nameLabel: UILabel = UILabel()
-    let taglineLabel: UILabel = UILabel()
-    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
