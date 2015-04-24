@@ -13,7 +13,7 @@ class MainNavigationController: UINavigationController {
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         
-        // navigationBarHidden = true
+        navigationBarHidden = true
     }
     
     override init(rootViewController: UIViewController) {

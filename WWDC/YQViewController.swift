@@ -41,7 +41,7 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
         backgroundImageScrollView.scrollEnabled = false
         backgroundImageScrollView.contentSize = CGSizeMake(screenWidth, 680)
         
-        let tempBackgroundImageView = UIImageView(frame: CGRectMake(0, -100, screenWidth, 480))
+        let tempBackgroundImageView = UIImageView(frame: CGRectMake(0, -200, screenWidth, 500))
         tempBackgroundImageView.contentMode = UIViewContentMode.ScaleAspectFill
         tempBackgroundImageView.image = UIImage(named: "profileBackgroundImage2")
         
@@ -104,6 +104,9 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prefersStatusBarHidden() -> Bool {
+        return true
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -115,7 +118,7 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
         
         if tableView.contentOffset.y <= ProfileSummaryTableViewCell.cellHeight() {
             
-            let yContent = tableView.contentOffset.y-64*2
+            let yContent = tableView.contentOffset.y// -64*2
             backgroundImageScrollView.contentOffset = CGPointMake(0, yContent*0.5)
             println(yContent)
             
