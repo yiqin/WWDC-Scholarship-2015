@@ -1,0 +1,66 @@
+//
+//  ContentTableViewCell.swift
+//  WWDC
+//
+//  Created by Yi Qin on 4/24/15.
+//  Copyright (c) 2015 Yi Qin. All rights reserved.
+//
+
+import UIKit
+
+class ContentTableViewCell: BaseTableViewCell {
+    
+    var content:Content = Content()
+    
+    let titleLabel:YQDynamicHeightLabel = YQDynamicHeightLabel()
+    
+    override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
+        
+        super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        titleLabel.frame = CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame))
+        titleLabel.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
+        titleLabel.textAlignment = NSTextAlignment.Center
+        titleLabel.numberOfLines = 0
+        titleLabel.font = UIFont(name: "Lato-Regular", size: 23)
+        
+        titleLabel.textColor = UIColor.blackColor()
+        
+        addSubview(titleLabel)
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
+    
+    override func setSelected(selected: Bool, animated: Bool) {
+        super.setSelected(selected, animated: animated)
+        
+    }
+    
+    
+    func setContentValue(object:AnyObject){
+        content = object as! Content
+        
+        
+        
+    }
+    
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        
+        
+    }
+    
+    
+    class func cellHeight(object:AnyObject)->CGFloat {
+        let readyObject = object as! Content
+        
+        return 100.0
+    }
+
+    
+}

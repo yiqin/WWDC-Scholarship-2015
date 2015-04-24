@@ -12,8 +12,8 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
     
     var softwareProject:SoftwareProject = SoftwareProject()
     
-    let titleLabel:YQDynamicHeightLabel
-    let subtitleLabel:YQDynamicHeightLabel
+    let titleLabel:YQDynamicHeightLabel = YQDynamicHeightLabel()
+    let subtitleLabel:YQDynamicHeightLabel = YQDynamicHeightLabel()
     let projectImageView:UIImageView = UIImageView()
     
     // No use
@@ -22,9 +22,7 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
     
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        titleLabel = YQDynamicHeightLabel()
-        subtitleLabel = YQDynamicHeightLabel()
-        
+
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         // titleLabel.frame = CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame))
@@ -69,7 +67,6 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
     func setContentValue(object:AnyObject){
         
         softwareProject = object as! SoftwareProject
-        titleLabel.text = softwareProject.title
         
         if let tempImage = softwareProject.projectImage {
             projectImageView.image = tempImage
@@ -150,7 +147,6 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
             // addSubview(tempLabel)
             yLabelPosition = CGRectGetMaxY(tempLabel.frame)+yPadding1
         }
-        
         
         
         
