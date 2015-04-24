@@ -43,6 +43,7 @@
 		8D2758181AE96CA3006B9390 /* SoftwareProjectSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D2758171AE96CA3006B9390 /* SoftwareProjectSection.swift */; };
 		8D27581B1AE96D53006B9390 /* SoftwareProjectTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D27581A1AE96D53006B9390 /* SoftwareProjectTableViewCell.swift */; };
 		8D27581E1AE97B25006B9390 /* YQDynamicHeightLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D27581D1AE97B25006B9390 /* YQDynamicHeightLabel.swift */; };
+		8D2758201AE9AC40006B9390 /* SoftwareProjectTableViewCellSetting.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D27581F1AE9AC40006B9390 /* SoftwareProjectTableViewCellSetting.swift */; };
 		8D41631D1AE83CAB00D15AD2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D41631C1AE83CAB00D15AD2 /* AppDelegate.swift */; };
 		8D4163221AE83CAB00D15AD2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8D4163201AE83CAB00D15AD2 /* Main.storyboard */; };
 		8D4163241AE83CAB00D15AD2 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8D4163231AE83CAB00D15AD2 /* Images.xcassets */; };
@@ -106,6 +107,7 @@
 		8D2758171AE96CA3006B9390 /* SoftwareProjectSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoftwareProjectSection.swift; sourceTree = "<group>"; };
 		8D27581A1AE96D53006B9390 /* SoftwareProjectTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoftwareProjectTableViewCell.swift; sourceTree = "<group>"; };
 		8D27581D1AE97B25006B9390 /* YQDynamicHeightLabel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YQDynamicHeightLabel.swift; sourceTree = "<group>"; };
+		8D27581F1AE9AC40006B9390 /* SoftwareProjectTableViewCellSetting.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SoftwareProjectTableViewCellSetting.swift; sourceTree = "<group>"; };
 		8D4163171AE83CAB00D15AD2 /* WWDC.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = WWDC.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8D41631B1AE83CAB00D15AD2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8D41631C1AE83CAB00D15AD2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -231,6 +233,7 @@
 				8D2758171AE96CA3006B9390 /* SoftwareProjectSection.swift */,
 				8D2758151AE96C2D006B9390 /* SoftwareProject.swift */,
 				8D27581A1AE96D53006B9390 /* SoftwareProjectTableViewCell.swift */,
+				8D27581F1AE9AC40006B9390 /* SoftwareProjectTableViewCellSetting.swift */,
 			);
 			name = SoftwareProject;
 			sourceTree = "<group>";
@@ -453,6 +456,7 @@
 				8D4163441AE854A500D15AD2 /* MainNavigationController.swift in Sources */,
 				8D27581E1AE97B25006B9390 /* YQDynamicHeightLabel.swift in Sources */,
 				8D69E6E91AE8C23300956B99 /* Quote.swift in Sources */,
+				8D2758201AE9AC40006B9390 /* SoftwareProjectTableViewCellSetting.swift in Sources */,
 				8D41631D1AE83CAB00D15AD2 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -14,24 +14,35 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
     static let xPadding2: CGFloat = 30
     
     
+    
+    
     let titleLabel:YQDynamicHeightLabel
+    let subtitleLabel:YQDynamicHeightLabel
+    
+    
+    var descriptionPointLabels:[YQDynamicHeightLabel] = []
+    
     var softwareProject:SoftwareProject = SoftwareProject()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         titleLabel = YQDynamicHeightLabel()
+        subtitleLabel = YQDynamicHeightLabel()
         
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        titleLabel.frame = CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame))
-        titleLabel.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
+        // titleLabel.frame = CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame))
+        // titleLabel.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
         titleLabel.textAlignment = NSTextAlignment.Left
-        titleLabel.numberOfLines = 0
-        titleLabel.font = UIFont(name: "Lato-Regular", size: 23)
         titleLabel.textColor = UIColor.blackColor()
         addSubview(titleLabel)
         
         
-        setTestColor()
+        subtitleLabel.textAlignment = NSTextAlignment.Left
+        subtitleLabel.textColor = UIColor.blackColor()
+        addSubview(subtitleLabel)
+        
+        
+        // setTestColor()
 
     }
     
@@ -44,35 +55,57 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
-    
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
+        
+    }
+    
+    func setContentValue(object:AnyObject){
+        
+        softwareProject = object as! SoftwareProject
+        titleLabel.text = softwareProject.title
         
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        titleLabel.update(CGRectMake(10, 10, 200, 100), font: UIFont(name: "Lato-Regular", size: 10)!, text: softwareProject.title)
+        titleLabel.update(CGRectMake(10, 10, 200, 100), font: SoftwareProjectTableViewCellSetting.getTitleLabelFont(), text: softwareProject.title)
+        
+        subtitleLabel.update(CGRectMake(10, CGRectGetMaxY(titleLabel.frame), 200, 100), font: SoftwareProjectTableViewCellSetting.getSubtitleLabelFont(), text: softwareProject.subtitle)
+        
+        var yLabelPosition:CGFloat = CGRectGetMaxY(subtitleLabel.frame)+10
+        
+        for descriptionString in softwareProject.descriptionPoint {
+            let tempLabel = YQDynamicHeightLabel()
+            tempLabel.update(CGRectMake(50, yLabelPosition, 200, 100), font: SoftwareProjectTableViewCellSetting.getSubtitleLabelFont(), text: descriptionString)
+            addSubview(tempLabel)
+            yLabelPosition = CGRectGetMaxY(tempLabel.frame)+10
+        }
     }
     
-    func setContentValue(object:AnyObject){
-        
-        softwareProject = object as! SoftwareProject
-        println(softwareProject.title)
-        titleLabel.text = softwareProject.title
-        
-    }
-    
-    
+
     
     class func cellHeight(object:AnyObject)->CGFloat {
         let readyObject = object as! SoftwareProject
         
         let titleLabel:YQDynamicHeightLabel = YQDynamicHeightLabel()
-        titleLabel.update(CGRectMake(10, 10, 200, 100), font: UIFont(name: "Lato-Regular", size: 10)!, text: readyObject.title)
         
-        return CGRectGetMaxY(titleLabel.frame)
+        titleLabel.update(CGRectMake(10, 10, 200, 100), font: SoftwareProjectTableViewCellSetting.getTitleLabelFont(), text: readyObject.title)
+        
+        let subtitleLabel:YQDynamicHeightLabel = YQDynamicHeightLabel()
+        subtitleLabel.update(CGRectMake(10, CGRectGetMaxY(titleLabel.frame), 200, 100), font: SoftwareProjectTableViewCellSetting.getSubtitleLabelFont(), text: readyObject.subtitle)
+        
+        var yLabelPosition:CGFloat = CGRectGetMaxY(subtitleLabel.frame)+10
+        
+        for descriptionString in readyObject.descriptionPoint {
+            let tempLabel = YQDynamicHeightLabel()
+            tempLabel.update(CGRectMake(50, yLabelPosition, 200, 100), font: SoftwareProjectTableViewCellSetting.getSubtitleLabelFont(), text: descriptionString)
+            // addSubview(tempLabel)
+            yLabelPosition = CGRectGetMaxY(tempLabel.frame)+10
+        }
+        
+        return yLabelPosition //CGRectGetMaxY(subtitleLabel.frame)
     }
 
     

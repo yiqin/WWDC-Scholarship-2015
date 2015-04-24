@@ -23,7 +23,7 @@ public class ResumeDataManager: NSObject {
         
         // Force wrapping....
         let quote1 = Quote(text: "Keep Building", backgroundImage: UIImage(named: "backgroundImage1")!)
-        let quote2 = Quote(text: "Brace Yourself", backgroundImage: UIImage(named: "backgroundImage2")!)
+        let quote2 = Quote(text: "Brace Yourself", backgroundImage: UIImage(named: "profileBackgroundImage1")!)
         
         var quoteSection1 = QuoteSection()
         quoteSection1.rowObjects = [quote1]
@@ -33,8 +33,10 @@ public class ResumeDataManager: NSObject {
         
         
         let softwareProject1 = SoftwareProject(title: "Lead iOS Developer, at FireStop Inc",subtitle: "June 2014 - December 2014", projectImage: UIImage())
+        softwareProject1.descriptionPoint = ["FireStop is a cloud-based response software that enables firefighters to leverage critical data in real time when responding to emergencies.", "FireStop significantly reduces firefighting response and operation time to better protect lives and property through data collection, mobile software and analytics.","I'm responsible for iOS development. We want to arm firefighters with iPads and real-time data."]
         
         let softwareProject2 = SoftwareProject(title: "Leaftagger (Best Use of Parse from Facebook + Parse and Best iOS app from Apple at MHacks f2014)",subtitle: "1000+ Hackers, September 2014", projectImage: UIImage())
+        
         
         
         var softwareProjectSection1 = SoftwareProjectSection()
