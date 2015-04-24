@@ -10,12 +10,9 @@ import UIKit
 
 class SoftwareProjectSection: BaseSection {
     
-    var rowObjects:[SoftwareProject] = []
-    
     override init() {
         
-        super.init()
-        
-        rowNumber = 4
+        super.init()        
     }
+    
 }

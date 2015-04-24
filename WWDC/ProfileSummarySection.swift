@@ -10,13 +10,12 @@ import UIKit
 
 class ProfileSummarySection: BaseSection {
     
-    let rowObjects:[ProfileSummary] = [ProfileSummary()]
     
     override init() {
         
         super.init()
         
-        rowNumber = 1
+        rowObjects = [ProfileSummary()]
     }
 
 }

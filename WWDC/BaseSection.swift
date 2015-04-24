@@ -10,11 +10,11 @@ import UIKit
 
 class BaseSection: NSObject {
     
-    var rowNumber:Int
+    var rowObjects:[AnyObject] = []
     
     override init() {
-        rowNumber = 0
         super.init()
+        
     }
 
 }

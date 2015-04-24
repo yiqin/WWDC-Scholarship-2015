@@ -35,15 +35,18 @@ public class ResumeDataManager: NSObject {
         let softwareProject1 = SoftwareProject(title: "Lead iOS Developer, at FireStop Inc",subtitle: "June 2014 - December 2014", projectImage: UIImage())
         softwareProject1.descriptionPoint = ["FireStop is a cloud-based response software that enables firefighters to leverage critical data in real time when responding to emergencies.", "FireStop significantly reduces firefighting response and operation time to better protect lives and property through data collection, mobile software and analytics.","I'm responsible for iOS development. We want to arm firefighters with iPads and real-time data."]
         
-        let softwareProject2 = SoftwareProject(title: "Leaftagger (Best Use of Parse from Facebook + Parse and Best iOS app from Apple at MHacks f2014)",subtitle: "1000+ Hackers, September 2014", projectImage: UIImage())
-        
-        
         
         var softwareProjectSection1 = SoftwareProjectSection()
-        softwareProjectSection1.rowObjects = [softwareProject1, softwareProject2,softwareProject2,softwareProject2,softwareProject2]
+        softwareProjectSection1.rowObjects = [softwareProject1]
         
         
-        objects = NSArray(array: [profileSummarySection, quoteSection1, softwareProjectSection1,quoteSection2, quoteSection1])
+        let softwareProject2 = SoftwareProject(title: "Leaftagger (Best Use of Parse from Facebook + Parse and Best iOS app from Apple at MHacks f2014)",subtitle: "1000+ Hackers, September 2014", projectImage: UIImage())
+        
+        var softwareProjectSection2 = SoftwareProjectSection()
+        softwareProjectSection2.rowObjects = [softwareProject2,softwareProject2,softwareProject2,softwareProject2]
+        
+        
+        objects = NSArray(array: [profileSummarySection, quoteSection1, softwareProjectSection1,quoteSection2, softwareProjectSection2, quoteSection1])
         
         super.init()
     }
@@ -70,7 +73,7 @@ public class ResumeDataManager: NSObject {
     
     func getNumberOfRows(section: Int)-> Int {
         let baseSection = objects.objectAtIndex(section) as! BaseSection
-        return baseSection.rowNumber
+        return baseSection.rowObjects.count
     }
     
     func getHeight(indexPath: NSIndexPath) -> CGFloat {

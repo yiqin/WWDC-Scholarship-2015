@@ -10,7 +10,7 @@ import UIKit
 
 class SoftwareProjectTableViewCellSetting: NSObject {
     
-        
+    
     class func getTitleLabelFont()->UIFont {
         return UIFont(name: "Lato-Regular", size: 16)!
     }
@@ -23,4 +23,16 @@ class SoftwareProjectTableViewCellSetting: NSObject {
         return UIFont(name: "Lato-Regular", size: 14)!
     }
     
+    
+    class func getXPadding1()->CGFloat {
+        return 30
+    }
+    
+    class func getXPadding2()->CGFloat {
+        return 30
+    }
+    
+    class func getYPadding1()->CGFloat {
+        return 10
+    }
 }

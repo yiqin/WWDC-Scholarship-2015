@@ -10,14 +10,10 @@ import UIKit
 
 class QuoteSection: BaseSection {
     
-    var rowObjects:[Quote] = []
-    // var rowNumber:Int = 1
     
     override init() {
         super.init()
-        
-        rowNumber = 1
-
+                
     }
 
 }

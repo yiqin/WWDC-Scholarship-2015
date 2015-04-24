@@ -10,10 +10,7 @@ import UIKit
 
 class SoftwareProjectTableViewCell: BaseTableViewCell {
     
-    static let xPadding1: CGFloat = 30
-    static let xPadding2: CGFloat = 30
-    
-    
+
     
     
     let titleLabel:YQDynamicHeightLabel
@@ -70,17 +67,22 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        titleLabel.update(CGRectMake(10, 10, 200, 100), font: SoftwareProjectTableViewCellSetting.getTitleLabelFont(), text: softwareProject.title)
+        let tempWidth = screenWidth
+        let xPadding1 = SoftwareProjectTableViewCellSetting.getXPadding1()
+        let xPadding2 = SoftwareProjectTableViewCellSetting.getXPadding2()
+        let yPadding1 = SoftwareProjectTableViewCellSetting.getYPadding1()
         
-        subtitleLabel.update(CGRectMake(10, CGRectGetMaxY(titleLabel.frame), 200, 100), font: SoftwareProjectTableViewCellSetting.getSubtitleLabelFont(), text: softwareProject.subtitle)
+        titleLabel.update(CGRectMake(xPadding1, 10, tempWidth-2*xPadding1, 100), font: SoftwareProjectTableViewCellSetting.getTitleLabelFont(), text: softwareProject.title)
         
-        var yLabelPosition:CGFloat = CGRectGetMaxY(subtitleLabel.frame)+10
+        subtitleLabel.update(CGRectMake(xPadding1, CGRectGetMaxY(titleLabel.frame), tempWidth-2*xPadding1, 100), font: SoftwareProjectTableViewCellSetting.getSubtitleLabelFont(), text: softwareProject.subtitle)
+        
+        var yLabelPosition:CGFloat = CGRectGetMaxY(subtitleLabel.frame)+yPadding1
         
         for descriptionString in softwareProject.descriptionPoint {
             let tempLabel = YQDynamicHeightLabel()
-            tempLabel.update(CGRectMake(50, yLabelPosition, 200, 100), font: SoftwareProjectTableViewCellSetting.getSubtitleLabelFont(), text: descriptionString)
+            tempLabel.update(CGRectMake(xPadding1+xPadding2, yLabelPosition, tempWidth-2*xPadding1-xPadding2, 100), font: SoftwareProjectTableViewCellSetting.getSubtitleLabelFont(), text: descriptionString)
             addSubview(tempLabel)
-            yLabelPosition = CGRectGetMaxY(tempLabel.frame)+10
+            yLabelPosition = CGRectGetMaxY(tempLabel.frame)+yPadding1
         }
     }
     
@@ -89,18 +91,24 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
     class func cellHeight(object:AnyObject)->CGFloat {
         let readyObject = object as! SoftwareProject
         
+        let tempWidth = screenWidth
+        let xPadding1 = SoftwareProjectTableViewCellSetting.getXPadding1()
+        let xPadding2 = SoftwareProjectTableViewCellSetting.getXPadding2()
+        let yPadding1 = SoftwareProjectTableViewCellSetting.getYPadding1()
+        
+        
         let titleLabel:YQDynamicHeightLabel = YQDynamicHeightLabel()
         
-        titleLabel.update(CGRectMake(10, 10, 200, 100), font: SoftwareProjectTableViewCellSetting.getTitleLabelFont(), text: readyObject.title)
+        titleLabel.update(CGRectMake(xPadding1, 10, tempWidth-2*xPadding1, 100), font: SoftwareProjectTableViewCellSetting.getTitleLabelFont(), text: readyObject.title)
         
         let subtitleLabel:YQDynamicHeightLabel = YQDynamicHeightLabel()
-        subtitleLabel.update(CGRectMake(10, CGRectGetMaxY(titleLabel.frame), 200, 100), font: SoftwareProjectTableViewCellSetting.getSubtitleLabelFont(), text: readyObject.subtitle)
+        subtitleLabel.update(CGRectMake(xPadding1, CGRectGetMaxY(titleLabel.frame), tempWidth-2*xPadding1, 100), font: SoftwareProjectTableViewCellSetting.getSubtitleLabelFont(), text: readyObject.subtitle)
         
         var yLabelPosition:CGFloat = CGRectGetMaxY(subtitleLabel.frame)+10
         
         for descriptionString in readyObject.descriptionPoint {
             let tempLabel = YQDynamicHeightLabel()
-            tempLabel.update(CGRectMake(50, yLabelPosition, 200, 100), font: SoftwareProjectTableViewCellSetting.getSubtitleLabelFont(), text: descriptionString)
+            tempLabel.update(CGRectMake(xPadding1+xPadding2, yLabelPosition, tempWidth-2*xPadding1-xPadding2, 100), font: SoftwareProjectTableViewCellSetting.getSubtitleLabelFont(), text: descriptionString)
             // addSubview(tempLabel)
             yLabelPosition = CGRectGetMaxY(tempLabel.frame)+10
         }
