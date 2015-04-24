@@ -71,10 +71,20 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         softwareProject = object as! SoftwareProject
         titleLabel.text = softwareProject.title
         
+        if let tempImage = softwareProject.projectImage {
+            projectImageView.image = tempImage
+        }
+        
+        
+        let viewsToRemove = subviews
+        for v in viewsToRemove as! [UIView] {
+            v.removeFromSuperview()
+        }
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
+
         
         let tempWidth = screenWidth
         let xPadding1 = SoftwareProjectTableViewCellSetting.getXPadding1()
@@ -82,12 +92,14 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         let yPadding1 = SoftwareProjectTableViewCellSetting.getYPadding1()
         
         titleLabel.update(CGRectMake(xPadding1, 10, tempWidth-2*xPadding1, 100), font: SoftwareProjectTableViewCellSetting.getTitleLabelFont(), text: softwareProject.title)
+        addSubview(titleLabel)
         
         subtitleLabel.update(CGRectMake(xPadding1, CGRectGetMaxY(titleLabel.frame), tempWidth-2*xPadding1, 100), font: SoftwareProjectTableViewCellSetting.getSubtitleLabelFont(), text: softwareProject.subtitle)
-        
+        addSubview(subtitleLabel)
         
         var yLabelPosition:CGFloat = CGRectGetMaxY(subtitleLabel.frame)+yPadding1
-        
+
+        /*
         // Need to remove
         let viewsToRemove = subviews
         for v in viewsToRemove as! [UIView] {
@@ -95,6 +107,7 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
                 v.removeFromSuperview()
             }
         }
+        */
         
         for descriptionString in softwareProject.descriptionPoint {
             let tempLabel = YQDynamicHeightLabel()
@@ -103,6 +116,12 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
             addSubview(tempLabel)
             yLabelPosition = CGRectGetMaxY(tempLabel.frame)+yPadding1
         }
+        
+        
+        projectImageView.frame = CGRectMake(xPadding1+xPadding2, yLabelPosition, tempWidth-2*xPadding1-xPadding2*2, 100)
+        projectImageView.contentMode = UIViewContentMode.ScaleAspectFit
+        addSubview(projectImageView)
+        
     }
     
 
@@ -123,16 +142,37 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         let subtitleLabel:YQDynamicHeightLabel = YQDynamicHeightLabel()
         subtitleLabel.update(CGRectMake(xPadding1, CGRectGetMaxY(titleLabel.frame), tempWidth-2*xPadding1, 100), font: SoftwareProjectTableViewCellSetting.getSubtitleLabelFont(), text: readyObject.subtitle)
         
-        var yLabelPosition:CGFloat = CGRectGetMaxY(subtitleLabel.frame)+10
+        var yLabelPosition:CGFloat = CGRectGetMaxY(subtitleLabel.frame)+yPadding1
         
         for descriptionString in readyObject.descriptionPoint {
             let tempLabel = YQDynamicHeightLabel()
             tempLabel.update(CGRectMake(xPadding1+xPadding2, yLabelPosition, tempWidth-2*xPadding1-xPadding2, 100), font: SoftwareProjectTableViewCellSetting.getSubtitleLabelFont(), text: descriptionString)
             // addSubview(tempLabel)
-            yLabelPosition = CGRectGetMaxY(tempLabel.frame)+10
+            yLabelPosition = CGRectGetMaxY(tempLabel.frame)+yPadding1
         }
         
-        return yLabelPosition //CGRectGetMaxY(subtitleLabel.frame)
+        
+        
+        
+        // Minimized this work.....
+        if let tempImage = readyObject.projectImage {
+            let designedImageWidth = tempWidth-2*xPadding1-xPadding2*2
+            let tempImageWidth = tempImage.size.width
+            let tempImageHeight = tempImage.size.height
+            
+            let designedImageHeight:CGFloat = designedImageWidth*tempImageHeight/tempImageWidth
+            
+            if designedImageHeight > 10 {
+                return yLabelPosition + designedImageHeight+2*yPadding1
+            }
+            
+            println("what \(designedImageHeight)")
+            //
+        }
+        
+        
+        
+        return yLabelPosition//  + designedImageHeight+2*yPadding1 //CGRectGetMaxY(subtitleLabel.frame)
     }
 
     

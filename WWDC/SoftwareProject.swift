@@ -15,12 +15,12 @@ class SoftwareProject: NSObject {
     
     var descriptionPoint:[String] = []
     
-    var projectImage:UIImage
+    var projectImage:UIImage?
     
-    init(title:String, subtitle:String, projectImage:UIImage) {
+    init(title:String, subtitle:String, projectImage:UIImage?) {
         self.title = title
         self.subtitle = subtitle
-        self.projectImage = projectImage
+        self.projectImage = projectImage!
         super.init()
     }
     

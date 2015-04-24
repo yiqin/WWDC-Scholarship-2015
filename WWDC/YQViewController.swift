@@ -33,7 +33,7 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
         view.backgroundColor = UIColor.whiteColor()
         
         
-        backgroundImageScrollView.backgroundColor = UIColor.yellowColor()
+        // backgroundImageScrollView.backgroundColor = UIColor.yellowColor()
         
         
         
@@ -41,7 +41,7 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
         backgroundImageScrollView.scrollEnabled = false
         backgroundImageScrollView.contentSize = CGSizeMake(screenWidth, 680)
         
-        let tempBackgroundImageView = UIImageView(frame: CGRectMake(0, -100, screenWidth, 680))
+        let tempBackgroundImageView = UIImageView(frame: CGRectMake(0, -100, screenWidth, 480))
         tempBackgroundImageView.contentMode = UIViewContentMode.ScaleAspectFill
         tempBackgroundImageView.image = UIImage(named: "profileBackgroundImage2")
         
