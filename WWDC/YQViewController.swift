@@ -16,6 +16,7 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
     
     var tableView: UITableView = UITableView()
     
+    // Profile Scroll View
     var backgroundImageScrollView:UIScrollView = UIScrollView()
     
     let profileBackgroundImageView:UIView = UIView()
@@ -41,28 +42,20 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
         view.addSubview(backgroundImageScrollView)
         
         
+        let profileImageSize:CGFloat = 100
         
-        
-        
-        profileBackgroundImageView.frame = CGRectMake(screenWidth*0.5-52, 38, 104, 104)
+        profileBackgroundImageView.frame = CGRectMake(screenWidth*0.5-(profileImageSize+4)*0.5, 38, profileImageSize+4, profileImageSize+4)
         profileBackgroundImageView.layer.cornerRadius = CGRectGetWidth(profileBackgroundImageView.frame)*0.5
         profileBackgroundImageView.backgroundColor = UIColor.whiteColor()
-        
         backgroundImageScrollView.addSubview(profileBackgroundImageView)
         
-        
-        
-        profileImageView.frame = CGRectMake(screenWidth*0.5-50, 40, 100, 100)
-        // profileImageView.autoresizingMask = UIViewAutoresizing.FlexibleLeftMargin | UIViewAutoresizing.FlexibleRightMargin
-        
+        profileImageView.frame = CGRectMake(screenWidth*0.5-profileImageSize*0.5, 40, profileImageSize, profileImageSize)
         profileImageView.layer.cornerRadius = CGRectGetWidth(profileImageView.frame)*0.5
         profileImageView.clipsToBounds = true
         profileImageView.contentMode = UIViewContentMode.ScaleAspectFill
         
         backgroundImageScrollView.addSubview(profileImageView)
-        
         profileImageView.image = ProfileSummary().profileImage
-        
         
         
         
@@ -87,25 +80,19 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
-        var klass:AnyClass = object_getClass(self)
-        println(NSStringFromClass(klass))
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
-        let rowToReload = NSIndexPath(forRow: 0, inSection: 0)
-        // tableView.reloadRowsAtIndexPaths([rowToReload], withRowAnimation: UITableViewRowAnimation.None)
         
-        if tableView.contentOffset.y < 280 {
-            var selectedDateDictionary = ["yContent": tableView.contentOffset.y]
+        if tableView.contentOffset.y <= ProfileSummaryTableViewCell.cellHeight() {
             
             let yContent = tableView.contentOffset.y-64*2
             backgroundImageScrollView.contentOffset = CGPointMake(0, yContent*0.5)
             println(yContent)
             
-            NSNotificationCenter.defaultCenter().postNotificationName("updateMove", object: nil, userInfo: selectedDateDictionary)
+            // var selectedDateDictionary = ["yContent": tableView.contentOffset.y]
+            // NSNotificationCenter.defaultCenter().postNotificationName("updateMove", object: nil, userInfo: selectedDateDictionary)
         }
-        
-        
         
     }
     
@@ -148,7 +135,6 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
         
         
         let cellClassName = ResumeDataManager.shareInstance.getCellClass(indexPath)
-        
         
         switch cellClassName {
             

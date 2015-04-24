@@ -10,16 +10,16 @@ import UIKit
 
 class SoftwareProjectTableViewCell: BaseTableViewCell {
     
-
-    
+    var softwareProject:SoftwareProject = SoftwareProject()
     
     let titleLabel:YQDynamicHeightLabel
     let subtitleLabel:YQDynamicHeightLabel
+    let projectImageView:UIImageView = UIImageView()
     
-    
+    // No use
     var descriptionPointLabels:[YQDynamicHeightLabel] = []
     
-    var softwareProject:SoftwareProject = SoftwareProject()
+    
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         titleLabel = YQDynamicHeightLabel()
@@ -30,14 +30,23 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         // titleLabel.frame = CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame))
         // titleLabel.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
         titleLabel.textAlignment = NSTextAlignment.Left
-        titleLabel.textColor = UIColor.blackColor()
+        
+        titleLabel.textColor = lightBlue
+        
         addSubview(titleLabel)
         
         
         subtitleLabel.textAlignment = NSTextAlignment.Left
+        
+        
         subtitleLabel.textColor = UIColor.blackColor()
+        
+        
+        
         addSubview(subtitleLabel)
         
+        
+        addSubview(projectImageView)
         
         // setTestColor()
 
@@ -89,6 +98,7 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         
         for descriptionString in softwareProject.descriptionPoint {
             let tempLabel = YQDynamicHeightLabel()
+            tempLabel.textColor = lightGrey
             tempLabel.update(CGRectMake(xPadding1+xPadding2, yLabelPosition, tempWidth-2*xPadding1-xPadding2, 100), font: SoftwareProjectTableViewCellSetting.getSubtitleLabelFont(), text: descriptionString)
             addSubview(tempLabel)
             yLabelPosition = CGRectGetMaxY(tempLabel.frame)+yPadding1

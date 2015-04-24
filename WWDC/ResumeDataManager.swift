@@ -40,17 +40,23 @@ public class ResumeDataManager: NSObject {
         softwareProjectSection1.rowObjects = [softwareProject1]
         
         
-        let softwareProject2 = SoftwareProject(title: "Leaftagger (Best Use of Parse from Facebook + Parse and Best iOS app from Apple at MHacks f2014)",subtitle: "1000+ Hackers, September 2014", projectImage: UIImage())
-        softwareProject2.descriptionPoint = ["Leaftagger is a powerful framework to get feedback from users directly in the native iOS app. It ultimately enables developers to iterate and launch product quicker.","Leaftagger allows developers to communicate with their users through your app without more messy emails back and forward."]
-        
-        let softwareProject3 = SoftwareProject(title: "O2 : API for Bitcoin (Best Bitcoin Hack by Coinbase at PennApps X f2014)",subtitle: "1200+ Hackers, September 2014", projectImage: UIImage())
-        softwareProject3.descriptionPoint = ["O2 is the world's first fully integrated Bitcoin payment/reward API which can be implemented by one-line of code.","O2 is a tool for companies and developers to reward users for achievements. This not only increases user retention, but also increases the companies’ and developer’s popularity and revenue.","Our mission is to reward users for what they do on a daily basis."]
-        
-        var softwareProjectSection2 = SoftwareProjectSection()
-        softwareProjectSection2.rowObjects = [softwareProject2, softwareProject3]
+        let hackathon1 = SoftwareProject(title: "Leaftagger (Best Use of Parse from Facebook + Parse and Best iOS app from Apple at MHacks f2014)",subtitle: "1000+ Hackers, September 2014", projectImage: UIImage())
+        hackathon1.descriptionPoint = ["Leaftagger is a powerful framework to get feedback from users directly in the native iOS app. It ultimately enables developers to iterate and launch product quicker.","Leaftagger allows developers to communicate with their users through your app without more messy emails back and forward."]
         
         
-        objects = NSArray(array: [profileSummarySection, quoteSection1, softwareProjectSection1,quoteSection2, softwareProjectSection2, quoteSection1])
+        let hackathon2 = SoftwareProject(title: "O2 : API for Bitcoin (Best Bitcoin Hack by Coinbase at PennApps X f2014)",subtitle: "1200+ Hackers, September 2014", projectImage: UIImage())
+        hackathon2.descriptionPoint = ["O2 is the world's first fully integrated Bitcoin payment/reward API which can be implemented by one-line of code.","O2 is a tool for companies and developers to reward users for achievements. This not only increases user retention, but also increases the companies’ and developer’s popularity and revenue.","Our mission is to reward users for what they do on a daily basis."]
+        
+        
+        
+        
+        
+        
+        var hackathons = SoftwareProjectSection()
+        hackathons.rowObjects = [hackathon1, hackathon2]
+        
+        
+        objects = NSArray(array: [profileSummarySection, quoteSection1, softwareProjectSection1,quoteSection2, hackathons, quoteSection1])
         
         super.init()
     }
@@ -87,7 +93,7 @@ public class ResumeDataManager: NSObject {
             
         case "WWDC.ProfileSummarySection":
             let baseSection = objects.objectAtIndex(indexPath.section) as! ProfileSummarySection
-            return ProfileSummaryTableViewCell.cellHeight(baseSection.rowObjects[indexPath.row])
+            return ProfileSummaryTableViewCell.cellHeight()
             
         case "WWDC.QuoteSection":
             let baseSection = objects.objectAtIndex(indexPath.section) as! QuoteSection
