@@ -46,7 +46,12 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         
         addSubview(projectImageView)
         
+        
+        drawDashLine()
+        
+        
         // setTestColor()
+        
 
     }
     
@@ -77,11 +82,7 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         for v in viewsToRemove as! [UIView] {
             v.removeFromSuperview()
         }
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-
+        
         
         let tempWidth = screenWidth
         let xPadding1 = SoftwareProjectTableViewCellSetting.getXPadding1()
@@ -95,14 +96,14 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         addSubview(subtitleLabel)
         
         var yLabelPosition:CGFloat = CGRectGetMaxY(subtitleLabel.frame)+yPadding1
-
+        
         /*
         // Need to remove
         let viewsToRemove = subviews
         for v in viewsToRemove as! [UIView] {
-            if CGRectGetMinY(v.frame) >= yLabelPosition {
-                v.removeFromSuperview()
-            }
+        if CGRectGetMinY(v.frame) >= yLabelPosition {
+        v.removeFromSuperview()
+        }
         }
         */
         
@@ -118,6 +119,35 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         projectImageView.frame = CGRectMake(xPadding1+xPadding2, yLabelPosition, tempWidth-2*xPadding1-xPadding2*2, 100)
         projectImageView.contentMode = UIViewContentMode.ScaleAspectFit
         addSubview(projectImageView)
+        
+        
+    }
+    
+    
+    func drawDashLine() {
+        let shapeLayer = CAShapeLayer()
+        
+        shapeLayer.bounds = self.bounds
+        shapeLayer.position = self.center
+        shapeLayer.fillColor = UIColor.clearColor().CGColor
+        shapeLayer.strokeColor = darkGrey.CGColor
+        shapeLayer.lineWidth = 1.5
+        shapeLayer.lineJoin = kCALineJoinRound
+        // dash length
+        shapeLayer.lineDashPattern = NSArray(objects: NSNumber(int: 10), NSNumber(int: 3)) as [AnyObject]
+        
+        let path = CGPathCreateMutable()
+        CGPathMoveToPoint(path, nil, 15, 20)
+        CGPathAddLineToPoint(path, nil, 15, 500)
+        shapeLayer.path = path
+        
+        self.layer.addSublayer(shapeLayer)
+        
+    }
+    
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
         
     }
     

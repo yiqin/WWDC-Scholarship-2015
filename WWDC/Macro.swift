@@ -21,3 +21,5 @@ let navigationHeaderAndStatusbarHeight : CGFloat = navigationHeight + statubarHe
 
 let lightBlue = UIColor(red: 102.0/255.0, green: 187.0/255.0, blue: 204.0/255.0, alpha: 1.0)
 let lightGrey = UIColor(red: 100.0/255.0, green: 107.0/255.0, blue: 107.0/255.0, alpha: 1.0)
+
+let darkGrey = UIColor(red: 50.0/255.0, green: 50.0/255.0, blue: 50.0/255.0, alpha: 1.0)
