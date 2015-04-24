@@ -76,7 +76,16 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         
         subtitleLabel.update(CGRectMake(xPadding1, CGRectGetMaxY(titleLabel.frame), tempWidth-2*xPadding1, 100), font: SoftwareProjectTableViewCellSetting.getSubtitleLabelFont(), text: softwareProject.subtitle)
         
+        
         var yLabelPosition:CGFloat = CGRectGetMaxY(subtitleLabel.frame)+yPadding1
+        
+        // Need to remove
+        let viewsToRemove = subviews
+        for v in viewsToRemove as! [UIView] {
+            if CGRectGetMinY(v.frame) >= yLabelPosition {
+                v.removeFromSuperview()
+            }
+        }
         
         for descriptionString in softwareProject.descriptionPoint {
             let tempLabel = YQDynamicHeightLabel()

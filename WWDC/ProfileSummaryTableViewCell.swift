@@ -23,6 +23,7 @@ class ProfileSummaryTableViewCell: BaseTableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        backgroundColor = UIColor.clearColor()
         clipsToBounds = false
         backgroundImageView.removeFromSuperview()
         
@@ -31,13 +32,15 @@ class ProfileSummaryTableViewCell: BaseTableViewCell {
         
         scrollView.scrollEnabled = false
         
-        scrollView.backgroundColor = UIColor.yellowColor()
+        scrollView.backgroundColor = UIColor.clearColor()
         scrollView.contentSize = CGSizeMake(screenWidth, 380)
+        scrollView.contentOffset = CGPointZero
+        
         backgroundImageView.frame = CGRectMake(0, 0, screenWidth, 380)
         backgroundImageView.contentMode = UIViewContentMode.Bottom
         
         
-        scrollView.addSubview(backgroundImageView)
+        // scrollView.addSubview(backgroundImageView)
         addSubview(scrollView)
         
         
@@ -80,11 +83,10 @@ class ProfileSummaryTableViewCell: BaseTableViewCell {
     
     func updateMove(notification: NSNotification) {
     
-        let yContent = notification.userInfo!["yContent"] as! CGFloat+64
+        let yContent = notification.userInfo!["yContent"] as! CGFloat
         
         println(yContent)
         
-        let parallaxOffset = scrollView.contentSize.height - yContent
         scrollView.contentOffset = CGPointMake(0, -yContent*0.5)
     }
     

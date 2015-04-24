@@ -14,16 +14,28 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
     let quoteCellIdentifier = "quoteCellIdentifier"
     let softwareProjectCellIdentifier = "softwareCellIdentifier"
     
-    var tableView: UITableView
+    var tableView: UITableView = UITableView()
     
-    var headView:UIScrollView = UIScrollView()
+    var backgroundImageScrollView:UIScrollView = UIScrollView()
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         
-        tableView = UITableView()
-        
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
         view.backgroundColor = UIColor.whiteColor()
+        
+        
+        backgroundImageScrollView.frame = CGRectMake(0, 0, screenWidth, 550.0)
+        backgroundImageScrollView.scrollEnabled = false
+        backgroundImageScrollView.backgroundColor = UIColor.yellowColor()
+        backgroundImageScrollView.contentSize = CGSizeMake(screenWidth, 680)
+        
+        let tempBackgroundImageView = UIImageView(frame: CGRectMake(0, -100, screenWidth, 680))
+        tempBackgroundImageView.contentMode = UIViewContentMode.ScaleToFill
+        tempBackgroundImageView.image = UIImage(named: "profileBackgroundImage2")
+        
+        backgroundImageScrollView.addSubview(tempBackgroundImageView)
+        view.addSubview(backgroundImageScrollView)
+        
         
         tableView.frame = CGRectMake(0, 0, CGRectGetWidth(view.frame), CGRectGetHeight(view.frame))
         tableView.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
@@ -54,10 +66,14 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
         let rowToReload = NSIndexPath(forRow: 0, inSection: 0)
         // tableView.reloadRowsAtIndexPaths([rowToReload], withRowAnimation: UITableViewRowAnimation.None)
         
-        var selectedDateDictionary = ["yContent": tableView.contentOffset.y]
+        if tableView.contentOffset.y < 280 {
+            var selectedDateDictionary = ["yContent": tableView.contentOffset.y]
+            
+            backgroundImageScrollView.contentOffset = CGPointMake(0, tableView.contentOffset.y*0.5)
+            NSNotificationCenter.defaultCenter().postNotificationName("updateMove", object: nil, userInfo: selectedDateDictionary)
+        }
         
         
-        NSNotificationCenter.defaultCenter().postNotificationName("updateMove", object: nil, userInfo: selectedDateDictionary)
         
     }
     
@@ -84,16 +100,13 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        headView = UIScrollView(frame: CGRectMake(0, 0, CGRectGetWidth(tableView.frame), 100))
+        let headView = UIScrollView(frame: CGRectMake(0, 0, CGRectGetWidth(tableView.frame), 100))
         
         headView.backgroundColor = UIColor.redColor()
         let headLabel = UILabel(frame: CGRectMake(16, 0, CGRectGetWidth(headView.frame), CGRectGetHeight(headView.frame)))
         headLabel.text = "Difficulty Level".uppercaseString
         headLabel.font = UIFont(name: "OpenSans-Bold", size: 13.0)
         headView.addSubview(headLabel)
-        
-        
-        
         
         return headView
     }
