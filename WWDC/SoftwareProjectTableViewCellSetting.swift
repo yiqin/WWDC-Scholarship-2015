@@ -12,7 +12,7 @@ class SoftwareProjectTableViewCellSetting: NSObject {
     
     
     class func getTitleLabelFont()->UIFont {
-        return UIFont(name: "Lato-Regular", size: 16)!
+        return UIFont(name: "Lato-Regular", size: 17)!
     }
     
     class func getSubtitleLabelFont()->UIFont {

@@ -10,15 +10,15 @@ import UIKit
 
 class Content: NSObject {
     
-    var text:String = ""
+    var title:String = ""
     
     override init() {
         super.init()
     }
     
-    init(text:String) {
+    init(title:String) {
         super.init()
-        self.text = text
+        self.title = title
     }
 
 }

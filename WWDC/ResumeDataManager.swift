@@ -32,9 +32,9 @@ public class ResumeDataManager: NSObject {
         quoteSection2.rowObjects = [quote2]
         
         
-        let content1 = Content(text: "I’m an iOS developer and a hackathon hacker. I love the hack culture. I have been really lucky to attend 14 premier hackathons since 2014. I have received 14 awards from Apple, Facebook, Parse.com, Qualcomm, Evernote, Mashery, Kimono Labs and more. I believe that the world we live in is dynamic, so I’m ready for new challenges every day.")
+        let content1 = Content(title: "I’m an iOS developer and a hackathon hacker. I love the hack culture.\n\nI have been really lucky to attend 14 premier hackathons since 2014. I have received 14 awards from Apple, Facebook, Parse.com, Qualcomm, Evernote, Mashery, Kimono Labs and more. I believe that the world we live in is dynamic, so I’m ready for new challenges every day.")
         let contentSection1 = ContentSection()
-        
+        contentSection1.rowObjects = [content1]
         
         
         
@@ -59,11 +59,11 @@ public class ResumeDataManager: NSObject {
         
         
         
-        var hackathons = SoftwareProjectSection()
-        hackathons.rowObjects = [hackathon1, hackathon2, hackathon3]
+        var hackathonSection = SoftwareProjectSection()
+        hackathonSection.rowObjects = [hackathon1, hackathon2, hackathon3]
         
         
-        objects = NSArray(array: [profileSummarySection, quoteSection1, softwareProjectSection1,quoteSection2, hackathons, quoteSection1])
+        objects = NSArray(array: [profileSummarySection, contentSection1, quoteSection1, softwareProjectSection1,quoteSection2, hackathonSection, quoteSection1])
         
         super.init()
     }
@@ -109,6 +109,10 @@ public class ResumeDataManager: NSObject {
         case "WWDC.SoftwareProjectSection":
             let baseSection = objects.objectAtIndex(indexPath.section) as! SoftwareProjectSection
             return SoftwareProjectTableViewCell.cellHeight(baseSection.rowObjects[indexPath.row])
+        
+        case "WWDC.ContentSection":
+            let baseSection = objects.objectAtIndex(indexPath.section) as! ContentSection
+            return ContentTableViewCell.cellHeight(baseSection.rowObjects[indexPath.row])
             
         default:
             return 44
@@ -137,6 +141,10 @@ public class ResumeDataManager: NSObject {
             if indexPath.row >= baseSection.rowObjects.count {
                 return SoftwareProject()
             }
+            return baseSection.rowObjects[indexPath.row]
+            
+        case "WWDC.ContentSection":
+            let baseSection = objects.objectAtIndex(indexPath.section) as! ContentSection
             return baseSection.rowObjects[indexPath.row]
             
         default:

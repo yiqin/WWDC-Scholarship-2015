@@ -18,14 +18,9 @@ class ContentTableViewCell: BaseTableViewCell {
         
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        titleLabel.frame = CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame))
-        titleLabel.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
-        titleLabel.textAlignment = NSTextAlignment.Center
-        titleLabel.numberOfLines = 0
-        titleLabel.font = UIFont(name: "Lato-Regular", size: 23)
         
+        titleLabel.textAlignment = NSTextAlignment.Left
         titleLabel.textColor = UIColor.blackColor()
-        
         addSubview(titleLabel)
     }
     
@@ -43,7 +38,12 @@ class ContentTableViewCell: BaseTableViewCell {
     func setContentValue(object:AnyObject){
         content = object as! Content
         
+        let tempWidth = screenWidth
+        let xPadding1 = SoftwareProjectTableViewCellSetting.getXPadding1()
+        let xPadding2 = SoftwareProjectTableViewCellSetting.getXPadding2()
+        let yPadding1 = SoftwareProjectTableViewCellSetting.getYPadding1()
         
+        titleLabel.update(CGRectMake(xPadding1, SoftwareProjectTableViewCellSetting.getYPadding1(), tempWidth-2*xPadding1, 100), font: SoftwareProjectTableViewCellSetting.getDescriptionLabelFont(), text: content.title)
         
     }
     
@@ -51,15 +51,26 @@ class ContentTableViewCell: BaseTableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        
-        
     }
     
     
     class func cellHeight(object:AnyObject)->CGFloat {
         let readyObject = object as! Content
         
-        return 100.0
+        
+        let tempWidth = screenWidth
+        let xPadding1 = SoftwareProjectTableViewCellSetting.getXPadding1()
+        let xPadding2 = SoftwareProjectTableViewCellSetting.getXPadding2()
+        let yPadding1 = SoftwareProjectTableViewCellSetting.getYPadding1()
+        
+        let titleLabel:YQDynamicHeightLabel = YQDynamicHeightLabel()
+        
+        titleLabel.update(CGRectMake(xPadding1, yPadding1, tempWidth-2*xPadding1, 100), font: SoftwareProjectTableViewCellSetting.getDescriptionLabelFont(), text: readyObject.title)
+        
+        
+        
+        
+        return CGRectGetMaxY(titleLabel.frame)+yPadding1
     }
 
     

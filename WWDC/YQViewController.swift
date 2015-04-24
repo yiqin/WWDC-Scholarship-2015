@@ -11,8 +11,10 @@ import UIKit
 class YQViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     let profileSummaryCellIdentifier = "profileSummaryCellIdentifier"
+    let contentCellIdentifier = "contentCellIdentifier"
     let quoteCellIdentifier = "quoteCellIdentifier"
     let softwareProjectCellIdentifier = "softwareCellIdentifier"
+    
     
     var tableView: UITableView = UITableView()
     
@@ -176,6 +178,8 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
             return getQuoteTableViewCell(indexPath)
         case "WWDC.SoftwareProjectSection":
             return getSoftwareProjectTableViewCell(indexPath)
+        case "WWDC.ContentSection":
+            return getContentTableViewCell(indexPath)
         default:
             return UITableViewCell()
             
@@ -186,6 +190,18 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
         var cell = tableView.dequeueReusableCellWithIdentifier(profileSummaryCellIdentifier) as? ProfileSummaryTableViewCell
         if cell == nil {
             cell = ProfileSummaryTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: profileSummaryCellIdentifier)
+        }
+        let object: AnyObject = ResumeDataManager.shareInstance.getObject(indexPath)
+        
+        cell?.setContentValue(object)
+        
+        return cell!
+    }
+    
+    func getContentTableViewCell(indexPath: NSIndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier(contentCellIdentifier) as? ContentTableViewCell
+        if cell == nil {
+            cell = ContentTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: contentCellIdentifier)
         }
         let object: AnyObject = ResumeDataManager.shareInstance.getObject(indexPath)
         
