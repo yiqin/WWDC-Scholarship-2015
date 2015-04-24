@@ -16,6 +16,8 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
     
     var tableView: UITableView
     
+    var headView:UIScrollView = UIScrollView()
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         
         tableView = UITableView()
@@ -49,6 +51,13 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
     }
     
     func scrollViewDidScroll(scrollView: UIScrollView) {
+        let rowToReload = NSIndexPath(forRow: 0, inSection: 0)
+        // tableView.reloadRowsAtIndexPaths([rowToReload], withRowAnimation: UITableViewRowAnimation.None)
+        
+        var selectedDateDictionary = ["yContent": tableView.contentOffset.y]
+        
+        
+        NSNotificationCenter.defaultCenter().postNotificationName("updateMove", object: nil, userInfo: selectedDateDictionary)
         
     }
     
@@ -62,20 +71,30 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 100
+        return 0
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        var temp:CGFloat = 0
+        if indexPath.row == 0 && indexPath.section == 0 {
+            temp = tableView.contentOffset.y
+        }
+        
         return ResumeDataManager.shareInstance.getHeight(indexPath)
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headView = UIView(frame: CGRectMake(0, 0, CGRectGetWidth(tableView.frame), 100))
+        headView = UIScrollView(frame: CGRectMake(0, 0, CGRectGetWidth(tableView.frame), 100))
+        
         headView.backgroundColor = UIColor.redColor()
         let headLabel = UILabel(frame: CGRectMake(16, 0, CGRectGetWidth(headView.frame), CGRectGetHeight(headView.frame)))
         headLabel.text = "Difficulty Level".uppercaseString
         headLabel.font = UIFont(name: "OpenSans-Bold", size: 13.0)
         headView.addSubview(headLabel)
+        
+        
+        
+        
         return headView
     }
     
@@ -105,7 +124,6 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
         if cell == nil {
             cell = ProfileSummaryTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: profileSummaryCellIdentifier)
         }
-        cell?.textLabel!.text = "profile"
         let object: AnyObject = ResumeDataManager.shareInstance.getObject(indexPath)
         
         cell?.setContentValue(object)
