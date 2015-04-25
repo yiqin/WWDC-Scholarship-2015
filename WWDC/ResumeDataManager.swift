@@ -44,6 +44,7 @@ public class ResumeDataManager: NSObject {
         
         let content1 = Content(title: "I’m an iOS developer and a hackathon hacker. I love the hack culture.\n\nI have been really lucky to attend 14 premier hackathons since 2014. I have received 14 awards from Apple, Facebook, Parse.com, Qualcomm, Evernote, Mashery, Kimono Labs and more. I believe that the world we live in is dynamic, so I’m ready for new challenges every day.")
         let contentSection1 = ContentSection()
+        contentSection1.text = "About me"
         
         content1.isLastOne = true
         contentSection1.rowObjects = [content1]
@@ -55,7 +56,9 @@ public class ResumeDataManager: NSObject {
         
         
         var softwareProjectSection1 = SoftwareProjectSection()
+        softwareProjectSection1.text = "Experience"
         softwareProjectSection1.rowObjects = [softwareProject1]
+        
         
         
         let hackathon1 = SoftwareProject(title: "Leaftagger (Best Use of Parse from Facebook + Parse and Best iOS app from Apple at MHacks f2014)",subtitle: "1000+ Hackers, September 2014", projectImage: UIImage(named: "leaftagger1")!)
@@ -73,10 +76,9 @@ public class ResumeDataManager: NSObject {
         
         
         var hackathonSection = SoftwareProjectSection()
+        hackathonSection.text = "Hackathons"
         
         hackathon3.isLastOne = true
-        
-        
         hackathonSection.rowObjects = [hackathon1, hackathon2, hackathon3]
         
         
@@ -85,11 +87,10 @@ public class ResumeDataManager: NSObject {
         super.init()
     }
     
-    func getCellClass(indexPath: NSIndexPath) -> NSString {
+    func getCellClass(sectionIndex: Int) -> NSString {
         
-        let sectionIndex = indexPath.section
-        let rowIndex = indexPath.row
-        
+        // let sectionIndex = indexPath.section
+        // let rowIndex = indexPath.row
         
         let object: AnyObject = ResumeDataManager.shareInstance.objects[sectionIndex]
         
@@ -111,7 +112,7 @@ public class ResumeDataManager: NSObject {
     }
     
     func getHeight(indexPath: NSIndexPath) -> CGFloat {
-        let cellClassName = ResumeDataManager.shareInstance.getCellClass(indexPath)
+        let cellClassName = ResumeDataManager.shareInstance.getCellClass(indexPath.section)
         
         switch cellClassName {
             
@@ -138,7 +139,7 @@ public class ResumeDataManager: NSObject {
     }
 
     func getObject(indexPath: NSIndexPath) -> AnyObject {
-        let cellClassName = ResumeDataManager.shareInstance.getCellClass(indexPath)
+        let cellClassName = ResumeDataManager.shareInstance.getCellClass(indexPath.section)
         
         switch cellClassName {
             

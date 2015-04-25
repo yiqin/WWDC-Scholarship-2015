@@ -144,7 +144,17 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
     }
     
     func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-        return 0
+        
+        let cellClassName = ResumeDataManager.shareInstance.getCellClass(section)
+        
+        switch cellClassName {
+        case "WWDC.ProfileSummarySection":
+            return 0
+        case "WWDC.QuoteSection":
+            return 0
+        default:
+            return 64
+        }
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
@@ -157,13 +167,23 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        let headView = UIScrollView(frame: CGRectMake(0, 0, CGRectGetWidth(tableView.frame), 100))
         
-        headView.backgroundColor = UIColor.redColor()
+        let headView = UIView(frame: CGRectMake(0, 0, CGRectGetWidth(tableView.frame), 64))
+        headView.backgroundColor = UIColor.whiteColor()
+        
         let headLabel = UILabel(frame: CGRectMake(16, 0, CGRectGetWidth(headView.frame), CGRectGetHeight(headView.frame)))
-        headLabel.text = "Difficulty Level".uppercaseString
         headLabel.font = UIFont(name: "OpenSans-Bold", size: 13.0)
+        headLabel.textColor = UIColor.blackColor()
         headView.addSubview(headLabel)
+        
+        let baseSection = ResumeDataManager.shareInstance.objects.objectAtIndex(section) as! BaseSection
+        headLabel.text = baseSection.text.uppercaseString
+        
+        
+        let lineView = UIView(frame: CGRectMake(16, 50, 50, 2))
+        lineView.backgroundColor = UIColor.blackColor()
+        headView.addSubview(lineView)
+        
         
         return headView
     }
@@ -172,7 +192,7 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         
-        let cellClassName = ResumeDataManager.shareInstance.getCellClass(indexPath)
+        let cellClassName = ResumeDataManager.shareInstance.getCellClass(indexPath.section)
         
         switch cellClassName {
             

@@ -12,6 +12,8 @@ class BaseSection: NSObject {
     
     var rowObjects:[AnyObject] = []
     
+    var text:String = ""
+    
     override init() {
         super.init()
         
