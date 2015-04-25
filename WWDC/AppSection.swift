@@ -21,7 +21,14 @@ class AppSection: BaseSection {
         
         let app2 = App()
         
-        rowObjects = [app1, app2]
+        
+        let app3 = App()
+        
+        
+        rowObjects = [app1, app2, app3]
+        
+        
+        
     }
     
     

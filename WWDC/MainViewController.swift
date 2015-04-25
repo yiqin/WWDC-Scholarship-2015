@@ -16,6 +16,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     let softwareProjectCellIdentifier = "softwareCellIdentifier"
     let appCellIdentifier = "AppCellIdentifier"
     
+    
     var tableView: UITableView = UITableView()
     
     // Profile Scroll View
@@ -44,7 +45,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         backgroundImageScrollView.scrollEnabled = false
         backgroundImageScrollView.contentSize = CGSizeMake(screenWidth, 680)
         
-        let tempBackgroundImageView = UIImageView(frame: CGRectMake(0, -200, screenWidth, 500))
+        let tempBackgroundImageView = UIImageView(frame: CGRectMake(0, -200, screenWidth, 520))
         tempBackgroundImageView.contentMode = UIViewContentMode.ScaleAspectFill
         tempBackgroundImageView.image = UIImage(named: "profileBackgroundImage2")
         
@@ -82,7 +83,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         nameLabel.text = "Yi Qin".uppercaseString
         nameLabel.frame = CGRectMake(screenWidth*0.5-taglineLabelWidth*0.5, 160-26, 200, 26)
-        nameLabel.font = UIFont(name: "Lato-Semibold", size: 17.0)
+        nameLabel.font = UIFont(name: "Lato-Semibold", size: 20.0)
         nameLabel.textColor = UIColor.whiteColor()
         backgroundImageScrollView.addSubview(nameLabel)
         
