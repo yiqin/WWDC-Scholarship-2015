@@ -11,6 +11,7 @@ import UIKit
 class Content: NSObject {
     
     var title:String = ""
+    var isLastOne:Bool = false
     
     override init() {
         super.init()

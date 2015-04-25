@@ -17,6 +17,9 @@ class SoftwareProject: NSObject {
     
     var projectImage:UIImage?
     
+    
+    var isLastOne:Bool = false
+    
     init(title:String, subtitle:String, projectImage:UIImage?) {
         self.title = title
         self.subtitle = subtitle

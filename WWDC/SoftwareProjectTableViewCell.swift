@@ -44,6 +44,9 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         addSubview(subtitleLabel)
         
         
+        
+        projectImageView.contentMode = UIViewContentMode.ScaleAspectFill
+        projectImageView.clipsToBounds = true
         addSubview(projectImageView)
         
         
@@ -116,8 +119,11 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         }
         
         
-        projectImageView.frame = CGRectMake(xPadding1+xPadding2, yLabelPosition+yPadding1, tempWidth-2*xPadding1-xPadding2*2, 100)
-        projectImageView.contentMode = UIViewContentMode.ScaleAspectFit
+        let designedImageWidth:CGFloat = (tempWidth-2*xPadding1-xPadding2-xPadding2)*0.5
+        let designedImageHeight:CGFloat = designedImageWidth*3/4
+        
+        projectImageView.frame = CGRectMake(xPadding1+xPadding2, yLabelPosition+yPadding1, designedImageWidth, designedImageHeight)
+        
         addSubview(projectImageView)
         
         
@@ -138,7 +144,7 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         
         let path = CGPathCreateMutable()
         CGPathMoveToPoint(path, nil, 15, 20)
-        CGPathAddLineToPoint(path, nil, 15, 500)
+        CGPathAddLineToPoint(path, nil, 15, 1000)
         shapeLayer.path = path
         
         self.layer.addSublayer(shapeLayer)
@@ -179,14 +185,22 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         }
         
         
+        if readyObject.isLastOne {
+            yLabelPosition = yLabelPosition+100
+        }
+        else {
+            yLabelPosition = yLabelPosition+50
+        }
+        
+        
         
         // Minimized this work.....
         if let tempImage = readyObject.projectImage {
-            let designedImageWidth = tempWidth-2*xPadding1-xPadding2*2
-            let tempImageWidth = tempImage.size.width
-            let tempImageHeight = tempImage.size.height
+            let designedImageWidth = (tempWidth-2*xPadding1-xPadding2-xPadding2)*0.5
+            // let tempImageWidth = tempImage.size.width
+            // let tempImageHeight = tempImage.size.height
             
-            let designedImageHeight:CGFloat = designedImageWidth*tempImageHeight/tempImageWidth
+            let designedImageHeight:CGFloat = designedImageWidth*3/4//*tempImageHeight/tempImageWidth
             
             if designedImageHeight > 10 {
                 return yLabelPosition + designedImageHeight+2*yPadding1

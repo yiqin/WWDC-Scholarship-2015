@@ -44,6 +44,8 @@ public class ResumeDataManager: NSObject {
         
         let content1 = Content(title: "I’m an iOS developer and a hackathon hacker. I love the hack culture.\n\nI have been really lucky to attend 14 premier hackathons since 2014. I have received 14 awards from Apple, Facebook, Parse.com, Qualcomm, Evernote, Mashery, Kimono Labs and more. I believe that the world we live in is dynamic, so I’m ready for new challenges every day.")
         let contentSection1 = ContentSection()
+        
+        content1.isLastOne = true
         contentSection1.rowObjects = [content1]
         
         
@@ -69,7 +71,12 @@ public class ResumeDataManager: NSObject {
         
         
         
+        
         var hackathonSection = SoftwareProjectSection()
+        
+        hackathon3.isLastOne = true
+        
+        
         hackathonSection.rowObjects = [hackathon1, hackathon2, hackathon3]
         
         

@@ -67,8 +67,9 @@ class ContentTableViewCell: BaseTableViewCell {
         
         titleLabel.update(CGRectMake(xPadding1, yPadding1, tempWidth-2*xPadding1, 100), font: SoftwareProjectTableViewCellSetting.getDescriptionLabelFont(), text: readyObject.title)
         
-        
-        
+        if readyObject.isLastOne {
+            return CGRectGetMaxY(titleLabel.frame)+yPadding1+50
+        }
         
         return CGRectGetMaxY(titleLabel.frame)+yPadding1
     }
