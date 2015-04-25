@@ -116,7 +116,7 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         }
         
         
-        projectImageView.frame = CGRectMake(xPadding1+xPadding2, yLabelPosition, tempWidth-2*xPadding1-xPadding2*2, 100)
+        projectImageView.frame = CGRectMake(xPadding1+xPadding2, yLabelPosition+yPadding1, tempWidth-2*xPadding1-xPadding2*2, 100)
         projectImageView.contentMode = UIViewContentMode.ScaleAspectFit
         addSubview(projectImageView)
         

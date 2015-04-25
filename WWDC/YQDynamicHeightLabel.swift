@@ -10,6 +10,8 @@ import UIKit
 
 class YQDynamicHeightLabel: UILabel {
     
+    var yPadding:CGFloat = 2
+    
     var yqNumberOfLine:Int = 0
     
     init(){
@@ -37,7 +39,7 @@ class YQDynamicHeightLabel: UILabel {
             
         }
         
-        self.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, labelHeight)
+        self.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, labelHeight+2*yPadding)
     }
 
     required init(coder aDecoder: NSCoder) {
