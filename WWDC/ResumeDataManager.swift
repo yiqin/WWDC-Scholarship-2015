@@ -57,7 +57,10 @@ public class ResumeDataManager: NSObject {
         
         var softwareProjectSection1 = SoftwareProjectSection()
         softwareProjectSection1.text = "Experience"
+        
+        softwareProject1.isLastOne = true
         softwareProjectSection1.rowObjects = [softwareProject1]
+        
         
         
         
@@ -82,7 +85,7 @@ public class ResumeDataManager: NSObject {
         hackathonSection.rowObjects = [hackathon1, hackathon2, hackathon3]
         
         
-        objects = NSArray(array: [profileSummarySection, contentSection1, quoteSection1, softwareProjectSection1,quoteSection2, hackathonSection, quoteSection3])
+        objects = NSArray(array: [profileSummarySection, BlankSection(), contentSection1, BlankSection(), quoteSection1, BlankSection(), softwareProjectSection1,BlankSection(), quoteSection2, BlankSection(), hackathonSection, BlankSection(), quoteSection3])
         
         super.init()
     }
@@ -131,6 +134,9 @@ public class ResumeDataManager: NSObject {
         case "WWDC.ContentSection":
             let baseSection = objects.objectAtIndex(indexPath.section) as! ContentSection
             return ContentTableViewCell.cellHeight(baseSection.rowObjects[indexPath.row])
+            
+        case "WWDC.BlankSection":
+            return 20
             
         default:
             return 44

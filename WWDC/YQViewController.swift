@@ -152,26 +152,23 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
             return 0
         case "WWDC.QuoteSection":
             return 0
+        case "WWDC.BlankSection":
+            return 0
         default:
-            return 64
+            return 44
         }
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        var temp:CGFloat = 0
-        if indexPath.row == 0 && indexPath.section == 0 {
-            temp = tableView.contentOffset.y
-        }
-        
         return ResumeDataManager.shareInstance.getHeight(indexPath)
     }
     
     func tableView(tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
-        let headView = UIView(frame: CGRectMake(0, 0, CGRectGetWidth(tableView.frame), 64))
+        let headView = UIView(frame: CGRectMake(0, 0, CGRectGetWidth(tableView.frame), 44))
         headView.backgroundColor = UIColor.whiteColor()
         
-        let headLabel = UILabel(frame: CGRectMake(16, 0, CGRectGetWidth(headView.frame), CGRectGetHeight(headView.frame)))
+        let headLabel = UILabel(frame: CGRectMake(15, 0, CGRectGetWidth(headView.frame), CGRectGetHeight(headView.frame)))
         headLabel.font = UIFont(name: "OpenSans-Bold", size: 13.0)
         headLabel.textColor = UIColor.blackColor()
         headView.addSubview(headLabel)
@@ -180,7 +177,7 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
         headLabel.text = baseSection.text.uppercaseString
         
         
-        let lineView = UIView(frame: CGRectMake(16, 50, 50, 2))
+        let lineView = UIView(frame: CGRectMake(15, CGRectGetHeight(headLabel.frame)-10, 50, 1.5))
         lineView.backgroundColor = UIColor.blackColor()
         headView.addSubview(lineView)
         

@@ -182,10 +182,10 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         yLabelPosition = yLabelPosition + designedImageHeight+2*yPadding1
         
         if readyObject.isLastOne {
-            yLabelPosition = yLabelPosition+100
+            yLabelPosition = yLabelPosition+70
         }
         else {
-            yLabelPosition = yLabelPosition+50
+            yLabelPosition = yLabelPosition+25
         }
         
         return yLabelPosition//  + designedImageHeight+2*yPadding1 //CGRectGetMaxY(subtitleLabel.frame)
