@@ -107,6 +107,13 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
             tempLabel.textColor = lightGrey
             tempLabel.update(CGRectMake(xPadding1+xPadding2, yLabelPosition, tempWidth-2*xPadding1-xPadding2, 100), font: SoftwareProjectTableViewCellSetting.getDescriptionLabelFont(), text: descriptionString)
             addSubview(tempLabel)
+            
+            let tempDotOffset:CGFloat = 9
+            let tempDot:UIView = UIView(frame: CGRectMake(CGRectGetMinX(tempLabel.frame)-xPadding2*0.5, CGRectGetMinY(tempLabel.frame)+tempDotOffset, 4, 4))
+            tempDot.layer.cornerRadius = 2
+            tempDot.backgroundColor = lightGrey// UIColor.blackColor()
+            addSubview(tempDot)
+            
             yLabelPosition = CGRectGetMaxY(tempLabel.frame)+yPadding1
         }
         
