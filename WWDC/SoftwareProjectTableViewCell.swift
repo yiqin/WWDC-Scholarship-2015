@@ -25,8 +25,7 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
 
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
-        // titleLabel.frame = CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame))
-        // titleLabel.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
+        
         titleLabel.textAlignment = NSTextAlignment.Left
         
         titleLabel.textColor = lightBlue
@@ -189,7 +188,7 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         yLabelPosition = yLabelPosition + designedImageHeight+2*yPadding1
         
         if readyObject.isLastOne {
-            yLabelPosition = yLabelPosition+70
+            yLabelPosition = yLabelPosition+SoftwareProjectTableViewCellSetting.getFooterHeight()
         }
         else {
             yLabelPosition = yLabelPosition+25

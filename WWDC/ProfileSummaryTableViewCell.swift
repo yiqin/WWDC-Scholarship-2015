@@ -39,7 +39,6 @@ class ProfileSummaryTableViewCell: BaseTableViewCell {
     }
     
     
-    
     class func cellHeight()->CGFloat {
         return 200.0
     }

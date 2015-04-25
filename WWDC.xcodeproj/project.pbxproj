@@ -245,7 +245,6 @@
 				8D2758171AE96CA3006B9390 /* SoftwareProjectSection.swift */,
 				8D2758151AE96C2D006B9390 /* SoftwareProject.swift */,
 				8D27581A1AE96D53006B9390 /* SoftwareProjectTableViewCell.swift */,
-				8D27581F1AE9AC40006B9390 /* SoftwareProjectTableViewCellSetting.swift */,
 			);
 			name = SoftwareProject;
 			sourceTree = "<group>";
@@ -279,6 +278,7 @@
 				8D21BA651AE8D2D900BB6AD5 /* BaseSection.swift */,
 				8D2757A41AE93F52006B9390 /* BaseTableViewCell.swift */,
 				8D27581D1AE97B25006B9390 /* YQDynamicHeightLabel.swift */,
+				8D27581F1AE9AC40006B9390 /* SoftwareProjectTableViewCellSetting.swift */,
 				8DC1DE4C1AEB5B9E00D29C1C /* Blank */,
 				8DC1DE471AEB3F4800D29C1C /* Content */,
 				8D21BA671AE8D82900BB6AD5 /* ProfileSummary */,

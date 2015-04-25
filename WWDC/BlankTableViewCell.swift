@@ -17,6 +17,6 @@ class BlankTableViewCell: BaseTableViewCell {
     }
     
     class func cellHeight()->CGFloat {
-        return 18.0
+        return 20.0
     }
 }

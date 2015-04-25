@@ -39,4 +39,8 @@ class SoftwareProjectTableViewCellSetting: NSObject {
         return 15
     }
     
+    class func getFooterHeight()->CGFloat {
+        return 70
+    }
+    
 }
