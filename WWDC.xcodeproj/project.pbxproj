@@ -275,9 +275,7 @@
 				8D21BA651AE8D2D900BB6AD5 /* BaseSection.swift */,
 				8D2757A41AE93F52006B9390 /* BaseTableViewCell.swift */,
 				8D27581D1AE97B25006B9390 /* YQDynamicHeightLabel.swift */,
-				8DC7D0DF1AEAE4100019EF18 /* ContentSection.swift */,
-				8DC7D0DD1AEAE2AD0019EF18 /* Content.swift */,
-				8DC7D0E11AEAE43F0019EF18 /* ContentTableViewCell.swift */,
+				8DC1DE471AEB3F4800D29C1C /* Content */,
 				8D21BA671AE8D82900BB6AD5 /* ProfileSummary */,
 				8D21BA681AE8D83200BB6AD5 /* Quote */,
 				8D27581C1AE96D58006B9390 /* SoftwareProject */,
@@ -321,6 +319,16 @@
 				8D4163201AE83CAB00D15AD2 /* Main.storyboard */,
 			);
 			name = Storyboard;
+			sourceTree = "<group>";
+		};
+		8DC1DE471AEB3F4800D29C1C /* Content */ = {
+			isa = PBXGroup;
+			children = (
+				8DC7D0DF1AEAE4100019EF18 /* ContentSection.swift */,
+				8DC7D0DD1AEAE2AD0019EF18 /* Content.swift */,
+				8DC7D0E11AEAE43F0019EF18 /* ContentTableViewCell.swift */,
+			);
+			name = Content;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
