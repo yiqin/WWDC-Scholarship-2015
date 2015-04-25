@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SoftwareProjectTableViewCellDelegate {
     
     let profileSummaryCellIdentifier = "profileSummaryCellIdentifier"
     let contentCellIdentifier = "contentCellIdentifier"
@@ -254,6 +254,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let object: AnyObject = ResumeDataManager.shareInstance.getObject(indexPath)
         cell?.setContentValue(object)
         
+        cell?.delegate = self
+        
         return cell!
     }
     
@@ -270,6 +272,12 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
+        
+    }
+    
+    func openLink() {
+        println("This works now.")
         
         
     }

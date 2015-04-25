@@ -184,7 +184,7 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         println("Button tapped")
         
         
-        
+        delegate?.openLink()
     }
     
 
