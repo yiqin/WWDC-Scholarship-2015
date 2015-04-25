@@ -20,6 +20,12 @@ class SoftwareProject: NSObject {
     
     var isLastOne:Bool = false
     
+    init(title:String, subtitle:String) {
+        self.title = title
+        self.subtitle = subtitle
+        super.init()
+    }
+    
     init(title:String, subtitle:String, projectImage:UIImage?) {
         self.title = title
         self.subtitle = subtitle

@@ -35,10 +35,11 @@ public class ResumeDataManager: NSObject {
         quoteSection2.rowObjects = [quote2]
         
         
-        let quote3 = Quote(text: "Know a good idea when you see it.", backgroundImage: UIImage(named: "profileBackgroundImage1")!)
+        let quote3 = Quote(text: "Know a good idea when you see it.", backgroundImage: UIImage(named: "backgroundImage3")!)
         
         var quoteSection3 = QuoteSection()
         quoteSection3.rowObjects = [quote3]
+        
         
         
         
@@ -78,10 +79,7 @@ public class ResumeDataManager: NSObject {
         
         
         
-        
-        
-        
-        var hackathonSection = SoftwareProjectSection()
+        let hackathonSection = SoftwareProjectSection()
         hackathonSection.text = "Hackathons"
         
         hackathon3.isLastOne = true
@@ -91,10 +89,26 @@ public class ResumeDataManager: NSObject {
         
         
         
+        let education1 = SoftwareProject(title: "The University of Chicago", subtitle: "September 2014 - expected December 2015")
+        education1.descriptionPoint = ["Learning the nature and fundamentals of Computer Science (algorithm and data structure)."]
+        
+        let education2 = SoftwareProject(title: "Purdue University", subtitle: "August 2011 - June 2014")
+        education2.descriptionPoint = ["Focused on designing software and hardware for biologically inspired robots, especially flying insect robots and humanoid robots."]
+        
+        let education3 = SoftwareProject(title: "Shanghai Jiao Tong Unviersity", subtitle: "September 2007 - June 2011")
+        education3.descriptionPoint = ["Completed undergraduate honors thesis on design of flapping wing micro air vehicles."]
+        
+        
+        let educationSection = SoftwareProjectSection()
+        educationSection.text = "Education"
+        
+        education3.isLastOne = true
+        educationSection.rowObjects = [education1, education2, education3]
         
         
         
-        objects = NSArray(array: [profileSummarySection, BlankSection(), contentSection1, BlankSection(), AppSection(), BlankSection(), quoteSection1, BlankSection(), softwareProjectSection1, BlankSection(), quoteSection2, BlankSection(), hackathonSection, BlankSection(), quoteSection3])
+        
+        objects = NSArray(array: [profileSummarySection, BlankSection(), contentSection1, BlankSection(), AppSection(), BlankSection(), quoteSection1, BlankSection(), softwareProjectSection1, BlankSection(), quoteSection2, BlankSection(), hackathonSection, BlankSection(), quoteSection3, BlankSection(),educationSection])
         
         super.init()
     }

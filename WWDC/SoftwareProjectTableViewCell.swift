@@ -8,13 +8,24 @@
 
 import UIKit
 
+protocol SoftwareProjectTableViewCellDelegate {
+    func openLink()
+}
+
+
 class SoftwareProjectTableViewCell: BaseTableViewCell {
+    
+    var delegate: SoftwareProjectTableViewCellDelegate?
     
     var softwareProject:SoftwareProject = SoftwareProject()
     
     let titleLabel:YQDynamicHeightLabel = YQDynamicHeightLabel()
     let subtitleLabel:YQDynamicHeightLabel = YQDynamicHeightLabel()
     let projectImageView:UIImageView = UIImageView()
+    
+    
+    let titleButton:UIButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+    
     
     // No use
     var descriptionPointLabels:[YQDynamicHeightLabel] = []
@@ -24,6 +35,13 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
 
         super.init(style: style, reuseIdentifier: reuseIdentifier)
+        
+        
+        titleButton.addTarget(self, action: "pressedButton:", forControlEvents: UIControlEvents.TouchUpInside)
+        titleButton.setTitleColor(lightBlue, forState: UIControlState.Normal)
+        titleButton.titleLabel?.numberOfLines = 0
+        titleButton.titleLabel?.font = SoftwareProjectTableViewCellSetting.getTitleLabelFont()
+        addSubview(titleButton)
         
         
         titleLabel.textAlignment = NSTextAlignment.Left
@@ -53,8 +71,6 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         
         
         // setTestColor()
-        
-
     }
     
     func setTestColor(){
@@ -78,6 +94,9 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         if let tempImage = softwareProject.projectImage {
             projectImageView.image = tempImage
         }
+        else {
+            projectImageView.image = nil
+        }
         
         
         let viewsToRemove = subviews
@@ -92,7 +111,12 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         let yPadding1 = SoftwareProjectTableViewCellSetting.getYPadding1()
         
         titleLabel.update(CGRectMake(xPadding1, SoftwareProjectTableViewCellSetting.getYPadding1(), tempWidth-2*xPadding1, 100), font: SoftwareProjectTableViewCellSetting.getTitleLabelFont(), text: softwareProject.title)
-        addSubview(titleLabel)
+        // addSubview(titleLabel)
+        titleButton.frame = titleLabel.frame
+        titleButton.setTitle(titleLabel.text, forState: UIControlState.Normal)
+        titleButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left
+        addSubview(titleButton)
+        
         
         subtitleLabel.update(CGRectMake(xPadding1, CGRectGetMaxY(titleLabel.frame), tempWidth-2*xPadding1, 100), font: SoftwareProjectTableViewCellSetting.getSubtitleLabelFont(), text: softwareProject.subtitle)
         addSubview(subtitleLabel)
@@ -141,7 +165,7 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         shapeLayer.lineDashPattern = NSArray(objects: NSNumber(int: 10), NSNumber(int: 8)) as [AnyObject]
         
         let path = CGPathCreateMutable()
-        CGPathMoveToPoint(path, nil, 15, 25)
+        CGPathMoveToPoint(path, nil, 15, 30)
         CGPathAddLineToPoint(path, nil, 15, 1000)
         shapeLayer.path = path
         
@@ -155,6 +179,14 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         
     }
     
+    
+    func pressedButton(sender:UIButton!) {
+        println("Button tapped")
+        
+        
+        
+    }
+    
 
     
     class func cellHeight(object:AnyObject)->CGFloat {
@@ -164,7 +196,6 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         let xPadding1 = SoftwareProjectTableViewCellSetting.getXPadding1()
         let xPadding2 = SoftwareProjectTableViewCellSetting.getXPadding2()
         let yPadding1 = SoftwareProjectTableViewCellSetting.getYPadding1()
-        
         
         let titleLabel:YQDynamicHeightLabel = YQDynamicHeightLabel()
         
@@ -182,10 +213,12 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
             yLabelPosition = CGRectGetMaxY(tempLabel.frame)+yPadding1
         }
         
-        let designedImageWidth:CGFloat = (tempWidth-2*xPadding1-xPadding2-xPadding2)*0.5
-        let designedImageHeight:CGFloat = designedImageWidth*3/4
-        
-        yLabelPosition = yLabelPosition + designedImageHeight+2*yPadding1
+        if let tempImage = readyObject.projectImage {
+            let designedImageWidth:CGFloat = (tempWidth-2*xPadding1-xPadding2-xPadding2)*0.5
+            let designedImageHeight:CGFloat = designedImageWidth*3/4
+            
+            yLabelPosition = yLabelPosition + designedImageHeight+2*yPadding1
+        }
         
         if readyObject.isLastOne {
             yLabelPosition = yLabelPosition+SoftwareProjectTableViewCellSetting.getFooterHeight()

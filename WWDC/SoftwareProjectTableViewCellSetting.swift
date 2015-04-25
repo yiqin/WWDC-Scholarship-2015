@@ -23,7 +23,7 @@ class SoftwareProjectTableViewCellSetting: NSObject {
     }
     
     class func getDescriptionLabelFont()->UIFont {
-        return UIFont(name: "Lato-Regular", size: 17)!
+        return UIFont(name: "Lato-Regular", size: 15)!
     }
     
     
