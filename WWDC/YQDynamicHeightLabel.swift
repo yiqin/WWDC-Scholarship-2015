@@ -12,7 +12,7 @@ class YQDynamicHeightLabel: UILabel {
     
     var yPadding:CGFloat = 2
     
-    var maxNumberOfLine:Int = 0
+    var maxNumberOfLines:Int = 0
     
     init(){
         super.init(frame: CGRectZero)
@@ -28,13 +28,13 @@ class YQDynamicHeightLabel: UILabel {
         sizeToFit()
         var labelHeight:CGFloat = self.frame.size.height
         
-        if maxNumberOfLine > 0 {
+        if maxNumberOfLines > 0 {
             let tempLabel = UILabel(frame: frame)
             tempLabel.font = font
             tempLabel.text = "One"
             tempLabel.sizeToFit()
-            if (labelHeight > tempLabel.frame.size.height*CGFloat(maxNumberOfLine)) {
-                labelHeight = tempLabel.frame.size.height*CGFloat(maxNumberOfLine)
+            if (labelHeight > tempLabel.frame.size.height*CGFloat(maxNumberOfLines)) {
+                labelHeight = tempLabel.frame.size.height*CGFloat(maxNumberOfLines)
             }
             
         }
