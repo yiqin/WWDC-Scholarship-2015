@@ -13,9 +13,12 @@ class SoftwareProject: NSObject {
     var title:String
     var subtitle:String
     
+    var urlString:String
+    
     var descriptionPoint:[String] = []
     
     var projectImage:UIImage?
+    
     
     
     var isLastOne:Bool = false

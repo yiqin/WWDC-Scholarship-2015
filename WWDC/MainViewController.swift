@@ -279,7 +279,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func openLink() {
         println("This works now.")
         
+        let vc = WebDetailViewController(nibName: nil, bundle: nil)
         
+        navigationController?.presentViewController(vc, animated: true, completion: { () -> Void in
+            
+        })
     }
     
 }
