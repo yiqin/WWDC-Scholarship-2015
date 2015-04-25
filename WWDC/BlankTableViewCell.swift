@@ -9,5 +9,14 @@
 import UIKit
 
 class BlankTableViewCell: BaseTableViewCell {
-
+    
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        backgroundColor = UIColor.whiteColor()
+    }
+    
+    class func cellHeight()->CGFloat {
+        return 18.0
+    }
 }

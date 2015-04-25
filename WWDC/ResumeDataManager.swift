@@ -136,7 +136,7 @@ public class ResumeDataManager: NSObject {
             return ContentTableViewCell.cellHeight(baseSection.rowObjects[indexPath.row])
             
         case "WWDC.BlankSection":
-            return 20
+            return BlankTableViewCell.cellHeight()
             
         default:
             return 44

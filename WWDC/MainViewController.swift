@@ -8,7 +8,7 @@
 
 import UIKit
 
-class YQViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
+class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     let profileSummaryCellIdentifier = "profileSummaryCellIdentifier"
     let contentCellIdentifier = "contentCellIdentifier"
@@ -169,7 +169,7 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
         headView.backgroundColor = UIColor.whiteColor()
         
         let headLabel = UILabel(frame: CGRectMake(15, 0, CGRectGetWidth(headView.frame), CGRectGetHeight(headView.frame)))
-        headLabel.font = UIFont(name: "OpenSans-Bold", size: 13.0)
+        headLabel.font = SoftwareProjectTableViewCellSetting.getHeaderLabelFont()
         headLabel.textColor = UIColor.blackColor()
         headView.addSubview(headLabel)
         
@@ -177,7 +177,7 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
         headLabel.text = baseSection.text.uppercaseString
         
         
-        let lineView = UIView(frame: CGRectMake(15, CGRectGetHeight(headLabel.frame)-10, 50, 1.5))
+        let lineView = UIView(frame: CGRectMake(15, CGRectGetHeight(headLabel.frame)-10, 50, 2.0))
         lineView.backgroundColor = UIColor.blackColor()
         headView.addSubview(lineView)
         
@@ -201,6 +201,8 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
             return getSoftwareProjectTableViewCell(indexPath)
         case "WWDC.ContentSection":
             return getContentTableViewCell(indexPath)
+        case "WWDC.BlankSection":
+            return BlankTableViewCell()
         default:
             return UITableViewCell()
             

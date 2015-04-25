@@ -17,9 +17,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
-        let yqViewController = YQViewController()
+        let mainViewController = MainViewController()
         
-        let mainNavigationController = MainNavigationController(rootViewController: yqViewController)
+        let mainNavigationController = MainNavigationController(rootViewController: mainViewController)
         
         window = UIWindow(frame: UIScreen.mainScreen().bounds)
         window?.rootViewController = mainNavigationController
