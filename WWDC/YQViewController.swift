@@ -32,10 +32,11 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+        
+        
+        
         view.backgroundColor = UIColor.whiteColor()
-        
-        
-        // backgroundImageScrollView.backgroundColor = UIColor.yellowColor()
+        backgroundImageScrollView.backgroundColor = UIColor.whiteColor()
         
         
         
@@ -94,7 +95,6 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
         tableView.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
         tableView.backgroundColor = UIColor.clearColor()
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
-        
         tableView.dataSource = self
         tableView.delegate = self
         
@@ -119,12 +119,14 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
     func scrollViewDidScroll(scrollView: UIScrollView) {
         
         if tableView.contentOffset.y <= ProfileSummaryTableViewCell.cellHeight() {
+            tableView.backgroundColor = UIColor.clearColor()
             
             let yContent = tableView.contentOffset.y// -64*2
             backgroundImageScrollView.contentOffset = CGPointMake(0, yContent*0.5)
             // println(yContent)
-            
-            
+        }
+        else {
+            tableView.backgroundColor = UIColor.whiteColor()
         }
         
         var selectedDateDictionary = ["yContent": tableView.contentOffset.y]

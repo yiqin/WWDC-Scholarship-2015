@@ -100,15 +100,7 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         
         var yLabelPosition:CGFloat = CGRectGetMaxY(subtitleLabel.frame)+yPadding1
         
-        /*
-        // Need to remove
-        let viewsToRemove = subviews
-        for v in viewsToRemove as! [UIView] {
-        if CGRectGetMinY(v.frame) >= yLabelPosition {
-        v.removeFromSuperview()
-        }
-        }
-        */
+        
         
         for descriptionString in softwareProject.descriptionPoint {
             let tempLabel = YQDynamicHeightLabel()
@@ -140,10 +132,10 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         shapeLayer.lineWidth = 1.5
         shapeLayer.lineJoin = kCALineJoinRound
         // dash length
-        shapeLayer.lineDashPattern = NSArray(objects: NSNumber(int: 10), NSNumber(int: 3)) as [AnyObject]
+        shapeLayer.lineDashPattern = NSArray(objects: NSNumber(int: 10), NSNumber(int: 8)) as [AnyObject]
         
         let path = CGPathCreateMutable()
-        CGPathMoveToPoint(path, nil, 15, 20)
+        CGPathMoveToPoint(path, nil, 15, 25)
         CGPathAddLineToPoint(path, nil, 15, 1000)
         shapeLayer.path = path
         
@@ -184,6 +176,10 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
             yLabelPosition = CGRectGetMaxY(tempLabel.frame)+yPadding1
         }
         
+        let designedImageWidth:CGFloat = (tempWidth-2*xPadding1-xPadding2-xPadding2)*0.5
+        let designedImageHeight:CGFloat = designedImageWidth*3/4
+        
+        yLabelPosition = yLabelPosition + designedImageHeight+2*yPadding1
         
         if readyObject.isLastOne {
             yLabelPosition = yLabelPosition+100
@@ -191,26 +187,6 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         else {
             yLabelPosition = yLabelPosition+50
         }
-        
-        
-        
-        // Minimized this work.....
-        if let tempImage = readyObject.projectImage {
-            let designedImageWidth = (tempWidth-2*xPadding1-xPadding2-xPadding2)*0.5
-            // let tempImageWidth = tempImage.size.width
-            // let tempImageHeight = tempImage.size.height
-            
-            let designedImageHeight:CGFloat = designedImageWidth*3/4//*tempImageHeight/tempImageWidth
-            
-            if designedImageHeight > 10 {
-                return yLabelPosition + designedImageHeight+2*yPadding1
-            }
-            
-            // println("what \(designedImageHeight)")
-            //
-        }
-        
-        
         
         return yLabelPosition//  + designedImageHeight+2*yPadding1 //CGRectGetMaxY(subtitleLabel.frame)
     }

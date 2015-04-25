@@ -11,7 +11,6 @@ import UIKit
 class ContentTableViewCell: BaseTableViewCell {
     
     var content:Content = Content()
-    
     let titleLabel:YQDynamicHeightLabel = YQDynamicHeightLabel()
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
@@ -39,7 +38,7 @@ class ContentTableViewCell: BaseTableViewCell {
         content = object as! Content
         
         let tempWidth = screenWidth
-        let xPadding1 = SoftwareProjectTableViewCellSetting.getXPadding1()
+        let xPadding1 = SoftwareProjectTableViewCellSetting.getXPadding1()*0.5
         let xPadding2 = SoftwareProjectTableViewCellSetting.getXPadding2()
         let yPadding1 = SoftwareProjectTableViewCellSetting.getYPadding1()
         
@@ -59,7 +58,7 @@ class ContentTableViewCell: BaseTableViewCell {
         
         
         let tempWidth = screenWidth
-        let xPadding1 = SoftwareProjectTableViewCellSetting.getXPadding1()
+        let xPadding1 = SoftwareProjectTableViewCellSetting.getXPadding1()*0.5
         let xPadding2 = SoftwareProjectTableViewCellSetting.getXPadding2()
         let yPadding1 = SoftwareProjectTableViewCellSetting.getYPadding1()
         
