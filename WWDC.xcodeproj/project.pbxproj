@@ -59,6 +59,9 @@
 		8D69E6EB1AE8C2C200956B99 /* QuoteTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D69E6EA1AE8C2C200956B99 /* QuoteTableViewCell.swift */; };
 		8D69E6ED1AE8CCC200956B99 /* ProfileSummarySection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D69E6EC1AE8CCC200956B99 /* ProfileSummarySection.swift */; };
 		8D69E6EF1AE8CD5900956B99 /* QuoteSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8D69E6EE1AE8CD5900956B99 /* QuoteSection.swift */; };
+		8DAB87BC1AEC2CF9008F5193 /* AppTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAB87BB1AEC2CF9008F5193 /* AppTableViewCell.swift */; };
+		8DAB87BE1AEC2D4B008F5193 /* App.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAB87BD1AEC2D4B008F5193 /* App.swift */; };
+		8DAB87C01AEC2E4E008F5193 /* AppSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DAB87BF1AEC2E4E008F5193 /* AppSection.swift */; };
 		8DC1DE491AEB5AA400D29C1C /* BlankTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC1DE481AEB5AA400D29C1C /* BlankTableViewCell.swift */; };
 		8DC1DE4B1AEB5B7600D29C1C /* BlankSection.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC1DE4A1AEB5B7600D29C1C /* BlankSection.swift */; };
 		8DC7D0DE1AEAE2AD0019EF18 /* Content.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8DC7D0DD1AEAE2AD0019EF18 /* Content.swift */; };
@@ -133,6 +136,9 @@
 		8D69E6EA1AE8C2C200956B99 /* QuoteTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteTableViewCell.swift; sourceTree = "<group>"; };
 		8D69E6EC1AE8CCC200956B99 /* ProfileSummarySection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileSummarySection.swift; sourceTree = "<group>"; };
 		8D69E6EE1AE8CD5900956B99 /* QuoteSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = QuoteSection.swift; sourceTree = "<group>"; };
+		8DAB87BB1AEC2CF9008F5193 /* AppTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppTableViewCell.swift; sourceTree = "<group>"; };
+		8DAB87BD1AEC2D4B008F5193 /* App.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = App.swift; sourceTree = "<group>"; };
+		8DAB87BF1AEC2E4E008F5193 /* AppSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AppSection.swift; sourceTree = "<group>"; };
 		8DC1DE481AEB5AA400D29C1C /* BlankTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlankTableViewCell.swift; sourceTree = "<group>"; };
 		8DC1DE4A1AEB5B7600D29C1C /* BlankSection.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BlankSection.swift; sourceTree = "<group>"; };
 		8DC7D0DD1AEAE2AD0019EF18 /* Content.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Content.swift; sourceTree = "<group>"; };
@@ -279,6 +285,9 @@
 				8D2757A41AE93F52006B9390 /* BaseTableViewCell.swift */,
 				8D27581D1AE97B25006B9390 /* YQDynamicHeightLabel.swift */,
 				8D27581F1AE9AC40006B9390 /* SoftwareProjectTableViewCellSetting.swift */,
+				8DAB87BD1AEC2D4B008F5193 /* App.swift */,
+				8DAB87BF1AEC2E4E008F5193 /* AppSection.swift */,
+				8DAB87BB1AEC2CF9008F5193 /* AppTableViewCell.swift */,
 				8DC1DE4C1AEB5B9E00D29C1C /* Blank */,
 				8DC1DE471AEB3F4800D29C1C /* Content */,
 				8D21BA671AE8D82900BB6AD5 /* ProfileSummary */,
@@ -480,8 +489,10 @@
 				8DC1DE491AEB5AA400D29C1C /* BlankTableViewCell.swift in Sources */,
 				8D69E6EF1AE8CD5900956B99 /* QuoteSection.swift in Sources */,
 				8D27581B1AE96D53006B9390 /* SoftwareProjectTableViewCell.swift in Sources */,
+				8DAB87BC1AEC2CF9008F5193 /* AppTableViewCell.swift in Sources */,
 				8D21BA661AE8D2D900BB6AD5 /* BaseSection.swift in Sources */,
 				8D2758181AE96CA3006B9390 /* SoftwareProjectSection.swift in Sources */,
+				8DAB87BE1AEC2D4B008F5193 /* App.swift in Sources */,
 				8D2757A51AE93F52006B9390 /* BaseTableViewCell.swift in Sources */,
 				8D69E6ED1AE8CCC200956B99 /* ProfileSummarySection.swift in Sources */,
 				8D41634C1AE87D8000D15AD2 /* ProfileSummary.swift in Sources */,
@@ -490,6 +501,7 @@
 				8DC7D0E21AEAE43F0019EF18 /* ContentTableViewCell.swift in Sources */,
 				8DC7D0E01AEAE4100019EF18 /* ContentSection.swift in Sources */,
 				8D69E6EB1AE8C2C200956B99 /* QuoteTableViewCell.swift in Sources */,
+				8DAB87C01AEC2E4E008F5193 /* AppSection.swift in Sources */,
 				8D4163441AE854A500D15AD2 /* MainNavigationController.swift in Sources */,
 				8D27581E1AE97B25006B9390 /* YQDynamicHeightLabel.swift in Sources */,
 				8DC7D0DE1AEAE2AD0019EF18 /* Content.swift in Sources */,

@@ -14,7 +14,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     let contentCellIdentifier = "contentCellIdentifier"
     let quoteCellIdentifier = "quoteCellIdentifier"
     let softwareProjectCellIdentifier = "softwareCellIdentifier"
-    
+    let appCellIdentifier = "AppCellIdentifier"
     
     var tableView: UITableView = UITableView()
     
@@ -201,6 +201,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             return getSoftwareProjectTableViewCell(indexPath)
         case "WWDC.ContentSection":
             return getContentTableViewCell(indexPath)
+        case "WWDC.AppSection":
+            return getAppTableViewCell(indexPath)
         case "WWDC.BlankSection":
             return BlankTableViewCell()
         default:
@@ -215,7 +217,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             cell = ProfileSummaryTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: profileSummaryCellIdentifier)
         }
         let object: AnyObject = ResumeDataManager.shareInstance.getObject(indexPath)
-        
         cell?.setContentValue(object)
         
         return cell!
@@ -227,7 +228,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             cell = ContentTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: contentCellIdentifier)
         }
         let object: AnyObject = ResumeDataManager.shareInstance.getObject(indexPath)
-        
         cell?.setContentValue(object)
         
         return cell!
@@ -239,9 +239,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if cell == nil {
             cell = QuoteTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: quoteCellIdentifier)
         }
-        
         let object: AnyObject = ResumeDataManager.shareInstance.getObject(indexPath)
-        
         cell?.setContentValue(object, setupYContent:tableView.contentOffset.y)
         
         return cell!
@@ -252,14 +250,22 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         if cell == nil {
             cell = SoftwareProjectTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: softwareProjectCellIdentifier)
         }
-        
         let object: AnyObject = ResumeDataManager.shareInstance.getObject(indexPath)
-        
         cell?.setContentValue(object)
         
         return cell!
     }
     
+    func getAppTableViewCell(indexPath: NSIndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier(appCellIdentifier) as? AppTableViewCell
+        if cell == nil {
+            cell = AppTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: appCellIdentifier)
+        }
+        let object: AnyObject = ResumeDataManager.shareInstance.getObject(indexPath)
+        cell?.setContentValue(object)
+        
+        return cell!
+    }
     
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

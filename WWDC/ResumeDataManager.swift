@@ -85,7 +85,7 @@ public class ResumeDataManager: NSObject {
         hackathonSection.rowObjects = [hackathon1, hackathon2, hackathon3]
         
         
-        objects = NSArray(array: [profileSummarySection, BlankSection(), contentSection1, BlankSection(), quoteSection1, BlankSection(), softwareProjectSection1,BlankSection(), quoteSection2, BlankSection(), hackathonSection, BlankSection(), quoteSection3])
+        objects = NSArray(array: [profileSummarySection, BlankSection(), contentSection1, BlankSection(), quoteSection1, BlankSection(), AppSection(), BlankSection(), softwareProjectSection1, BlankSection(), quoteSection2, BlankSection(), hackathonSection, BlankSection(), quoteSection3])
         
         super.init()
     }
@@ -134,6 +134,10 @@ public class ResumeDataManager: NSObject {
         case "WWDC.ContentSection":
             let baseSection = objects.objectAtIndex(indexPath.section) as! ContentSection
             return ContentTableViewCell.cellHeight(baseSection.rowObjects[indexPath.row])
+        
+        case "WWDC.AppSection":
+            let baseSection = objects.objectAtIndex(indexPath.section) as! AppSection
+            return AppTableViewCell.cellHeight(baseSection.rowObjects[indexPath.row])
             
         case "WWDC.BlankSection":
             return BlankTableViewCell.cellHeight()
@@ -169,6 +173,10 @@ public class ResumeDataManager: NSObject {
             
         case "WWDC.ContentSection":
             let baseSection = objects.objectAtIndex(indexPath.section) as! ContentSection
+            return baseSection.rowObjects[indexPath.row]
+            
+        case "WWDC.AppSection":
+            let baseSection = objects.objectAtIndex(indexPath.section) as! AppSection
             return baseSection.rowObjects[indexPath.row]
             
         default:

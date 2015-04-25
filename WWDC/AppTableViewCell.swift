@@ -1,19 +1,21 @@
 //
-//  ContentTableViewCell.swift
+//  AppTableViewCell.swift
 //  WWDC
 //
-//  Created by Yi Qin on 4/24/15.
+//  Created by Yi Qin on 4/25/15.
 //  Copyright (c) 2015 Yi Qin. All rights reserved.
 //
 
 import UIKit
 
-class ContentTableViewCell: BaseTableViewCell {
+class AppTableViewCell: BaseTableViewCell {
     
-    var content:Content = Content()
+    var app:App = App()
+    
     let titleLabel:YQDynamicHeightLabel = YQDynamicHeightLabel()
     
-
+    
+    
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         
         super.init(style: style, reuseIdentifier: reuseIdentifier)
@@ -23,7 +25,7 @@ class ContentTableViewCell: BaseTableViewCell {
         titleLabel.textColor = darkGrey // UIColor.blackColor()
         addSubview(titleLabel)
     }
-    
+
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -36,14 +38,14 @@ class ContentTableViewCell: BaseTableViewCell {
     
     
     func setContentValue(object:AnyObject){
-        content = object as! Content
+        app = object as! App
         
         let tempWidth = screenWidth
         let xPadding1 = SoftwareProjectTableViewCellSetting.getXPadding1()*0.5
         let xPadding2 = SoftwareProjectTableViewCellSetting.getXPadding2()
         let yPadding1 = SoftwareProjectTableViewCellSetting.getYPadding1()
         
-        titleLabel.update(CGRectMake(xPadding1, SoftwareProjectTableViewCellSetting.getYPadding1(), tempWidth-2*xPadding1, 100), font: SoftwareProjectTableViewCellSetting.getDescriptionLabelFont(), text: content.title)
+        // titleLabel.update(CGRectMake(xPadding1, SoftwareProjectTableViewCellSetting.getYPadding1(), tempWidth-2*xPadding1, 100), font: SoftwareProjectTableViewCellSetting.getDescriptionLabelFont(), text: content.title)
         
     }
     
@@ -55,9 +57,10 @@ class ContentTableViewCell: BaseTableViewCell {
     
     
     class func cellHeight(object:AnyObject)->CGFloat {
-        let readyObject = object as! Content
+        let readyObject = object as! App
         
         
+        /*
         let tempWidth = screenWidth
         let xPadding1 = SoftwareProjectTableViewCellSetting.getXPadding1()*0.5
         let xPadding2 = SoftwareProjectTableViewCellSetting.getXPadding2()
@@ -72,7 +75,10 @@ class ContentTableViewCell: BaseTableViewCell {
         }
         
         return CGRectGetMaxY(titleLabel.frame)+yPadding1
+        */
+        
+        return 100.0
     }
 
-    
+
 }
