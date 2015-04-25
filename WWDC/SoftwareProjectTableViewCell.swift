@@ -192,7 +192,7 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
                 return yLabelPosition + designedImageHeight+2*yPadding1
             }
             
-            println("what \(designedImageHeight)")
+            // println("what \(designedImageHeight)")
             //
         }
         

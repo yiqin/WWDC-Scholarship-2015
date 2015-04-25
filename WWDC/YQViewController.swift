@@ -122,11 +122,13 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
             
             let yContent = tableView.contentOffset.y// -64*2
             backgroundImageScrollView.contentOffset = CGPointMake(0, yContent*0.5)
-            println(yContent)
+            // println(yContent)
             
-            // var selectedDateDictionary = ["yContent": tableView.contentOffset.y]
-            // NSNotificationCenter.defaultCenter().postNotificationName("updateMove", object: nil, userInfo: selectedDateDictionary)
+            
         }
+        
+        var selectedDateDictionary = ["yContent": tableView.contentOffset.y]
+        NSNotificationCenter.defaultCenter().postNotificationName("updateMove", object: nil, userInfo: selectedDateDictionary)
         
     }
     
@@ -219,7 +221,7 @@ class YQViewController: UIViewController, UITableViewDataSource, UITableViewDele
         
         let object: AnyObject = ResumeDataManager.shareInstance.getObject(indexPath)
         
-        cell?.setContentValue(object)
+        cell?.setContentValue(object, setupYContent:tableView.contentOffset.y)
         
         return cell!
     }

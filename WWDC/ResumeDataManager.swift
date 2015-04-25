@@ -23,13 +23,23 @@ public class ResumeDataManager: NSObject {
         
         // Force wrapping....
         let quote1 = Quote(text: "Keep Building", backgroundImage: UIImage(named: "backgroundImage1")!)
-        let quote2 = Quote(text: "Brace Yourself", backgroundImage: UIImage(named: "profileBackgroundImage1")!)
+        
         
         var quoteSection1 = QuoteSection()
         quoteSection1.rowObjects = [quote1]
         
+        
+        let quote2 = Quote(text: "Brace Yourself", backgroundImage: UIImage(named: "profileBackgroundImage1")!)
+        
         var quoteSection2 = QuoteSection()
         quoteSection2.rowObjects = [quote2]
+        
+        
+        let quote3 = Quote(text: "Know a good idea when you see it.", backgroundImage: UIImage(named: "profileBackgroundImage1")!)
+        
+        var quoteSection3 = QuoteSection()
+        quoteSection3.rowObjects = [quote3]
+        
         
         
         let content1 = Content(title: "I’m an iOS developer and a hackathon hacker. I love the hack culture.\n\nI have been really lucky to attend 14 premier hackathons since 2014. I have received 14 awards from Apple, Facebook, Parse.com, Qualcomm, Evernote, Mashery, Kimono Labs and more. I believe that the world we live in is dynamic, so I’m ready for new challenges every day.")
@@ -63,7 +73,7 @@ public class ResumeDataManager: NSObject {
         hackathonSection.rowObjects = [hackathon1, hackathon2, hackathon3]
         
         
-        objects = NSArray(array: [profileSummarySection, contentSection1, quoteSection1, softwareProjectSection1,quoteSection2, hackathonSection, quoteSection1])
+        objects = NSArray(array: [profileSummarySection, contentSection1, quoteSection1, softwareProjectSection1,quoteSection2, hackathonSection, quoteSection3])
         
         super.init()
     }
@@ -78,7 +88,7 @@ public class ResumeDataManager: NSObject {
         
         var klass:AnyClass = object_getClass(object)
         let cellClassName = NSStringFromClass(klass)
-        println(cellClassName)
+        // println(cellClassName)
         
         return cellClassName
     }
