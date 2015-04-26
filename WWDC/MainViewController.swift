@@ -149,14 +149,14 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cellClassName = ResumeDataManager.shareInstance.getCellClass(section)
         
         switch cellClassName {
-        case "WWDC.ProfileSummarySection":
-            return 0
-        case "WWDC.QuoteSection":
-            return 0
-        case "WWDC.BlankSection":
-            return 0
-        default:
-            return 44
+            case "WWDC.ProfileSummarySection":
+                return 0
+            case "WWDC.QuoteSection":
+                return 0
+            case "WWDC.BlankSection":
+                return 0
+            default:
+                return 44
         }
     }
     

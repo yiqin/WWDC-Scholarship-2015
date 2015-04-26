@@ -84,7 +84,7 @@ public class ResumeDataManager: NSObject {
         hackathonSection.text = "Hackathons"
         
         hackathon3.isLastOne = true
-        hackathonSection.rowObjects = [hackathon1, hackathon2, hackathon3]
+        hackathonSection.rowObjects = [hackathonConent, hackathon1, hackathon2, hackathon3]
         
         
         
@@ -141,33 +141,20 @@ public class ResumeDataManager: NSObject {
         println(cellClassName)
         
         switch cellClassName {
-            
-        case "WWDC.ProfileSummary":
-            let baseSection = objects.objectAtIndex(indexPath.section) as! ProfileSummarySection
-            return ProfileSummaryTableViewCell.cellHeight()
-            
-        case "WWDC.Quote":
-            let baseSection = objects.objectAtIndex(indexPath.section) as! QuoteSection
-            return QuoteTableViewCell.cellHeight(object)
-            
-        case "WWDC.SoftwareProject":
-            let baseSection = objects.objectAtIndex(indexPath.section) as! SoftwareProjectSection
-            return SoftwareProjectTableViewCell.cellHeight(object)
-        
-        case "WWDC.Content":
-            let baseSection = objects.objectAtIndex(indexPath.section) as! ContentSection
-            return ContentTableViewCell.cellHeight(object)
-        
-        case "WWDC.App":
-            let baseSection = objects.objectAtIndex(indexPath.section) as! AppSection
-            return AppTableViewCell.cellHeight(object)
-            
-        case "WWDC.Blank":
-            return BlankTableViewCell.cellHeight()
-            
-        default:
-            return 44
-            
+            case "WWDC.ProfileSummary":
+                return ProfileSummaryTableViewCell.cellHeight()
+            case "WWDC.Quote":
+                return QuoteTableViewCell.cellHeight(object)
+            case "WWDC.SoftwareProject":
+                return SoftwareProjectTableViewCell.cellHeight(object)
+            case "WWDC.Content":
+                return ContentTableViewCell.cellHeight(object)
+            case "WWDC.App":
+                return AppTableViewCell.cellHeight(object)
+            case "WWDC.Blank":
+                return BlankTableViewCell.cellHeight()
+            default:
+                return 44
         }
     }
 
@@ -175,40 +162,40 @@ public class ResumeDataManager: NSObject {
         let cellClassName = ResumeDataManager.shareInstance.getCellClass(indexPath.section)
         
         switch cellClassName {
-            
-        case "WWDC.ProfileSummarySection":
-            let baseSection = objects.objectAtIndex(indexPath.section) as! ProfileSummarySection
-            return baseSection.rowObjects[indexPath.row]
-            
-        case "WWDC.QuoteSection":
-            let baseSection = objects.objectAtIndex(indexPath.section) as! QuoteSection
-            if indexPath.row >= baseSection.rowObjects.count {
-                return Quote()
+
+            case "WWDC.ProfileSummarySection":
+                let baseSection = objects.objectAtIndex(indexPath.section) as! ProfileSummarySection
+                return baseSection.rowObjects[indexPath.row]
+                
+            case "WWDC.QuoteSection":
+                let baseSection = objects.objectAtIndex(indexPath.section) as! QuoteSection
+                if indexPath.row >= baseSection.rowObjects.count {
+                    return Quote()
+                }
+                return baseSection.rowObjects[indexPath.row]
+                
+            case "WWDC.SoftwareProjectSection":
+                let baseSection = objects.objectAtIndex(indexPath.section) as! SoftwareProjectSection
+                if indexPath.row >= baseSection.rowObjects.count {
+                    return SoftwareProject()
+                }
+                return baseSection.rowObjects[indexPath.row]
+                
+            case "WWDC.ContentSection":
+                let baseSection = objects.objectAtIndex(indexPath.section) as! ContentSection
+                return baseSection.rowObjects[indexPath.row]
+                
+            case "WWDC.AppSection":
+                let baseSection = objects.objectAtIndex(indexPath.section) as! AppSection
+                return baseSection.rowObjects[indexPath.row]
+                
+            case "WWDC.BlankSection":
+                let baseSection = objects.objectAtIndex(indexPath.section) as! BlankSection
+                return baseSection.rowObjects[indexPath.row]
+                
+            default:
+                return UITableViewCell()
+                
             }
-            return baseSection.rowObjects[indexPath.row]
-            
-        case "WWDC.SoftwareProjectSection":
-            let baseSection = objects.objectAtIndex(indexPath.section) as! SoftwareProjectSection
-            if indexPath.row >= baseSection.rowObjects.count {
-                return SoftwareProject()
-            }
-            return baseSection.rowObjects[indexPath.row]
-            
-        case "WWDC.ContentSection":
-            let baseSection = objects.objectAtIndex(indexPath.section) as! ContentSection
-            return baseSection.rowObjects[indexPath.row]
-            
-        case "WWDC.AppSection":
-            let baseSection = objects.objectAtIndex(indexPath.section) as! AppSection
-            return baseSection.rowObjects[indexPath.row]
-            
-        case "WWDC.BlankSection":
-            let baseSection = objects.objectAtIndex(indexPath.section) as! BlankSection
-            return baseSection.rowObjects[indexPath.row]
-            
-        default:
-            return UITableViewCell()
-            
-        }
     }
 }

@@ -43,23 +43,14 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         titleButton.titleLabel?.font = SoftwareProjectTableViewCellSetting.getTitleLabelFont()
         addSubview(titleButton)
         
-        
         titleLabel.textAlignment = NSTextAlignment.Left
-        
-        titleLabel.textColor = lightBlue
-        
+        titleLabel.textColor = darkGrey
         addSubview(titleLabel)
         
         
         subtitleLabel.textAlignment = NSTextAlignment.Left
-        
-        
         subtitleLabel.textColor = UIColor.blackColor()
-        
-        
-        
         addSubview(subtitleLabel)
-        
         
         
         projectImageView.contentMode = UIViewContentMode.ScaleAspectFill
@@ -111,11 +102,22 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         let yPadding1 = SoftwareProjectTableViewCellSetting.getYPadding1()
         
         titleLabel.update(CGRectMake(xPadding1, SoftwareProjectTableViewCellSetting.getYPadding1(), tempWidth-2*xPadding1, 100), font: SoftwareProjectTableViewCellSetting.getTitleLabelFont(), text: softwareProject.title)
-        // addSubview(titleLabel)
+        addSubview(titleLabel)
+        
+        
         titleButton.frame = titleLabel.frame
         titleButton.setTitle(titleLabel.text, forState: UIControlState.Normal)
         titleButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left
         addSubview(titleButton)
+        
+        if count(softwareProject.urlString) > 2 {
+            titleLabel.hidden = true
+            titleButton.hidden = false
+        }
+        else {
+            titleLabel.hidden = false
+            titleButton.hidden = true
+        }
         
         
         subtitleLabel.update(CGRectMake(xPadding1, CGRectGetMaxY(titleLabel.frame), tempWidth-2*xPadding1, 100), font: SoftwareProjectTableViewCellSetting.getSubtitleLabelFont(), text: softwareProject.subtitle)
@@ -148,9 +150,7 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         
         addSubview(projectImageView)
         
-        
     }
-    
     
     func drawDashLine() {
         let shapeLayer = CAShapeLayer()
@@ -178,7 +178,6 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         super.layoutSubviews()
         
     }
-    
     
     func pressedButton(sender:UIButton!) {
         delegate?.openLink("http://www.leaftagger.com/", title: "leaftagger")
