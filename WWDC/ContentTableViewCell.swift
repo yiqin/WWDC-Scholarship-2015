@@ -51,6 +51,20 @@ class ContentTableViewCell: BaseTableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        if !AnimationManager.shareInstance.checkRegular(titleLabel.text!) {
+            titleLabel.alpha = AnimationManager.regularInitAlpha
+            titleLabel.moveY(AnimationManager.regularYOffset)
+            
+            UIView.animateWithDuration(AnimationManager.regularDuration, delay: AnimationManager.regularDelay, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+                
+                self.titleLabel.alpha = 1.0
+                self.titleLabel.moveY(-AnimationManager.regularYOffset)
+                
+                }, completion: { finished in
+                    println("content")
+                    AnimationManager.shareInstance.addRegular(self.titleLabel.text!)
+            })
+        }
     }
     
     

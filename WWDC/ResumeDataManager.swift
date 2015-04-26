@@ -102,7 +102,7 @@ public class ResumeDataManager: NSObject {
         
         
         
-        let openSourceContent = Content(title: "Three year ago, I came to U.S to pursue my phd in Mechanical Engineering.")
+        let openSourceContent = Content(title: "I encourage myself to code every day in objective-C and Swift. My longest streak on GitHub is 151 days, from November 28 - April 26. I also make contribution to open source projects.")
         
         let openSource1 = SoftwareProject(title: "YQParse", subtitle: "September 2014", projectImage: UIImage(named: "YQParse2")!)
         openSource1.descriptionPoint = ["YQParse is a Parse iOS SDK totally based on REST, which lets you interact Parse.com with a HTTP request, including saving objects and retrieving objects.", "YQParse makes it much easier to buld a backend for your own iOS SDK."]

@@ -88,10 +88,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         nameLabel.textColor = UIColor.whiteColor()
         backgroundImageScrollView.addSubview(nameLabel)
         
-        
-        
-        
-        
+
         
         tableView.frame = CGRectMake(0, 0, CGRectGetWidth(view.frame), CGRectGetHeight(view.frame))
         tableView.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
@@ -101,7 +98,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         tableView.delegate = self
         
         view.addSubview(tableView)
-
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -133,9 +129,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         var selectedDateDictionary = ["yContent": tableView.contentOffset.y]
         NSNotificationCenter.defaultCenter().postNotificationName("updateMove", object: nil, userInfo: selectedDateDictionary)
-        
     }
-    
     
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         return ResumeDataManager.shareInstance.getNumberOfSections()
@@ -183,6 +177,11 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         lineView.backgroundColor = UIColor.blackColor()
         headView.addSubview(lineView)
         
+        /*
+        let tempAnimationView = UIView(frame: CGRectMake(15, CGRectGetHeight(headLabel.frame)-10, 50, 2.0))
+        tempAnimationView.backgroundColor = UIColor.redColor()
+        headView.addSubview(tempAnimationView)
+        */
         
         return headView
     }
