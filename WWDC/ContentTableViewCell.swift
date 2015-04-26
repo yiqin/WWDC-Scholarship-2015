@@ -55,7 +55,7 @@ class ContentTableViewCell: BaseTableViewCell {
             titleLabel.alpha = AnimationManager.regularInitAlpha
             titleLabel.moveY(AnimationManager.regularYOffset)
             
-            UIView.animateWithDuration(AnimationManager.regularDuration, delay: AnimationManager.regularDelay, options: UIViewAnimationOptions.CurveEaseOut, animations: {
+            UIView.animateWithDuration(AnimationManager.regularDuration, delay: AnimationManager.regularDelay, options: UIViewAnimationOptions.CurveLinear, animations: {
                 
                 self.titleLabel.alpha = 1.0
                 self.titleLabel.moveY(-AnimationManager.regularYOffset)

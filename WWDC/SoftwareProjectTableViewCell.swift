@@ -143,7 +143,7 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         }
         
         
-        let designedImageWidth:CGFloat = (tempWidth-2*xPadding1-xPadding2-xPadding2)*0.75
+        let designedImageWidth:CGFloat = (tempWidth-2*xPadding1-xPadding2-xPadding2)*0.65
         let designedImageHeight:CGFloat = designedImageWidth*3/4
         
         projectImageView.frame = CGRectMake(xPadding1+xPadding2, yLabelPosition+yPadding1, designedImageWidth, designedImageHeight)
@@ -170,20 +170,41 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         shapeLayer.path = path
         
         self.layer.addSublayer(shapeLayer)
-        
     }
-    
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        
+        let viewsToAnimate = subviews
+        for v in viewsToAnimate as! [UIView] {
+            
+            if v.isKindOfClass(UILabel) {
+                if !AnimationManager.shareInstance.checkRegular(titleLabel.text!) {
+                    v.alpha = AnimationManager.regularInitAlpha
+                    v.moveY(AnimationManager.regularYOffset)
+                    
+                    UIView.animateWithDuration(AnimationManager.regularDuration, delay: AnimationManager.regularDelay, options: UIViewAnimationOptions.CurveLinear, animations: {
+                        
+                        v.alpha = 1.0
+                        v.moveY(-AnimationManager.regularYOffset)
+                        
+                        }, completion: { finished in
+                            println("content")
+                            AnimationManager.shareInstance.addRegular(self.titleLabel.text!)
+                    })
+                }
+            }
+            
+        }
+        
+        
+        
         
     }
     
     func pressedButton(sender:UIButton!) {
         delegate?.openLink(softwareProject.urlString, title: softwareProject.shortTitle)
     }
-    
-
     
     class func cellHeight(object:AnyObject)->CGFloat {
         let readyObject = object as! SoftwareProject
@@ -210,7 +231,7 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         }
         
         if let tempImage = readyObject.projectImage {
-            let designedImageWidth:CGFloat = (tempWidth-2*xPadding1-xPadding2-xPadding2)*0.75
+            let designedImageWidth:CGFloat = (tempWidth-2*xPadding1-xPadding2-xPadding2)*0.65
             let designedImageHeight:CGFloat = designedImageWidth*3/4
             
             yLabelPosition = yLabelPosition + designedImageHeight+2*yPadding1

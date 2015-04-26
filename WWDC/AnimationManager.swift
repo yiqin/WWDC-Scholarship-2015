@@ -32,10 +32,10 @@ public class AnimationManager: NSObject {
     var regularList : NSMutableSet = NSMutableSet()
     
     public static let regularInitAlpha:CGFloat = 0.3
-    public static let regularYOffset:CGFloat = 2.0
+    public static let regularYOffset:CGFloat = 6.0
     
-    public static let regularDelay:NSTimeInterval = 0.2
-    public static let regularDuration:NSTimeInterval = 0.5
+    public static let regularDelay:NSTimeInterval = 0.3
+    public static let regularDuration:NSTimeInterval = 0.3
 
     
     func checkRegular(text:String)->Bool {

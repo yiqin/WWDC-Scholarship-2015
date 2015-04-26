@@ -10,23 +10,19 @@ import UIKit
 
 class QuoteTableViewCell: BaseTableViewCell {
     
-    
-    let titleLabel:UILabel
-    
-    var backgroundImageScrollView:UIScrollView = UIScrollView()
-    
-    
     var setupYContent:CGFloat = 0
     
+    let titleLabel:UILabel = UILabel()
+    var backgroundImageScrollView:UIScrollView = UIScrollView()
+    
+    var isScroll:Bool = false
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
-        titleLabel = UILabel()
-        
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
         backgroundImageView.removeFromSuperview()
         
-        
+        // Init backgroundImageScrollView
         backgroundImageScrollView.frame = CGRectMake(0, 0, screenWidth, QuoteTableViewCell.cellHeight(Quote()))
         backgroundImageScrollView.scrollEnabled = false
         backgroundImageScrollView.contentSize = CGSizeMake(screenWidth, QuoteTableViewCell.cellHeight(Quote())*1.5)
@@ -37,8 +33,6 @@ class QuoteTableViewCell: BaseTableViewCell {
         backgroundImageScrollView.addSubview(backgroundImageView)
         
         
-        
-        
         titleLabel.frame = CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame))
         titleLabel.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
         titleLabel.textAlignment = NSTextAlignment.Center
@@ -46,9 +40,6 @@ class QuoteTableViewCell: BaseTableViewCell {
         titleLabel.font = UIFont(name: "PlayfairDisplay-BoldItalic", size: 23)
         titleLabel.textColor = UIColor.whiteColor()
         addSubview(titleLabel)
-        
-        
-        
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -56,15 +47,16 @@ class QuoteTableViewCell: BaseTableViewCell {
     }
     
     func updateMove(notification: NSNotification) {
-        
         let yContent = notification.userInfo!["yContent"] as! CGFloat
-        let yOffset = yContent-setupYContent
         
-        backgroundImageScrollView.contentOffset = CGPointMake(0, yOffset*0.07)
-        
-        // println("\(yOffset) update the quote \(titleLabel.text)")
+        if isScroll {
+            let yOffset = yContent-setupYContent
+            backgroundImageScrollView.contentOffset = CGPointMake(0, yOffset*0.07)
+        }
+        else {
+            setupYContent = yContent
+        }
     }
-    
     
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
@@ -74,21 +66,32 @@ class QuoteTableViewCell: BaseTableViewCell {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+        if !AnimationManager.shareInstance.checkRegular(titleLabel.text!) {
+            titleLabel.alpha = AnimationManager.regularInitAlpha
+            titleLabel.moveX(AnimationManager.regularYOffset)
+            
+            UIView.animateWithDuration(AnimationManager.regularDuration, delay: AnimationManager.regularDelay, options: UIViewAnimationOptions.CurveLinear, animations: {
+                
+                self.titleLabel.alpha = 1.0
+                self.titleLabel.moveX(-AnimationManager.regularYOffset)
+                
+                }, completion: { finished in
+                    println("content")
+                    AnimationManager.shareInstance.addRegular(self.titleLabel.text!)
+                    self.isScroll = true
+            })
+        }
     }
     
     func setContentValue(object:AnyObject, setupYContent:CGFloat){
         let quote = object as! Quote
-        // This would cause a crash if profileSummary images are nil!
-        // fatal error: unexpectedly found nil while unwrapping an Optional value
+        
         titleLabel.text = quote.title
         backgroundImageView.image = quote.backgroundImage
-        
         self.setupYContent = setupYContent
         
         NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateMove:", name: "updateMove", object: nil)
     }
-
-    
     
     class func cellHeight(object:AnyObject)->CGFloat {
         let readyObject = object as! Quote
