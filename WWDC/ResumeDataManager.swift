@@ -72,11 +72,7 @@ public class ResumeDataManager: NSObject {
         
         
         let hackathonImageSet = ImageSet()
-        hackathonImageSet.image1 = UIImage(named: "image1")
-        hackathonImageSet.image2 = UIImage(named: "image2")
-        hackathonImageSet.image3 = UIImage(named: "image3")
-        
-        hackathonImageSet.pageImages = [UIImage(named: "image1"), UIImage(named: "image2"), UIImage(named: "image3"),UIImage(named: "image2")]
+        hackathonImageSet.pageImages = [UIImage(named: "image2"), UIImage(named: "image1"), UIImage(named: "image3"),UIImage(named: "image4"),UIImage(named: "image5")]
         
         
         let hackathon1 = SoftwareProject(title: "Leaftagger (Best Use of Parse from Facebook and Best iOS app from Apple at MHacks f2014)",subtitle: "1000+ Hackers, September 2014", projectImage: UIImage(named: "leaftagger1")!)
@@ -130,7 +126,7 @@ public class ResumeDataManager: NSObject {
         
         
         let openSource3 = SoftwareProject(title: "Plants-vs-Zombies", subtitle: "December 2014", projectImage: UIImage(named: "plant1")!)
-        openSource3.descriptionPoint = ["A mob of fun-loving zombies is about to invade your home. Use peashooters to defense. The game is written in Java from scratch."]
+        openSource3.descriptionPoint = ["A mob of fun-loving zombies is about to invade your home. Use peashooters to defense. ", "The game is written in Java from scratch."]
         openSource3.urlString = "http://github.com/yiqin/Plants-vs-Zombies"
         openSource3.shortTitle = "Plants-vs-Zombies"
         
@@ -163,6 +159,17 @@ public class ResumeDataManager: NSObject {
         
         
         
+        let robotContent = Content(title: "I also build robots. I focused on designing software and hardware for biologically inspired robots, especially flying insect robots and humanoid robots.")
+        
+        let robotImageSet = ImageSet()
+        robotImageSet.pageImages = [UIImage(named: "robot1"), UIImage(named: "robot2"), UIImage(named: "robot3"), UIImage(named: "robot4")]
+        
+        
+        let robotSection = SoftwareProjectSection()
+        robotSection.text = "Robotics"
+        
+        robotImageSet.isLastOne = true
+        robotSection.rowObjects = [robotContent, robotImageSet]
         
         
         
@@ -170,13 +177,7 @@ public class ResumeDataManager: NSObject {
         
         
         
-        
-        
-        
-        
-        
-        
-        objects = NSArray(array: [profileSummarySection, BlankSection(), contentSection1, BlankSection(), AppSection(), BlankSection(), quoteSection1, BlankSection(), softwareProjectSection1, BlankSection(), quoteSection2, BlankSection(), hackathonSection, BlankSection(), quoteSection3, BlankSection(), openSourceSection, BlankSection(), quoteSection4, BlankSection(),educationSection])
+        objects = NSArray(array: [profileSummarySection, BlankSection(), contentSection1, BlankSection(), AppSection(), BlankSection(), quoteSection1, BlankSection(), softwareProjectSection1, BlankSection(), quoteSection2, BlankSection(), hackathonSection, BlankSection(), quoteSection3, BlankSection(), openSourceSection, BlankSection(), quoteSection4, BlankSection(),educationSection,BlankSection(),robotSection])
         
         super.init()
     }

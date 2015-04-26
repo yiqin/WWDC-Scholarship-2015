@@ -11,11 +11,6 @@ import UIKit
 class ImageSet: NSObject {
     
     var pageImages:[UIImage?] = []
-    
-    var image1:UIImage? = UIImage()
-    var image2:UIImage? = UIImage()
-    var image3:UIImage? = UIImage()
-    
     var isLastOne:Bool = false
     
     override init() {
