@@ -80,7 +80,7 @@ class ImageSetTableViewCell: BaseTableViewCell {
             xPosition = xPosition+xPadding1*0.5+imageWidth
             
         }
-        scrollView.setContentOffset(CGPointMake(xPadding1*0.25, 0), animated: true)
+        scrollView.setContentOffset(CGPointMake(0, 0), animated: false)
         scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, +15, 0)
     }
     
