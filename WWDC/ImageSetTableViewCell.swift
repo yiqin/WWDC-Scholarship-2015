@@ -62,7 +62,7 @@ class ImageSetTableViewCell: BaseTableViewCell {
         let tempWidth = screenWidth
         let xPadding1:CGFloat = SoftwareProjectTableViewCellSetting.getXPadding1()*0.5
         
-        let imageWidth = CGRectGetWidth(scrollView.frame)-xPadding1*0.5// (tempWidth-4*xPadding1)
+        let imageWidth = CGRectGetWidth(scrollView.frame)-xPadding1*0.5
         let imageHeight = imageWidth*0.58
         
         let imageCount:CGFloat = CGFloat(imageSet.pageImages.count)
@@ -81,11 +81,12 @@ class ImageSetTableViewCell: BaseTableViewCell {
             
         }
         scrollView.setContentOffset(CGPointMake(0, 0), animated: false)
-        scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, +15, 0)
+        
     }
     
     override func layoutSubviews() {
         super.layoutSubviews()
+        scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, +15, 0)
     }
     
     class func cellHeight(object:AnyObject)->CGFloat {

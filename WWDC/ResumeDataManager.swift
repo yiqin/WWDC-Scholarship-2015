@@ -42,7 +42,7 @@ public class ResumeDataManager: NSObject {
         quoteSection4.rowObjects = [quote4]
         
         
-        let content1 = Content(title: "I’m an iOS developer and a hackathon hacker. \n\nI was born in China. Three years ago, I came to U.S to pursue my dream of becoming a mechanical engineer. \n\n Hackathons is a mini-WWDC for me. I got a chance to talk to Apple engineers. \n\n During the learning process, I accidently went to a college top hackathon host by University of Michigan, in Ann Arbor. I was shocked by the passion and the creativity of the programmers from all over the country. After that, I spent almost all my time in iOS development.\n\nI believe that the world we live in is dynamic, so I’m ready for new challenges every day.")
+        let content1 = Content(title: "I’m an iOS developer and a hackathon hacker. \n\nI was born in China. Three years ago, I came to U.S to pursue my dream of becoming a mechanical engineer. \n\n During the learning process, I accidently went to a college top hackathon host by University of Michigan, in Ann Arbor in Juanary 2014. I was shocked by the passion and the creativity of the programmers from all over the country. It's also the first time I got a chance to talk to engineers from Apple. After that, I spent almost all my time in iOS development. \n\n Apple goes to many college hackathons today. These hackathons is like a mini-WWDC where I can get help from Apple as WWDC Labs. \n\nI believe that the world we live in is dynamic, so I’m ready for new challenges every day.\n\nNow I study at University of Chicago and work on to become an iOS developer.")
         let contentSection1 = ContentSection()
         contentSection1.text = "About me"
         
@@ -111,7 +111,7 @@ public class ResumeDataManager: NSObject {
         
         
         
-        let openSourceContent = Content(title: "I encourage myself to code every day in objective-C and Swift. My longest streak on GitHub is 151 days, from November 28 - April 26. I also make contribution to open source projects.")
+        let openSourceContent = Content(title: "How to improve the quality of my code is a necessary lession I spend a lot of time to learn. My solution is to make contribution to open source projects.")
         
         let openSource1 = SoftwareProject(title: "YQParse", subtitle: "September 2014", projectImage: UIImage(named: "YQParse2")!)
         openSource1.descriptionPoint = ["YQParse is a Parse iOS SDK totally based on REST, which lets you interact Parse.com with a HTTP request, including saving objects and retrieving objects.", "YQParse makes it much easier to buld a backend for your own iOS SDK."]
@@ -174,10 +174,9 @@ public class ResumeDataManager: NSObject {
         
         
         
-        
-        
-        
         objects = NSArray(array: [profileSummarySection, BlankSection(), contentSection1, BlankSection(), AppSection(), BlankSection(), quoteSection1, BlankSection(), softwareProjectSection1, BlankSection(), quoteSection2, BlankSection(), hackathonSection, BlankSection(), quoteSection3, BlankSection(), openSourceSection, BlankSection(), quoteSection4, BlankSection(),educationSection,BlankSection(),robotSection])
+        
+        
         
         super.init()
     }
