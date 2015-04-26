@@ -8,7 +8,7 @@
 
 import UIKit
 
-class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SoftwareProjectTableViewCellDelegate {
+class MainViewController: UIViewController, UITableViewDataSource, UITableViewDelegate, SoftwareProjectTableViewCellDelegate, AppTableViewCellDelegate {
     
     let profileSummaryCellIdentifier = "profileSummaryCellIdentifier"
     let contentCellIdentifier = "contentCellIdentifier"
@@ -265,7 +265,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         let object: AnyObject = ResumeDataManager.shareInstance.getObject(indexPath)
         cell?.setContentValue(object)
-        
         cell?.delegate = self
         
         return cell!
@@ -278,6 +277,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
         let object: AnyObject = ResumeDataManager.shareInstance.getObject(indexPath)
         cell?.setContentValue(object)
+        cell?.delegate = self
         
         return cell!
     }
@@ -310,8 +310,29 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         })
     }
     
+    func openAppLink(urlString: String, title: String) {
+        let alertController = UIAlertController(title: title, message: "You are leaving the app to App Store to install the app.", preferredStyle: .Alert)
+        
+        let cancelAction = UIAlertAction(title: "Back", style: .Cancel) { (action) in
+            // ...
+        }
+        alertController.addAction(cancelAction)
+        
+        let OKAction = UIAlertAction(title: "Go", style: .Default) { (action) in
+            // ...
+            let urlString = urlString
+            let url = NSURL(string:urlString)
+            UIApplication.sharedApplication().openURL(url!)
+        }
+        alertController.addAction(OKAction)
+        
+        self.presentViewController(alertController, animated: true) {
+            // ...
+        }
+    }
+    
     func pressedButton(sender:UIButton!) {
-        let alertController = UIAlertController(title: "See Yi's all Apps", message: "You are leaving the app to App Store", preferredStyle: .Alert)
+        let alertController = UIAlertController(title: "See All", message: "You are leaving the app to App Store.", preferredStyle: .Alert)
         
         let cancelAction = UIAlertAction(title: "Back", style: .Cancel) { (action) in
             // ...

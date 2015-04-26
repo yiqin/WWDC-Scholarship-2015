@@ -8,7 +8,13 @@
 
 import UIKit
 
+protocol AppTableViewCellDelegate {
+    func openAppLink(urlString:String, title:String)
+}
+
 class AppTableViewCell: BaseTableViewCell {
+    
+    var delegate: AppTableViewCellDelegate?
     
     var scrollView:UIScrollView = UIScrollView()
     var scrollViewContainer:ScrollViewContainer = ScrollViewContainer()
@@ -67,26 +73,46 @@ class AppTableViewCell: BaseTableViewCell {
         scrollView.contentSize = CGSizeMake(CGRectGetWidth(scrollView.frame)*imageCount, CGRectGetHeight(scrollView.frame))
         
         var xPosition:CGFloat = xPadding1*0.25
+        
         for app in apps {
             let tempView = UIView(frame: CGRectMake(xPosition, 0, imageWidth, imageHeight))
             
-            // tempView.backgroundColor = UIColor.redColor()
+            tempView.backgroundColor = UIColor(red: 235.0/255.0, green: 236.0/255.0, blue: 236.0/255.0, alpha: 1.0)
             tempView.clipsToBounds = true
+            tempView.layer.cornerRadius = 5.0
             
-            
-            let tempImageView = UIImageView(frame: CGRectMake(0, 0, imageWidth*0.2, imageWidth*0.2))
+            let tempImageView = UIImageView(frame: CGRectMake(xPadding1, xPadding1, imageWidth*0.2, imageWidth*0.2))
             tempImageView.image = app.iconImage
             tempView.addSubview(tempImageView)
             
-            tempImageView.layer.cornerRadius = 5.0
+            tempImageView.layer.cornerRadius = 10.0
             tempImageView.clipsToBounds = true
             
-            let tempTitleLabel = UILabel(frame: CGRectMake(CGRectGetMaxX(tempImageView.frame)+xPadding1, 0, CGRectGetWidth(tempView.frame)-2*xPadding1-CGRectGetMaxX(tempImageView.frame), imageWidth*0.2))
+            let tempTitleLabel = UILabel(frame: CGRectMake(CGRectGetMaxX(tempImageView.frame)+xPadding1, xPadding1, CGRectGetWidth(tempView.frame)-2*xPadding1-CGRectGetMaxX(tempImageView.frame), imageWidth*0.2))
             tempTitleLabel.text = app.title
-            tempTitleLabel.font = SoftwareProjectTableViewCellSetting.getTitleLabelFont()
+            tempTitleLabel.font = SoftwareProjectTableViewCellSetting.getDescriptionLabelFont()
             tempTitleLabel.numberOfLines = 0
             
             tempView.addSubview(tempTitleLabel)
+            
+            
+            let seeAllButton:UIButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+            seeAllButton.addTarget(self, action: "pressedButton:", forControlEvents: UIControlEvents.TouchUpInside)
+            seeAllButton.tag = app.tag
+            seeAllButton.setTitleColor(lightBlue, forState: UIControlState.Normal)
+            seeAllButton.titleLabel?.numberOfLines = 1
+            seeAllButton.titleLabel?.font = SoftwareProjectTableViewCellSetting.getDescriptionLabelFont()
+            
+            seeAllButton.setTitle("Install Now", forState: UIControlState.Normal)
+            seeAllButton.frame = CGRectMake(CGRectGetWidth(tempView.frame)-100-15, CGRectGetHeight(tempView.frame)-44, 100, 44)
+            seeAllButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Right
+            
+            tempView.addSubview(seeAllButton)
+            
+            
+            
+            
+            
             
             scrollView.addSubview(tempView)
             xPosition = xPosition+xPadding1*0.5+imageWidth
@@ -124,5 +150,13 @@ class AppTableViewCell: BaseTableViewCell {
         return yHeight
     }
 
+    
+    func pressedButton(sender:UIButton!) {
+        
+        let app : App = AppDataManager.shareInstance.apps[sender.tag]
+        
+        delegate?.openAppLink(app.urlString, title: app.title)
+    }
+    
 
 }
