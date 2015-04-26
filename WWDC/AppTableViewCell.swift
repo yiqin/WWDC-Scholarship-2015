@@ -67,15 +67,28 @@ class AppTableViewCell: BaseTableViewCell {
         scrollView.contentSize = CGSizeMake(CGRectGetWidth(scrollView.frame)*imageCount, CGRectGetHeight(scrollView.frame))
         
         var xPosition:CGFloat = xPadding1*0.25
-        for tempImage in apps {
-            let tempImageView = UIImageView(frame: CGRectMake(xPosition, 0, imageWidth, imageHeight))
+        for app in apps {
+            let tempView = UIView(frame: CGRectMake(xPosition, 0, imageWidth, imageHeight))
             
-            tempImageView.backgroundColor = UIColor.redColor()
-            // tempImageView.image = tempImage
-            tempImageView.contentMode = UIViewContentMode.ScaleAspectFill
+            // tempView.backgroundColor = UIColor.redColor()
+            tempView.clipsToBounds = true
+            
+            
+            let tempImageView = UIImageView(frame: CGRectMake(0, 0, imageWidth*0.2, imageWidth*0.2))
+            tempImageView.image = app.iconImage
+            tempView.addSubview(tempImageView)
+            
+            tempImageView.layer.cornerRadius = 5.0
             tempImageView.clipsToBounds = true
             
-            scrollView.addSubview(tempImageView)
+            let tempTitleLabel = UILabel(frame: CGRectMake(CGRectGetMaxX(tempImageView.frame)+xPadding1, 0, CGRectGetWidth(tempView.frame)-2*xPadding1-CGRectGetMaxX(tempImageView.frame), imageWidth*0.2))
+            tempTitleLabel.text = app.title
+            tempTitleLabel.font = SoftwareProjectTableViewCellSetting.getTitleLabelFont()
+            tempTitleLabel.numberOfLines = 0
+            
+            tempView.addSubview(tempTitleLabel)
+            
+            scrollView.addSubview(tempView)
             xPosition = xPosition+xPadding1*0.5+imageWidth
             
         }

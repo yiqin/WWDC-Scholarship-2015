@@ -42,6 +42,12 @@ public class ResumeDataManager: NSObject {
         quoteSection4.rowObjects = [quote4]
         
         
+        let quote5 = Quote(text: "Think Different", backgroundImage: UIImage(named: "backgroundImage10")!)
+        var quoteSection5 = QuoteSection()
+        quoteSection5.rowObjects = [quote5]
+        
+        
+        
         let content1 = Content(title: "I’m an iOS developer and a hackathon hacker. \n\nI was born in China. Three years ago, I came to U.S to pursue my dream of becoming a mechanical engineer. \n\n During the learning process, I accidently went to a college top hackathon host by University of Michigan, in Ann Arbor in Juanary 2014. I was shocked by the passion and the creativity of the programmers from all over the country. It's also the first time I got a chance to talk to engineers from Apple. After that, I spent more and more time on iOS development. \n\nNow I study at University of Chicago and work on to become an iOS developer.")
         let contentSection1 = ContentSection()
         contentSection1.text = "About me"
@@ -131,6 +137,7 @@ public class ResumeDataManager: NSObject {
         let openSourceSection = SoftwareProjectSection()
         openSourceSection.text = "Open Source Projects"
         
+        openSource2.isLastOne = true
         openSourceSection.rowObjects = [openSourceContent, openSource3, openSource1, openSource2]
         
         
@@ -171,7 +178,7 @@ public class ResumeDataManager: NSObject {
         
         
         
-        objects = NSArray(array: [profileSummarySection, BlankSection(), contentSection1, BlankSection(), AppSection(), BlankSection(), quoteSection1, BlankSection(), softwareProjectSection1, BlankSection(), quoteSection2, BlankSection(), hackathonSection, BlankSection(), quoteSection3, BlankSection(), openSourceSection, BlankSection(), quoteSection4, BlankSection(),educationSection,BlankSection(),robotSection])
+        objects = NSArray(array: [profileSummarySection, BlankSection(), contentSection1, BlankSection(), AppSection(), BlankSection(), quoteSection1, BlankSection(), softwareProjectSection1, BlankSection(), quoteSection2, BlankSection(), hackathonSection, BlankSection(), quoteSection3, BlankSection(), openSourceSection, BlankSection(), quoteSection4, BlankSection(),educationSection,BlankSection(),robotSection,BlankSection(), quoteSection5])
         
         
         

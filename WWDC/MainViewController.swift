@@ -76,6 +76,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         taglineLabel.frame = CGRectMake(screenWidth*0.5-taglineLabelWidth*0.5, 160, taglineLabelWidth, 24)
         taglineLabel.font = UIFont(name: "PlayfairDisplay-BoldItalic", size: 13)
         taglineLabel.textColor = UIColor.whiteColor()
+        taglineLabel.textAlignment = NSTextAlignment.Center
         backgroundImageScrollView.addSubview(taglineLabel)
         
         // taglineLabel.backgroundColor = UIColor.yellowColor()
@@ -177,11 +178,21 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         lineView.backgroundColor = UIColor.blackColor()
         headView.addSubview(lineView)
         
-        /*
-        let tempAnimationView = UIView(frame: CGRectMake(15, CGRectGetHeight(headLabel.frame)-10, 50, 2.0))
-        tempAnimationView.backgroundColor = UIColor.redColor()
-        headView.addSubview(tempAnimationView)
-        */
+        
+        if baseSection.text == "App Gallexy" {
+            let seeAllButton:UIButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+            seeAllButton.addTarget(self, action: "pressedButton:", forControlEvents: UIControlEvents.TouchUpInside)
+            seeAllButton.setTitleColor(lightBlue, forState: UIControlState.Normal)
+            seeAllButton.titleLabel?.numberOfLines = 1
+            seeAllButton.titleLabel?.font = SoftwareProjectTableViewCellSetting.getDescriptionLabelFont()
+            
+            seeAllButton.setTitle("see all", forState: UIControlState.Normal)
+            seeAllButton.frame = CGRectMake(CGRectGetWidth(headView.frame)-100-15, 0, 100, CGRectGetHeight(headView.frame))
+            seeAllButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Right
+            
+            headView.addSubview(seeAllButton)
+            
+        }
         
         return headView
     }
@@ -297,6 +308,27 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         navigationController?.presentViewController(webDetailNavigationController, animated: true, completion: { () -> Void in
             
         })
+    }
+    
+    func pressedButton(sender:UIButton!) {
+        let alertController = UIAlertController(title: "See Yi's all Apps", message: "You are leaving the app to App Store", preferredStyle: .Alert)
+        
+        let cancelAction = UIAlertAction(title: "Back", style: .Cancel) { (action) in
+            // ...
+        }
+        alertController.addAction(cancelAction)
+        
+        let OKAction = UIAlertAction(title: "Go", style: .Default) { (action) in
+            // ...
+            let urlString = "http://itunes.apple.com/us/artist/yi-qin/id698213318"
+            let url = NSURL(string:urlString)
+            UIApplication.sharedApplication().openURL(url!)
+        }
+        alertController.addAction(OKAction)
+        
+        self.presentViewController(alertController, animated: true) {
+            // ...
+        }
     }
     
 }
