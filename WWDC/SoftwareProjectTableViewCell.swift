@@ -24,6 +24,8 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
     let projectImageView:UIImageView = UIImageView()
     
     
+    var guideLabel:UILabel = UILabel()
+    
     let titleButton:UIButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
     
     
@@ -190,6 +192,22 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
                         
                         }, completion: { finished in
                             AnimationManager.shareInstance.addRegular(self.titleLabel.text!)
+                            
+                            if self.titleLabel.text == "Leaftagger (Best Use of Parse from Facebook and Best iOS app from Apple at MHacks f2014)" && AnimationManager.shareInstance.checkGuide() {
+                                
+                                    println("show guide..")
+                                    AnimationManager.shareInstance.updateGuideHelper()
+                                
+                                    self.guideLabel = UILabel(frame: CGRectMake(CGRectGetMinX(self.titleLabel.frame), CGRectGetMinY(self.titleLabel.frame)-20, CGRectGetWidth(self.titleLabel.frame)-40, 20))
+                                self.guideLabel.text = "Click the title to learn more."
+                                self.guideLabel.font = UIFont(name: "Lato-Black", size: 14)
+                                self.guideLabel.backgroundColor = UIColor(red: 235.0/255.0, green: 236.0/255.0, blue: 236.0/255.0, alpha: 1.0)
+                                self.guideLabel.textColor = lightBlue
+                                self.addSubview(self.guideLabel)
+                                
+                                NSTimer.scheduledTimerWithTimeInterval(3.5, target: self, selector: "removeGuide", userInfo: nil, repeats: false)
+                                
+                            }
                     })
                 }
             }
@@ -200,6 +218,10 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
     
     func pressedButton(sender:UIButton!) {
         delegate?.openLink(softwareProject.urlString, title: softwareProject.shortTitle)
+    }
+    
+    func removeGuide(){
+        guideLabel.hidden = true
     }
     
     class func cellHeight(object:AnyObject)->CGFloat {

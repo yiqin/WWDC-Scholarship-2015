@@ -45,5 +45,16 @@ public class AnimationManager: NSObject {
     func addRegular(text:String) {
         regularList.addObject(text)
     }
+    
+    var guideHelper:Bool = true
+    
+    func checkGuide()->Bool {
+        return guideHelper
+    }
+    
+    func updateGuideHelper(){
+        guideHelper = false
+    }
+    
 
 }

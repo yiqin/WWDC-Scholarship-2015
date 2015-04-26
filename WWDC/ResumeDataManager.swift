@@ -71,7 +71,7 @@ public class ResumeDataManager: NSObject {
         
         
         
-        let hackathonConent = Content(title: "I have been really lucky to attend 14 premier hackathons since 2014. I have received 14 awards from Apple, Facebook, Parse.com, Qualcomm, Evernote, Mashery, Kimono Labs and more. \n\nThe hackathon is like a mini-WWDC, which privdes where I get a chance to talk to engineers From Apple and learn new things from them. ")
+        let hackathonConent = Content(title: "I have been really lucky to attend 14 premier hackathons since 2014. I have received 14 awards from Apple, Facebook, Parse.com, Qualcomm, Evernote, Mashery, Kimono Labs and more. \n\nThe hackathon is like a mini-WWDC, where I would get a chance to talk to engineers From Apple and other companies and learn something new. ")
         
         
         let hackathonImageSet = ImageSet()
@@ -141,13 +141,13 @@ public class ResumeDataManager: NSObject {
         
         
         
-        let educationContent = Content(title: "Three year ago, I came to U.S to pursue my phd in Mechanical Engineering.")
+        let educationContent = Content(title: "I was a Phd at Purdue. Due to my interest in iOS, I'm studying Computer Science at University of Chicago now.")
         
         let education1 = SoftwareProject(title: "The University of Chicago", subtitle: "Master of Science, Computer Science\nSeptember 2014 - expected December 2015")
         education1.descriptionPoint = ["Learning the nature and fundamentals of Computer Science (algorithm and data structure)."]
         
         let education2 = SoftwareProject(title: "Purdue University", subtitle: "Master of Science, Mechanical Engineering\nAugust 2011 - June 2014")
-        education2.descriptionPoint = ["Focused on designing software and hardware for biologically inspired robots, especially flying insect robots and humanoid robots."]
+        education2.descriptionPoint = ["Learned control theory and mechanical design."]
         
         let education3 = SoftwareProject(title: "Shanghai Jiao Tong Unviersity", subtitle: "Bachelor of Science, Mechanical Engineering\nSeptember 2007 - June 2011")
         education3.descriptionPoint = ["Completed undergraduate honors thesis on design of flapping wing micro air vehicles."]
@@ -156,13 +156,13 @@ public class ResumeDataManager: NSObject {
         let educationSection = SoftwareProjectSection()
         educationSection.text = "Education"
         
-        education3.isLastOne = true
+        // education3.isLastOne = true
         educationSection.rowObjects = [educationContent, education1, education2, education3]
         
         
         
         
-        let robotContent = Content(title: "I also build robots. I focused on designing software and hardware for biologically inspired robots, especially flying insect robots and humanoid robots.")
+        let robotContent = Content(title: "Beside iOS, I also build robots. I focused on designing software and hardware for biologically inspired robots, especially flying insect robots and humanoid robots.")
         
         let robotImageSet = ImageSet()
         robotImageSet.pageImages = [UIImage(named: "robot1"), UIImage(named: "robot2"), UIImage(named: "robot3"), UIImage(named: "robot4")]
