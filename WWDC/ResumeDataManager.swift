@@ -64,6 +64,7 @@ public class ResumeDataManager: NSObject {
         
         
         
+        let hackathonConent = Content(title: "I have been really lucky to attend 14 premier hackathons since 2014. I have received 14 awards from Apple, Facebook, Parse.com, Qualcomm, Evernote, Mashery, Kimono Labs and more. I believe that the world we live in is dynamic, so I’m ready for new challenges every day.")
         
         let hackathon1 = SoftwareProject(title: "Leaftagger (Best Use of Parse from Facebook + Parse and Best iOS app from Apple at MHacks f2014)",subtitle: "1000+ Hackers, September 2014", projectImage: UIImage(named: "leaftagger1")!)
         hackathon1.descriptionPoint = ["Leaftagger is a powerful framework to get feedback from users directly in the native iOS app. It ultimately enables developers to iterate and launch product quicker.","Leaftagger allows developers to communicate with their users through your app without more messy emails back and forward.","Leaftagger allows developers to communicate with their users through your app without more messy emails back and forward."]
@@ -83,7 +84,7 @@ public class ResumeDataManager: NSObject {
         hackathonSection.text = "Hackathons"
         
         hackathon3.isLastOne = true
-        hackathonSection.rowObjects = [hackathon1, hackathon2, hackathon3]
+        hackathonSection.rowObjects = [hackathonConent, hackathon1, hackathon2, hackathon3]
         
         
         
