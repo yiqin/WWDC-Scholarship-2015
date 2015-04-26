@@ -76,7 +76,7 @@ public class ResumeDataManager: NSObject {
         hackathonImageSet.image2 = UIImage(named: "image2")
         hackathonImageSet.image3 = UIImage(named: "image3")
         
-        hackathonImageSet.pageImages = [UIImage(named: "image1"), UIImage(named: "image2"), UIImage(named: "image3")]
+        hackathonImageSet.pageImages = [UIImage(named: "image1"), UIImage(named: "image2"), UIImage(named: "image3"),UIImage(named: "image2")]
         
         
         let hackathon1 = SoftwareProject(title: "Leaftagger (Best Use of Parse from Facebook and Best iOS app from Apple at MHacks f2014)",subtitle: "1000+ Hackers, September 2014", projectImage: UIImage(named: "leaftagger1")!)

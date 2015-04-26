@@ -14,10 +14,6 @@ class ImageSetTableViewCell: BaseTableViewCell {
     
     var pageImages:[UIImage] = []
     
-    var imageView1:UIImageView = UIImageView()
-    var imageView2:UIImageView = UIImageView()
-    var imageView3:UIImageView = UIImageView()
-    
     var scrollView:UIScrollView = UIScrollView()
     var scrollViewContainer:ScrollViewContainer = ScrollViewContainer()
     
@@ -34,30 +30,15 @@ class ImageSetTableViewCell: BaseTableViewCell {
         let imageWidth = (tempWidth-3*xPadding1)
         let imageHeight = imageWidth*0.58
         
-        imageView1.frame = CGRectMake(xPadding1, 0, imageWidth, imageHeight)
-        imageView2.frame = CGRectMake(CGRectGetMaxX(imageView1.frame)+xPadding1*0.5, 0, imageWidth, imageHeight)
-        imageView3.frame = CGRectMake(CGRectGetMaxX(imageView2.frame)+xPadding1*0.5, 0, imageWidth, imageHeight)
-        
-        imageView1.contentMode = UIViewContentMode.ScaleAspectFill
-        imageView1.clipsToBounds = true
-        imageView2.contentMode = UIViewContentMode.ScaleAspectFill
-        imageView2.clipsToBounds = true
-        imageView3.contentMode = UIViewContentMode.ScaleAspectFill
-        imageView3.clipsToBounds = true
-        
-        
         
         scrollView.frame = CGRectMake(xPadding1, yPadding1, tempWidth-xPadding1*2, imageHeight+2*yPadding1)
         scrollView.clipsToBounds = false
         
-        scrollView.contentSize = CGSizeMake((imageWidth+xPadding1)*3, imageHeight+2*yPadding1)
-        scrollView.setContentOffset(CGPointMake((imageWidth+xPadding1),0), animated: false)
+        // scrollView.contentSize = CGSizeMake((imageWidth+xPadding1)*3, imageHeight+2*yPadding1)
+        // scrollView.setContentOffset(CGPointMake((imageWidth+xPadding1),0), animated: false)
         scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, +15, 0)
         
-        scrollView.addSubview(imageView1)
-        scrollView.addSubview(imageView2)
-        scrollView.addSubview(imageView3)
-        
+
         scrollView.pagingEnabled = true
         
         
@@ -85,36 +66,36 @@ class ImageSetTableViewCell: BaseTableViewCell {
     func setContentValue(object:AnyObject){
         imageSet = object as! ImageSet
         
-        
-        imageView1.image = imageSet.image1
-        imageView2.image = imageSet.image2
-        imageView3.image = imageSet.image3
+        let viewsToRemove = scrollView.subviews
+        for v in viewsToRemove as! [UIView] {
+            v.removeFromSuperview()
+        }
         
         let tempWidth = screenWidth
         let xPadding1 = SoftwareProjectTableViewCellSetting.getXPadding1()*0.5
         let imageWidth = (tempWidth-3*xPadding1)
         let imageHeight = imageWidth*0.58
         
+
+        let imageCount:CGFloat = CGFloat(imageSet.pageImages.count)
+        
+        scrollView.contentSize = CGSizeMake((imageWidth+xPadding1)*imageCount, CGRectGetHeight(scrollView.frame))
+        scrollView.setContentOffset(CGPointMake((imageWidth+xPadding1),0), animated: false)
+        
+        
         var xPosition:CGFloat = xPadding1*0.5
         
         for tempImage in imageSet.pageImages {
             let tempImageView = UIImageView(frame: CGRectMake(xPosition, 0, imageWidth, imageHeight))
             
+            tempImageView.image = tempImage
             tempImageView.contentMode = UIViewContentMode.ScaleAspectFill
             tempImageView.clipsToBounds = true
             
             scrollView.addSubview(tempImageView)
-            xPosition = xPosition+xPadding1*0.5
+            xPosition = xPosition+xPadding1*0.5+imageWidth
+            
         }
-        
-
-        
-        let imageCount:CGFloat = CGFloat(imageSet.pageImages.count)
-        scrollView.contentSize = CGSizeMake((imageWidth+xPadding1)*imageCount, CGRectGetHeight(scrollView.frame))
-        scrollView.setContentOffset(CGPointMake((imageWidth+xPadding1),0), animated: false)
-        
-        
-        
     }
     
     
