@@ -85,14 +85,36 @@ class ImageSetTableViewCell: BaseTableViewCell {
     func setContentValue(object:AnyObject){
         imageSet = object as! ImageSet
         
-        let tempWidth = screenWidth
-        let xPadding1 = SoftwareProjectTableViewCellSetting.getXPadding1()*0.5
-        let xPadding2 = SoftwareProjectTableViewCellSetting.getXPadding2()
-        let yPadding1 = SoftwareProjectTableViewCellSetting.getYPadding1()
         
         imageView1.image = imageSet.image1
         imageView2.image = imageSet.image2
         imageView3.image = imageSet.image3
+        
+        let tempWidth = screenWidth
+        let xPadding1 = SoftwareProjectTableViewCellSetting.getXPadding1()*0.5
+        let imageWidth = (tempWidth-3*xPadding1)
+        let imageHeight = imageWidth*0.58
+        
+        var xPosition:CGFloat = xPadding1*0.5
+        
+        for tempImage in imageSet.pageImages {
+            let tempImageView = UIImageView(frame: CGRectMake(xPosition, 0, imageWidth, imageHeight))
+            
+            tempImageView.contentMode = UIViewContentMode.ScaleAspectFill
+            tempImageView.clipsToBounds = true
+            
+            scrollView.addSubview(tempImageView)
+            xPosition = xPosition+xPadding1*0.5
+        }
+        
+
+        
+        let imageCount:CGFloat = CGFloat(imageSet.pageImages.count)
+        scrollView.contentSize = CGSizeMake((imageWidth+xPadding1)*imageCount, CGRectGetHeight(scrollView.frame))
+        scrollView.setContentOffset(CGPointMake((imageWidth+xPadding1),0), animated: false)
+        
+        
+        
     }
     
     

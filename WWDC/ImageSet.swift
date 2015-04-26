@@ -10,6 +10,8 @@ import UIKit
 
 class ImageSet: NSObject {
     
+    var pageImages:[UIImage?] = []
+    
     var image1:UIImage? = UIImage()
     var image2:UIImage? = UIImage()
     var image3:UIImage? = UIImage()
