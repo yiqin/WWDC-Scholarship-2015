@@ -17,6 +17,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // Override point for customization after application launch.
         
+        setAppNavigationBar()
+        
         let mainViewController = MainViewController()
         
         let mainNavigationController = MainNavigationController(rootViewController: mainViewController)
@@ -26,6 +28,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         
         return true
+    }
+    
+    func setAppNavigationBar(){
+        /*
+        [[UINavigationBar appearance] setBarTintColor:[UIColor colorFromHexString:@"f0f0f0"]];
+        [[UINavigationBar appearance] setTintColor:[UIColor colorFromHexString:@"202020"]];
+        [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorFromHexString:@"202020"], NSForegroundColorAttributeName,[UIFont boldSystemFontOfSize:14], NSFontAttributeName, nil]];
+        */
+        UINavigationBar.appearance().barTintColor = UIColor.whiteColor()
+        UINavigationBar.appearance().tintColor = UIColor(red: 32.0/255, green: 32.0/255, blue: 32.0/255, alpha: 1.0)
     }
 
     func applicationWillResignActive(application: UIApplication) {

@@ -47,12 +47,15 @@ class WebDetailViewController: UIViewController {
         // navigationController?.navigationBarHidden = true
         
         // progressView.
-        progressView.frame = CGRectMake(0, 64, screenWidth, 2)
+        progressView.frame = CGRectMake(0, 64, screenWidth, 3)
         progressView.tintColor = UIColor.blackColor()
         view.addSubview(progressView)
         view.insertSubview(webView, belowSubview: progressView)
         
         webView.addObserver(self, forKeyPath: "estimatedProgress", options: .New, context: nil)
+        
+        
+        
     }
     
     override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<()>) {

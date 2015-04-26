@@ -32,6 +32,8 @@ class WebDetailNavigationController: UINavigationController {
         super.viewDidLoad()
         navigationBarHidden = false
         
+        
+        
     }
     
 }
