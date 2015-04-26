@@ -189,8 +189,6 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        
-        // let cellClassName = ResumeDataManager.shareInstance.getCellClass(indexPath.section)
         let object: AnyObject = ResumeDataManager.shareInstance.getObject(indexPath)
         var klass:AnyClass = object_getClass(object)
         let cellClassName = NSStringFromClass(klass)

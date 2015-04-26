@@ -115,12 +115,7 @@ public class ResumeDataManager: NSObject {
     }
     
     func getCellClass(sectionIndex: Int) -> NSString {
-        
-        // let sectionIndex = indexPath.section
-        // let rowIndex = indexPath.row
-        
         let object: AnyObject = ResumeDataManager.shareInstance.objects[sectionIndex]
-        
         var klass:AnyClass = object_getClass(object)
         let cellClassName = NSStringFromClass(klass)
         // println(cellClassName)
@@ -139,8 +134,6 @@ public class ResumeDataManager: NSObject {
     }
     
     func getHeight(indexPath: NSIndexPath) -> CGFloat {
-        // let cellClassName = ResumeDataManager.shareInstance.getCellClass(indexPath.section)
-        
         let object: AnyObject = ResumeDataManager.shareInstance.getObject(indexPath)
         var klass:AnyClass = object_getClass(object)
         let cellClassName = NSStringFromClass(klass)
