@@ -295,16 +295,13 @@
 			isa = PBXGroup;
 			children = (
 				8D41631C1AE83CAB00D15AD2 /* AppDelegate.swift */,
-				8DAB87CB1AECB582008F5193 /* UpdateUIViewFrameByPixel.swift */,
 				8D2758211AE9E3AA006B9390 /* Macro.swift */,
+				8D27581F1AE9AC40006B9390 /* SoftwareProjectTableViewCellSetting.swift */,
 				8D4163431AE854A500D15AD2 /* MainNavigationController.swift */,
 				8D41633D1AE851D400D15AD2 /* MainViewController.swift */,
-				8D27581F1AE9AC40006B9390 /* SoftwareProjectTableViewCellSetting.swift */,
-				8D4163471AE8764100D15AD2 /* ResumeDataManager.swift */,
-				8D21BA651AE8D2D900BB6AD5 /* BaseSection.swift */,
-				8D2757A41AE93F52006B9390 /* BaseTableViewCell.swift */,
-				8D27581D1AE97B25006B9390 /* YQDynamicHeightLabel.swift */,
-				8DAB87C81AECAA1C008F5193 /* AnimationManager.swift */,
+				8DAB87D91AED830E008F5193 /* Customized UIKit */,
+				8DAB87D61AED82DA008F5193 /* DataManager */,
+				8DAB87D81AED82F6008F5193 /* BaseClass */,
 				8DAB87CA1AECAA20008F5193 /* WebDetail */,
 				8DAB87D51AED5488008F5193 /* ImageSet */,
 				8DAB87C11AEC49BE008F5193 /* App */,
@@ -383,6 +380,33 @@
 				8DAB87D31AED4FC7008F5193 /* ScrollViewContainer.swift */,
 			);
 			name = ImageSet;
+			sourceTree = "<group>";
+		};
+		8DAB87D61AED82DA008F5193 /* DataManager */ = {
+			isa = PBXGroup;
+			children = (
+				8D4163471AE8764100D15AD2 /* ResumeDataManager.swift */,
+				8DAB87C81AECAA1C008F5193 /* AnimationManager.swift */,
+			);
+			name = DataManager;
+			sourceTree = "<group>";
+		};
+		8DAB87D81AED82F6008F5193 /* BaseClass */ = {
+			isa = PBXGroup;
+			children = (
+				8D21BA651AE8D2D900BB6AD5 /* BaseSection.swift */,
+				8D2757A41AE93F52006B9390 /* BaseTableViewCell.swift */,
+			);
+			name = BaseClass;
+			sourceTree = "<group>";
+		};
+		8DAB87D91AED830E008F5193 /* Customized UIKit */ = {
+			isa = PBXGroup;
+			children = (
+				8D27581D1AE97B25006B9390 /* YQDynamicHeightLabel.swift */,
+				8DAB87CB1AECB582008F5193 /* UpdateUIViewFrameByPixel.swift */,
+			);
+			name = "Customized UIKit";
 			sourceTree = "<group>";
 		};
 		8DC1DE471AEB3F4800D29C1C /* Content */ = {

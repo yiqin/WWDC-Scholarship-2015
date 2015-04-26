@@ -45,7 +45,6 @@ class AppTableViewCell: BaseTableViewCell {
         let xPadding2 = SoftwareProjectTableViewCellSetting.getXPadding2()
         let yPadding1 = SoftwareProjectTableViewCellSetting.getYPadding1()
         
-        // titleLabel.update(CGRectMake(xPadding1, SoftwareProjectTableViewCellSetting.getYPadding1(), tempWidth-2*xPadding1, 100), font: SoftwareProjectTableViewCellSetting.getDescriptionLabelFont(), text: content.title)
         
     }
     
@@ -59,25 +58,23 @@ class AppTableViewCell: BaseTableViewCell {
     class func cellHeight(object:AnyObject)->CGFloat {
         let readyObject = object as! App
         
+        var yHeight:CGFloat = 0
         
-        /*
         let tempWidth = screenWidth
         let xPadding1 = SoftwareProjectTableViewCellSetting.getXPadding1()*0.5
         let xPadding2 = SoftwareProjectTableViewCellSetting.getXPadding2()
         let yPadding1 = SoftwareProjectTableViewCellSetting.getYPadding1()
         
-        let titleLabel:YQDynamicHeightLabel = YQDynamicHeightLabel()
+        let imageWidth = (tempWidth-3*xPadding1)
+        let imageHeight = imageWidth*0.58
         
-        titleLabel.update(CGRectMake(xPadding1, yPadding1, tempWidth-2*xPadding1, 100), font: SoftwareProjectTableViewCellSetting.getDescriptionLabelFont(), text: readyObject.title)
+        yHeight = yHeight+imageHeight+2*yPadding1
         
         if readyObject.isLastOne {
-            return CGRectGetMaxY(titleLabel.frame)+yPadding1+SoftwareProjectTableViewCellSetting.getFooterHeight()
+            return yHeight+SoftwareProjectTableViewCellSetting.getFooterHeight()
         }
         
-        return CGRectGetMaxY(titleLabel.frame)+yPadding1
-        */
-        
-        return 100.0
+        return yHeight
     }
 
 
