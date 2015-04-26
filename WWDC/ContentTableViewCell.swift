@@ -61,7 +61,6 @@ class ContentTableViewCell: BaseTableViewCell {
                 self.titleLabel.moveY(-AnimationManager.regularYOffset)
                 
                 }, completion: { finished in
-                    println("content")
                     AnimationManager.shareInstance.addRegular(self.titleLabel.text!)
             })
         }
@@ -70,7 +69,6 @@ class ContentTableViewCell: BaseTableViewCell {
     
     class func cellHeight(object:AnyObject)->CGFloat {
         let readyObject = object as! Content
-        
         
         let tempWidth = screenWidth
         let xPadding1 = SoftwareProjectTableViewCellSetting.getXPadding1()*0.5

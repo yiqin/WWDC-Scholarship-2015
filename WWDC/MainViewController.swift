@@ -15,7 +15,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     let quoteCellIdentifier = "quoteCellIdentifier"
     let softwareProjectCellIdentifier = "softwareCellIdentifier"
     let appCellIdentifier = "AppCellIdentifier"
-    
+    let imageSetCellIdentifier = "ImageSetCellIdentifier"
     
     var tableView: UITableView = UITableView()
     
@@ -194,22 +194,22 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let cellClassName = NSStringFromClass(klass)
                 
         switch cellClassName {
-            
-        case "WWDC.ProfileSummary":
-            return getProfileSummaryTableViewCell(indexPath)
-        case "WWDC.Quote":
-            return getQuoteTableViewCell(indexPath)
-        case "WWDC.SoftwareProject":
-            return getSoftwareProjectTableViewCell(indexPath)
-        case "WWDC.Content":
-            return getContentTableViewCell(indexPath)
-        case "WWDC.App":
-            return getAppTableViewCell(indexPath)
-        case "WWDC.Blank":
-            return BlankTableViewCell()
-        default:
-            return UITableViewCell()
-            
+            case "WWDC.ProfileSummary":
+                return getProfileSummaryTableViewCell(indexPath)
+            case "WWDC.Quote":
+                return getQuoteTableViewCell(indexPath)
+            case "WWDC.SoftwareProject":
+                return getSoftwareProjectTableViewCell(indexPath)
+            case "WWDC.Content":
+                return getContentTableViewCell(indexPath)
+            case "WWDC.App":
+                return getAppTableViewCell(indexPath)
+            case "WWDC.Blank":
+                return BlankTableViewCell()
+            case "WWDC.ImageSet":
+                return getImageSetTableViewCell(indexPath)
+            default:
+                return UITableViewCell()
         }
     }
     
@@ -264,6 +264,17 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         var cell = tableView.dequeueReusableCellWithIdentifier(appCellIdentifier) as? AppTableViewCell
         if cell == nil {
             cell = AppTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: appCellIdentifier)
+        }
+        let object: AnyObject = ResumeDataManager.shareInstance.getObject(indexPath)
+        cell?.setContentValue(object)
+        
+        return cell!
+    }
+    
+    func getImageSetTableViewCell(indexPath: NSIndexPath) -> UITableViewCell {
+        var cell = tableView.dequeueReusableCellWithIdentifier(imageSetCellIdentifier) as? ImageSetTableViewCell
+        if cell == nil {
+            cell = ImageSetTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: imageSetCellIdentifier)
         }
         let object: AnyObject = ResumeDataManager.shareInstance.getObject(indexPath)
         cell?.setContentValue(object)

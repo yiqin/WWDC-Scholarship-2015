@@ -46,8 +46,14 @@ public class ResumeDataManager: NSObject {
         let contentSection1 = ContentSection()
         contentSection1.text = "About me"
         
+        
+        let contentImageSet = ImageSet()
+        contentImageSet.image1 = UIImage(named: "image1")
+        contentImageSet.image2 = UIImage(named: "image2")
+        contentImageSet.image3 = UIImage(named: "image3")
+        
         content1.isLastOne = true
-        contentSection1.rowObjects = [content1]
+        contentSection1.rowObjects = [content1, contentImageSet]
         
         
         
@@ -205,6 +211,8 @@ public class ResumeDataManager: NSObject {
                 return AppTableViewCell.cellHeight(object)
             case "WWDC.Blank":
                 return BlankTableViewCell.cellHeight()
+            case "WWDC.ImageSet":
+                return ImageSetTableViewCell.cellHeight(object)
             default:
                 return 44
         }

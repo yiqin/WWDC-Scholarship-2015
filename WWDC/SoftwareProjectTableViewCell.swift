@@ -189,15 +189,11 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
                         v.moveY(-AnimationManager.regularYOffset)
                         
                         }, completion: { finished in
-                            println("content")
                             AnimationManager.shareInstance.addRegular(self.titleLabel.text!)
                     })
                 }
             }
-            
         }
-        
-        
         
         
     }

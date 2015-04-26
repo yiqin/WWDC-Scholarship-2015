@@ -76,7 +76,6 @@ class QuoteTableViewCell: BaseTableViewCell {
                 self.titleLabel.moveX(-AnimationManager.regularYOffset)
                 
                 }, completion: { finished in
-                    println("content")
                     AnimationManager.shareInstance.addRegular(self.titleLabel.text!)
                     self.isScroll = true
             })
