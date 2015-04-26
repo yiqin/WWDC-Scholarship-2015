@@ -42,7 +42,7 @@ public class ResumeDataManager: NSObject {
         quoteSection4.rowObjects = [quote4]
         
         
-        let content1 = Content(title: "I’m an iOS developer and a hackathon hacker. I was born in China. \n\nTwo year ago, I just would like to make an iOS app that my friends that can use every day. Then I begin to learn iOS. During the learning process, I accidently went to a college top hackathon host by University of Michigan, in Ann Arbor. I was shocked by the passion and the creativity of the programmers from all over the country. After that, I spent almost all my time in iOS development.\n\nI believe that the world we live in is dynamic, so I’m ready for new challenges every day.")
+        let content1 = Content(title: "I’m an iOS developer and a hackathon hacker. I was born in China. \n\n During the learning process, I accidently went to a college top hackathon host by University of Michigan, in Ann Arbor. I was shocked by the passion and the creativity of the programmers from all over the country. After that, I spent almost all my time in iOS development.\n\nI believe that the world we live in is dynamic, so I’m ready for new challenges every day.")
         let contentSection1 = ContentSection()
         contentSection1.text = "About me"
         

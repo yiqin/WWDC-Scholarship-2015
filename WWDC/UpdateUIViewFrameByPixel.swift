@@ -12,8 +12,6 @@ import Foundation
 extension UIView {
     
     func moveY(yOffset:CGFloat) {
-        println("This is step...")
-        
         frame = CGRectMake(CGRectGetMinX(frame), CGRectGetMinY(frame)+yOffset, CGRectGetWidth(frame), CGRectGetHeight(frame))
     }
     
