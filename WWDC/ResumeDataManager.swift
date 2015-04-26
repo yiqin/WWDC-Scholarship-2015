@@ -47,13 +47,10 @@ public class ResumeDataManager: NSObject {
         contentSection1.text = "About me"
         
         
-        let contentImageSet = ImageSet()
-        contentImageSet.image1 = UIImage(named: "image1")
-        contentImageSet.image2 = UIImage(named: "image2")
-        contentImageSet.image3 = UIImage(named: "image3")
+        
         
         content1.isLastOne = true
-        contentSection1.rowObjects = [content1, contentImageSet]
+        contentSection1.rowObjects = [content1]
         
         
         
@@ -72,6 +69,15 @@ public class ResumeDataManager: NSObject {
         
         
         let hackathonConent = Content(title: "I have been really lucky to attend 14 premier hackathons since 2014. I have received 14 awards from Apple, Facebook, Parse.com, Qualcomm, Evernote, Mashery, Kimono Labs and more. ")
+        
+        
+        let hackathonImageSet = ImageSet()
+        hackathonImageSet.image1 = UIImage(named: "image1")
+        hackathonImageSet.image2 = UIImage(named: "image2")
+        hackathonImageSet.image3 = UIImage(named: "image3")
+        
+        
+        
         
         let hackathon1 = SoftwareProject(title: "Leaftagger (Best Use of Parse from Facebook and Best iOS app from Apple at MHacks f2014)",subtitle: "1000+ Hackers, September 2014", projectImage: UIImage(named: "leaftagger1")!)
         hackathon1.descriptionPoint = ["Leaftagger is an iOS framework to get feedback from users directly in the native iOS app, which untimately enables developers to iterate and launch the app quicker.","Leaftagger allows developers to communicate with their users through your app without more messy emails back and forward."]
@@ -102,7 +108,8 @@ public class ResumeDataManager: NSObject {
         hackathonSection.text = "Hackathons"
         
         hackathon4.isLastOne = true
-        hackathonSection.rowObjects = [hackathonConent, hackathon1, hackathon2, hackathon3, hackathon4]
+        hackathonImageSet.isLastOne = true
+        hackathonSection.rowObjects = [hackathonConent, hackathonImageSet, hackathon1, hackathon2, hackathon3, hackathon4]
         
         
         

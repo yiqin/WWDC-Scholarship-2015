@@ -304,6 +304,7 @@
 				8D21BA651AE8D2D900BB6AD5 /* BaseSection.swift */,
 				8D2757A41AE93F52006B9390 /* BaseTableViewCell.swift */,
 				8D27581D1AE97B25006B9390 /* YQDynamicHeightLabel.swift */,
+				8DAB87D51AED5488008F5193 /* ImageSet */,
 				8DAB87C81AECAA1C008F5193 /* AnimationManager.swift */,
 				8DAB87CA1AECAA20008F5193 /* WebDetail */,
 				8DAB87C11AEC49BE008F5193 /* App */,
@@ -360,10 +361,6 @@
 				8DAB87BD1AEC2D4B008F5193 /* App.swift */,
 				8DAB87BF1AEC2E4E008F5193 /* AppSection.swift */,
 				8DAB87BB1AEC2CF9008F5193 /* AppTableViewCell.swift */,
-				8DAB87CD1AED4461008F5193 /* ImageSet.swift */,
-				8DAB87CF1AED44C7008F5193 /* ImageSetSection.swift */,
-				8DAB87D11AED450C008F5193 /* ImageSetTableViewCell.swift */,
-				8DAB87D31AED4FC7008F5193 /* ScrollViewContainer.swift */,
 			);
 			name = App;
 			sourceTree = "<group>";
@@ -375,6 +372,17 @@
 				8DAB87C41AEC7045008F5193 /* WebDetailNavigationController.swift */,
 			);
 			name = WebDetail;
+			sourceTree = "<group>";
+		};
+		8DAB87D51AED5488008F5193 /* ImageSet */ = {
+			isa = PBXGroup;
+			children = (
+				8DAB87CD1AED4461008F5193 /* ImageSet.swift */,
+				8DAB87CF1AED44C7008F5193 /* ImageSetSection.swift */,
+				8DAB87D11AED450C008F5193 /* ImageSetTableViewCell.swift */,
+				8DAB87D31AED4FC7008F5193 /* ScrollViewContainer.swift */,
+			);
+			name = ImageSet;
 			sourceTree = "<group>";
 		};
 		8DC1DE471AEB3F4800D29C1C /* Content */ = {

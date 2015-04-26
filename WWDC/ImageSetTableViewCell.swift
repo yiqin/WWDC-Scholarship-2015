@@ -12,6 +12,8 @@ class ImageSetTableViewCell: BaseTableViewCell {
     
     var imageSet:ImageSet = ImageSet()
     
+    var pageImages:[UIImage] = []
+    
     var imageView1:UIImageView = UIImageView()
     var imageView2:UIImageView = UIImageView()
     var imageView3:UIImageView = UIImageView()
@@ -30,11 +32,11 @@ class ImageSetTableViewCell: BaseTableViewCell {
         let yPadding1 = SoftwareProjectTableViewCellSetting.getYPadding1()
         
         let imageWidth = (tempWidth-3*xPadding1)
-        let imageHeight = imageWidth*0.65
+        let imageHeight = imageWidth*0.58
         
-        imageView1.frame = CGRectMake(xPadding1, yPadding1, imageWidth, imageHeight)
-        imageView2.frame = CGRectMake(CGRectGetMaxX(imageView1.frame)+xPadding1*0.5, yPadding1, imageWidth, imageHeight)
-        imageView3.frame = CGRectMake(CGRectGetMaxX(imageView2.frame)+xPadding1*0.5, yPadding1, imageWidth, imageHeight)
+        imageView1.frame = CGRectMake(xPadding1, 0, imageWidth, imageHeight)
+        imageView2.frame = CGRectMake(CGRectGetMaxX(imageView1.frame)+xPadding1*0.5, 0, imageWidth, imageHeight)
+        imageView3.frame = CGRectMake(CGRectGetMaxX(imageView2.frame)+xPadding1*0.5, 0, imageWidth, imageHeight)
         
         imageView1.contentMode = UIViewContentMode.ScaleAspectFill
         imageView1.clipsToBounds = true
@@ -43,14 +45,15 @@ class ImageSetTableViewCell: BaseTableViewCell {
         imageView3.contentMode = UIViewContentMode.ScaleAspectFill
         imageView3.clipsToBounds = true
         
-        // addSubview(imageView1)
-        // addSubview(imageView2)
-        // addSubview(imageView3)
-        
-        scrollView.frame = CGRectMake(xPadding1*2, yPadding1, tempWidth-xPadding1*4, imageHeight+2*yPadding1)
         
         
-        scrollView.contentSize = CGSizeMake(imageWidth*3, imageHeight+2*yPadding1)// contentSize = CGPoint()
+        scrollView.frame = CGRectMake(xPadding1, yPadding1, tempWidth-xPadding1*2, imageHeight+2*yPadding1)
+        scrollView.clipsToBounds = false
+        
+        scrollView.contentSize = CGSizeMake((imageWidth+xPadding1)*3, imageHeight+2*yPadding1)
+        scrollView.setContentOffset(CGPointMake((imageWidth+xPadding1),0), animated: false)
+        scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, +15, 0)
+        
         scrollView.addSubview(imageView1)
         scrollView.addSubview(imageView2)
         scrollView.addSubview(imageView3)
@@ -58,7 +61,9 @@ class ImageSetTableViewCell: BaseTableViewCell {
         scrollView.pagingEnabled = true
         
         
+        
         scrollViewContainer.frame = CGRectMake(0, 0, screenWidth,  imageHeight+2*yPadding1)
+        // scrollViewContainer.backgroundColor = UIColor.grayColor()
         scrollViewContainer.scrollView = scrollView
         scrollViewContainer.addSubview(scrollView)
         
@@ -85,14 +90,9 @@ class ImageSetTableViewCell: BaseTableViewCell {
         let xPadding2 = SoftwareProjectTableViewCellSetting.getXPadding2()
         let yPadding1 = SoftwareProjectTableViewCellSetting.getYPadding1()
         
-        // titleLabel.update(CGRectMake(xPadding1, SoftwareProjectTableViewCellSetting.getYPadding1(), tempWidth-2*xPadding1, 100), font: SoftwareProjectTableViewCellSetting.getDescriptionLabelFont(), text: content.title)
-        
-        backgroundColor = UIColor.greenColor()
-        
         imageView1.image = imageSet.image1
         imageView2.image = imageSet.image2
         imageView3.image = imageSet.image3
-        
     }
     
     
@@ -113,7 +113,7 @@ class ImageSetTableViewCell: BaseTableViewCell {
         let yPadding1 = SoftwareProjectTableViewCellSetting.getYPadding1()
         
         let imageWidth = (tempWidth-3*xPadding1)
-        let imageHeight = imageWidth*0.65
+        let imageHeight = imageWidth*0.58
         
         yHeight = yHeight+imageHeight+2*yPadding1
         
