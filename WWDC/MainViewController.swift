@@ -191,6 +191,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         
         let cellClassName = ResumeDataManager.shareInstance.getCellClass(indexPath.section)
+        let object: AnyObject = ResumeDataManager.shareInstance.getObject(indexPath)
         
         switch cellClassName {
             
