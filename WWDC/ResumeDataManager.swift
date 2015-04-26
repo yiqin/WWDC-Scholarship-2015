@@ -42,7 +42,7 @@ public class ResumeDataManager: NSObject {
         quoteSection4.rowObjects = [quote4]
         
         
-        let content1 = Content(title: "I’m an iOS developer and a hackathon hacker. \n\nI was born in China. Three years ago, I came to U.S to pursue my dream of becoming a mechanical engineer. \n\n During the learning process, I accidently went to a college top hackathon host by University of Michigan, in Ann Arbor in Juanary 2014. I was shocked by the passion and the creativity of the programmers from all over the country. It's also the first time I got a chance to talk to engineers from Apple. After that, I spent almost all my time in iOS development. \n\n Apple goes to many college hackathons today. These hackathons is like a mini-WWDC where I can get help from Apple as WWDC Labs. \n\nI believe that the world we live in is dynamic, so I’m ready for new challenges every day.\n\nNow I study at University of Chicago and work on to become an iOS developer.")
+        let content1 = Content(title: "I’m an iOS developer and a hackathon hacker. \n\nI was born in China. Three years ago, I came to U.S to pursue my dream of becoming a mechanical engineer. \n\n During the learning process, I accidently went to a college top hackathon host by University of Michigan, in Ann Arbor in Juanary 2014. I was shocked by the passion and the creativity of the programmers from all over the country. It's also the first time I got a chance to talk to engineers from Apple. After that, I spent more and more time on iOS development. \n\nNow I study at University of Chicago and work on to become an iOS developer.")
         let contentSection1 = ContentSection()
         contentSection1.text = "About me"
         
@@ -68,7 +68,7 @@ public class ResumeDataManager: NSObject {
         
         
         
-        let hackathonConent = Content(title: "I have been really lucky to attend 14 premier hackathons since 2014. I have received 14 awards from Apple, Facebook, Parse.com, Qualcomm, Evernote, Mashery, Kimono Labs and more. ")
+        let hackathonConent = Content(title: "I have been really lucky to attend 14 premier hackathons since 2014. I have received 14 awards from Apple, Facebook, Parse.com, Qualcomm, Evernote, Mashery, Kimono Labs and more. Apple goes to many college hackathons today. These hackathons is like a mini-WWDC where I can get help from Apple as WWDC Labs. ")
         
         
         let hackathonImageSet = ImageSet()
