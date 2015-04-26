@@ -180,7 +180,7 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
     }
     
     func pressedButton(sender:UIButton!) {
-        delegate?.openLink("http://www.leaftagger.com/", title: "leaftagger")
+        delegate?.openLink(softwareProject.urlString, title: softwareProject.shortTitle)
     }
     
 

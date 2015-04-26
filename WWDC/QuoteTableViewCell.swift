@@ -60,7 +60,7 @@ class QuoteTableViewCell: BaseTableViewCell {
         let yContent = notification.userInfo!["yContent"] as! CGFloat
         let yOffset = yContent-setupYContent
         
-        backgroundImageScrollView.contentOffset = CGPointMake(0, yOffset*0.06)
+        backgroundImageScrollView.contentOffset = CGPointMake(0, yOffset*0.07)
         
         // println("\(yOffset) update the quote \(titleLabel.text)")
     }
@@ -73,7 +73,6 @@ class QuoteTableViewCell: BaseTableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
         
     }
     

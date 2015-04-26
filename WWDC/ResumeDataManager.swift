@@ -21,29 +21,28 @@ public class ResumeDataManager: NSObject {
         // Make resume here....
         let profileSummarySection = ProfileSummarySection()
         
-        // Force wrapping....
+
         let quote1 = Quote(text: "Keep Building", backgroundImage: UIImage(named: "backgroundImage1")!)
-        
-        
         var quoteSection1 = QuoteSection()
         quoteSection1.rowObjects = [quote1]
         
         
         let quote2 = Quote(text: "Brace Yourself", backgroundImage: UIImage(named: "profileBackgroundImage1")!)
-        
         var quoteSection2 = QuoteSection()
         quoteSection2.rowObjects = [quote2]
         
         
         let quote3 = Quote(text: "Know a good idea when you see it.", backgroundImage: UIImage(named: "backgroundImage3")!)
-        
         var quoteSection3 = QuoteSection()
         quoteSection3.rowObjects = [quote3]
         
         
+        let quote4 = Quote(text: "The world we live in is dynamic.", backgroundImage: UIImage(named: "backgroundImage4")!)
+        var quoteSection4 = QuoteSection()
+        quoteSection4.rowObjects = [quote4]
         
         
-        let content1 = Content(title: "I’m an iOS developer and a hackathon hacker. I love the hack culture.\n\nI have been really lucky to attend 14 premier hackathons since 2014. I have received 14 awards from Apple, Facebook, Parse.com, Qualcomm, Evernote, Mashery, Kimono Labs and more. I believe that the world we live in is dynamic, so I’m ready for new challenges every day.")
+        let content1 = Content(title: "I’m an iOS developer and a hackathon hacker. I was born in China. \n\nTwo year ago, I just would like to make an iOS app that my friends that can use every day. Then I begin to learn iOS. During the learning process, I accidently went to a college top hackathon host by University of Michigan, in Ann Arbor. I was shocked by the passion and the creativity of the programmers from all over the country. After that, I spent almost all my time in iOS development.")
         let contentSection1 = ContentSection()
         contentSection1.text = "About me"
         
@@ -53,7 +52,9 @@ public class ResumeDataManager: NSObject {
         
         
         let softwareProject1 = SoftwareProject(title: "Lead iOS Developer, at FireStop Inc",subtitle: "June 2014 - December 2014", projectImage: UIImage(named: "firestop1"))
-        softwareProject1.descriptionPoint = ["FireStop is a cloud-based response software that enables firefighters to leverage critical data in real time when responding to emergencies.", "FireStop significantly reduces firefighting response and operation time to better protect lives and property through data collection, mobile software and analytics.","I'm responsible for iOS development. We want to arm firefighters with iPads and real-time data."]
+        softwareProject1.descriptionPoint = ["FireStop is a cloud-based response software that enables firefighters to leverage critical data in real time when responding to emergencies.", "FireStop significantly reduces firefighting response and operation time to better protect lives and property through data collection, mobile software and analytics.","I'm responsible for iOS development. We want to arm firefighters with iPads to access real-time data."]
+        softwareProject1.urlString = "http://www.firestopapp.com/"
+        softwareProject1.shortTitle = "firestop"
         
         
         var softwareProjectSection1 = SoftwareProjectSection()
@@ -66,18 +67,23 @@ public class ResumeDataManager: NSObject {
         
         let hackathonConent = Content(title: "I have been really lucky to attend 14 premier hackathons since 2014. I have received 14 awards from Apple, Facebook, Parse.com, Qualcomm, Evernote, Mashery, Kimono Labs and more. I believe that the world we live in is dynamic, so I’m ready for new challenges every day.")
         
-        let hackathon1 = SoftwareProject(title: "Leaftagger (Best Use of Parse from Facebook + Parse and Best iOS app from Apple at MHacks f2014)",subtitle: "1000+ Hackers, September 2014", projectImage: UIImage(named: "leaftagger1")!)
-        hackathon1.descriptionPoint = ["Leaftagger is a powerful framework to get feedback from users directly in the native iOS app. It ultimately enables developers to iterate and launch product quicker.","Leaftagger allows developers to communicate with their users through your app without more messy emails back and forward.","Leaftagger allows developers to communicate with their users through your app without more messy emails back and forward."]
+        let hackathon1 = SoftwareProject(title: "Leaftagger (Best Use of Parse from Facebook and Best iOS app from Apple at MHacks f2014)",subtitle: "1000+ Hackers, September 2014", projectImage: UIImage(named: "leaftagger1")!)
+        hackathon1.descriptionPoint = ["Leaftagger is an iOS SDK framework to get feedback from users directly in the native iOS app. It ultimately enables developers to iterate and launch product quicker.","Leaftagger allows developers to communicate with their users through your app without more messy emails back and forward."]
+        hackathon1.urlString = "http://www.leaftagger.com/"
+        hackathon1.shortTitle = "leaftagger"
         
         
-        let hackathon2 = SoftwareProject(title: "O2 : API for Bitcoin (Best Bitcoin Hack by Coinbase at PennApps X f2014)",subtitle: "1200+ Hackers, September 2014", projectImage: UIImage(named: "bitcoin1")!)
+        // Hide this one. Apple Engineer don't like Bitcoin...
+        let hackathon2 = SoftwareProject(title: "O2: iOS SDK for Bitcoin (Best Bitcoin Hack by Coinbase at PennApps X f2014)",subtitle: "1200+ Hackers, September 2014", projectImage: UIImage(named: "bitcoin1")!)
         hackathon2.descriptionPoint = ["O2 is the world's first fully integrated Bitcoin payment/reward API which can be implemented by one-line of code.","O2 is a tool for companies and developers to reward users for achievements. This not only increases user retention, but also increases the companies’ and developer’s popularity and revenue.","Our mission is to reward users for what they do on a daily basis."]
-        
+        hackathon2.urlString = "http://www.bito2.org/"
+        hackathon2.shortTitle = "O2: iOS SDK for Bitcoin"
         
         
         let hackathon3 = SoftwareProject(title: "EVOO (Kimono Labs Award at Y Combinator Hackathon 2014)",subtitle: "500+ Hackers, August 2014", projectImage: UIImage(named: "evoo1")!)
         hackathon3.descriptionPoint = ["Designed an iOS app to help people quickly discover and plans meals for diverse dietary needs.","Utilized Kimono to turn recipes and cookbooks websites into structured APIs."]
-        
+        hackathon3.urlString = "http://challengepost.com/software/evoo"
+        hackathon3.shortTitle = "EVOO"
         
         
         let hackathonSection = SoftwareProjectSection()
@@ -90,13 +96,42 @@ public class ResumeDataManager: NSObject {
         
         
         
-        let education1 = SoftwareProject(title: "The University of Chicago", subtitle: "September 2014 - expected December 2015")
+        let openSourceContent = Content(title: "Three year ago, I came to U.S to pursue my phd in Mechanical Engineering.")
+        
+        let openSource1 = SoftwareProject(title: "YQParse", subtitle: "September 2014", projectImage: UIImage(named: "YQParse2")!)
+        openSource1.descriptionPoint = ["YQParse is a Parse iOS SDK totally based on REST, which lets you interact Parse.com with a HTTP request, including saving objects and retrieving objects.", "YQParse makes it much easier to buld a backend for your own iOS SDK."]
+        openSource1.urlString = "http://github.com/yiqin/YQParse"
+        openSource1.shortTitle = "YQParse"
+        
+        
+        let openSource2 = SoftwareProject(title: "Yo iOS SDK", subtitle: "July 2014", projectImage: UIImage(named: "Yo1")!)
+        openSource2.descriptionPoint = ["Yo is a social application to send the user's friends the word \"Yo\" as a text and audio notification", "Yo iOS SDK allows developers to send a \"Yo\" with a single line of code in Xcode."]
+        openSource2.urlString = "http://github.com/yiqin/YO-iOS-SDK"
+        openSource2.shortTitle = "Yo iOS SDK"
+        
+        
+        let openSource3 = SoftwareProject(title: "Plants-vs-Zombies", subtitle: "December 2014", projectImage: UIImage(named: "plant1")!)
+        openSource3.descriptionPoint = ["A mob of fun-loving zombies is about to invade your home. Use peashooters to defense. The game is written in Java from scratch."]
+        openSource3.urlString = "http://github.com/yiqin/Plants-vs-Zombies"
+        openSource3.shortTitle = "Plants-vs-Zombies"
+        
+        
+        let openSourceSection = SoftwareProjectSection()
+        openSourceSection.text = "Open Source Projects"
+        
+        openSourceSection.rowObjects = [openSourceContent, openSource3, openSource1, openSource2]
+        
+        
+        
+        let educationContent = Content(title: "Three year ago, I came to U.S to pursue my phd in Mechanical Engineering.")
+        
+        let education1 = SoftwareProject(title: "The University of Chicago", subtitle: "Master of Science, Computer Science\nSeptember 2014 - expected December 2015")
         education1.descriptionPoint = ["Learning the nature and fundamentals of Computer Science (algorithm and data structure)."]
         
-        let education2 = SoftwareProject(title: "Purdue University", subtitle: "August 2011 - June 2014")
+        let education2 = SoftwareProject(title: "Purdue University", subtitle: "Master of Science, Mechanical Engineering\nAugust 2011 - June 2014")
         education2.descriptionPoint = ["Focused on designing software and hardware for biologically inspired robots, especially flying insect robots and humanoid robots."]
         
-        let education3 = SoftwareProject(title: "Shanghai Jiao Tong Unviersity", subtitle: "September 2007 - June 2011")
+        let education3 = SoftwareProject(title: "Shanghai Jiao Tong Unviersity", subtitle: "Bachelor of Science, Mechanical Engineering\nSeptember 2007 - June 2011")
         education3.descriptionPoint = ["Completed undergraduate honors thesis on design of flapping wing micro air vehicles."]
         
         
@@ -104,12 +139,25 @@ public class ResumeDataManager: NSObject {
         educationSection.text = "Education"
         
         education3.isLastOne = true
-        educationSection.rowObjects = [education1, education2, education3]
+        educationSection.rowObjects = [educationContent, education1, education2, education3]
         
         
         
         
-        objects = NSArray(array: [profileSummarySection, BlankSection(), contentSection1, BlankSection(), AppSection(), BlankSection(), quoteSection1, BlankSection(), softwareProjectSection1, BlankSection(), quoteSection2, BlankSection(), hackathonSection, BlankSection(), quoteSection3, BlankSection(),educationSection])
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        objects = NSArray(array: [profileSummarySection, BlankSection(), contentSection1, BlankSection(), AppSection(), BlankSection(), quoteSection1, BlankSection(), softwareProjectSection1, BlankSection(), quoteSection2, BlankSection(), hackathonSection, BlankSection(), quoteSection3, BlankSection(), openSourceSection, BlankSection(), quoteSection4, BlankSection(),educationSection])
         
         super.init()
     }
