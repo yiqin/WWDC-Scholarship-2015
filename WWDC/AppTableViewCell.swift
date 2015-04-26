@@ -110,7 +110,11 @@ class AppTableViewCell: BaseTableViewCell {
             tempView.addSubview(seeAllButton)
             
             
+            let tempStoryLabel:YQDynamicHeightLabel = YQDynamicHeightLabel()
+            tempStoryLabel.update(CGRectMake(xPadding1, CGRectGetMaxY(tempImageView.frame)+SoftwareProjectTableViewCellSetting.getYPadding1()*0.5, CGRectGetWidth(tempView.frame)-2*xPadding1, 100), font: SoftwareProjectTableViewCellSetting.getSubtitleLabelFont(), text: app.moreDetail)
+            tempStoryLabel.textColor = darkGrey
             
+            tempView.addSubview(tempStoryLabel)
             
             
             

@@ -11,9 +11,12 @@ import UIKit
 class App: NSObject {
     
     var title:String = ""
+    var moreDetail:String = ""
+    
     var iconImage:UIImage? = UIImage()
     var tag:Int = 0
     var urlString:String = ""
+    
     
     var isLastOne:Bool = false
     

@@ -48,7 +48,7 @@ public class ResumeDataManager: NSObject {
         
         
         
-        let content1 = Content(title: "I enjoy hacking. I love the hacker culture. \n\nI was born in China. Three years ago, I came to U.S to pursue my dream of becoming a mechanical engineer. \n\nI accidently went to a hackathon with 500+ hackers in Juanary 2014. I was shocked by the passion and the creativity of programmers who were from all over the country. After that, I changed my mind and I spent more and more time on iOS development. \n\nNow I'm studying Computer Science at University of Chicago and I'm becoming an iOS developer.")
+        let content1 = Content(title: "I enjoy hacking. I love the hacker culture. \n\nI was born in China. Three years ago, I came to U.S to pursue my dream of becoming a mechanical engineer. \n\nI accidently went to a hackathon with 500+ hackers in Juanary 2014. I was shocked by the passion and the creativity of programmers who were from all over the country. After that, I changed my mind and decided to become a programmer.")
         let contentSection1 = ContentSection()
         contentSection1.text = "About me"
         
@@ -71,7 +71,7 @@ public class ResumeDataManager: NSObject {
         
         
         
-        let hackathonConent = Content(title: "I have been really lucky to attend 14 premier hackathons since 2014. I have received 14 awards from Apple, Facebook, Parse.com, Qualcomm, Evernote, Mashery, Kimono Labs and more. The hackathon is like a mini-WWDC, which privdes where I get a chance to talk to engineers From Apple and learn new things from them. ")
+        let hackathonConent = Content(title: "I have been really lucky to attend 14 premier hackathons since 2014. I have received 14 awards from Apple, Facebook, Parse.com, Qualcomm, Evernote, Mashery, Kimono Labs and more. \n\nThe hackathon is like a mini-WWDC, which privdes where I get a chance to talk to engineers From Apple and learn new things from them. ")
         
         
         let hackathonImageSet = ImageSet()
@@ -84,7 +84,6 @@ public class ResumeDataManager: NSObject {
         hackathon1.shortTitle = "leaftagger"
         
         
-        // Hide this one. Apple Engineer don't like Bitcoin...
         let hackathon2 = SoftwareProject(title: "O2: iOS SDK for Bitcoin (Best Bitcoin Hack by Coinbase at PennApps X f2014)",subtitle: "1200+ Hackers, September 2014", projectImage: UIImage(named: "bitcoin1")!)
         hackathon2.descriptionPoint = ["O2 is the world’s first fully integreated Bitcoin rewarding API helping companies and developers to increase user retention, which can be implemented by one-line of code."]
         hackathon2.urlString = "http://www.bito2.org/"
