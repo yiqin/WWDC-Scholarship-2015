@@ -276,14 +276,20 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
     }
     
-    func openLink() {
+    func openLink(urlString: String) {
         println("This works now.")
         
         let vc = WebDetailViewController(nibName: nil, bundle: nil)
+        vc.urlString = urlString
         
-        navigationController?.presentViewController(vc, animated: true, completion: { () -> Void in
+        let webDetailNavigationController = WebDetailNavigationController(rootViewController: vc)
+        
+        // navigationController?.pushViewController(webDetailNavigationController, animated: true)
+        
+        navigationController?.presentViewController(webDetailNavigationController, animated: true, completion: { () -> Void in
             
         })
+        
     }
     
 }

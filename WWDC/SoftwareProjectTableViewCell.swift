@@ -181,7 +181,7 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
     
     
     func pressedButton(sender:UIButton!) {
-        delegate?.openLink(urlString:)
+        delegate?.openLink("http://www.leaftagger.com/")
     }
     
 

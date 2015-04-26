@@ -12,12 +12,15 @@ import WebKit
 class WebDetailViewController: UIViewController {
     var webView: WKWebView
     
+    var progressView: UIProgressView!
+    
+    var urlString:String = ""
+    
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         
         webView = WKWebView()
+        progressView = UIProgressView()
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        
-        
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -28,16 +31,35 @@ class WebDetailViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        navigationController?.navigationBarHidden = false
+        
         view.addSubview(webView)
         webView.setTranslatesAutoresizingMaskIntoConstraints(false)
         let height = NSLayoutConstraint(item: webView, attribute: .Height, relatedBy: .Equal, toItem: view, attribute: .Height, multiplier: 1, constant: 0)
         let width = NSLayoutConstraint(item: webView, attribute: .Width, relatedBy: .Equal, toItem: view, attribute: .Width, multiplier: 1, constant: 0)
         view.addConstraints([height, width])
         
-        let url = NSURL(string:"http://www.appcoda.com")
+        let url = NSURL(string:urlString)
         let request = NSURLRequest(URL:url!)
         webView.loadRequest(request)
-
+        
+        
+        // navigationController?.navigationBarHidden = true
+        
+        // progressView.
+        progressView.frame = CGRectMake(0, 64, screenWidth, 2)
+        progressView.tintColor = UIColor.blackColor()
+        view.addSubview(progressView)
+        view.insertSubview(webView, belowSubview: progressView)
+        
+        webView.addObserver(self, forKeyPath: "estimatedProgress", options: .New, context: nil)
+    }
+    
+    override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<()>) {
+        if (keyPath == "estimatedProgress") {
+            progressView.hidden = webView.estimatedProgress == 1
+            progressView.setProgress(Float(webView.estimatedProgress), animated: true)
+        }
     }
     
 }
