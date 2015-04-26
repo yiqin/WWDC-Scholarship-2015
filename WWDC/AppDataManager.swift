@@ -19,12 +19,15 @@ public class AppDataManager: NSObject {
         
         let app1 = App()
         app1.title = "Allpick - Groupon Food Delivery"
+        app1.iconImage = UIImage(named: "allpick")
         
         let app2 = App()
-        app2.title = "LeetCoding - Review Coding Interview Questions"
+        app2.title = "1337Coding - Review Coding Interview Questions"
+        app2.iconImage = UIImage(named: "1337Coding")
         
         let app3 = App()
         app3.title = "Git Inspired - the best inspiring open source projects, every day."
+        app3.iconImage = UIImage(named: "gitinspired")
         
         
         apps = [app1, app2, app3]

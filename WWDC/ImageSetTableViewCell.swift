@@ -33,6 +33,7 @@ class ImageSetTableViewCell: BaseTableViewCell {
         scrollView.frame = CGRectMake(xPadding1*1, yPadding1, tempWidth-xPadding1*2, imageHeight+2*yPadding1)
         scrollView.clipsToBounds = false
         scrollView.pagingEnabled = true
+        scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, +15, 0)
         
         scrollViewContainer.frame = CGRectMake(0, 0, screenWidth,  imageHeight+2*yPadding1)
         scrollViewContainer.scrollView = scrollView
@@ -49,7 +50,6 @@ class ImageSetTableViewCell: BaseTableViewCell {
         super.setSelected(selected, animated: animated)
         
     }
-    
     
     func setContentValue(object:AnyObject){
         imageSet = object as! ImageSet
@@ -86,7 +86,7 @@ class ImageSetTableViewCell: BaseTableViewCell {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        scrollView.scrollIndicatorInsets = UIEdgeInsetsMake(0, 0, +15, 0)
+        
     }
     
     class func cellHeight(object:AnyObject)->CGFloat {
