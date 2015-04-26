@@ -10,12 +10,8 @@ import UIKit
 
 class ContentSection: BaseSection {
     
-    
     override init() {
         super.init()
-        
     }
-    
-    
 
 }

@@ -1,5 +1,5 @@
 //
-//  BlankSection.swift
+//  Blank.swift
 //  WWDC
 //
 //  Created by Yi Qin on 4/25/15.
@@ -8,11 +8,10 @@
 
 import UIKit
 
-class BlankSection: BaseSection {
+class Blank: NSObject {
     
     override init() {
         super.init()
-        rowObjects = [Blank()]
     }
 
 }

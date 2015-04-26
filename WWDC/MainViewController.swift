@@ -190,22 +190,26 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         
-        let cellClassName = ResumeDataManager.shareInstance.getCellClass(indexPath.section)
+        // let cellClassName = ResumeDataManager.shareInstance.getCellClass(indexPath.section)
         let object: AnyObject = ResumeDataManager.shareInstance.getObject(indexPath)
+        var klass:AnyClass = object_getClass(object)
+        let cellClassName = NSStringFromClass(klass)
+        
+        println(cellClassName)
         
         switch cellClassName {
             
-        case "WWDC.ProfileSummarySection":
+        case "WWDC.ProfileSummary":
             return getProfileSummaryTableViewCell(indexPath)
-        case "WWDC.QuoteSection":
+        case "WWDC.Quote":
             return getQuoteTableViewCell(indexPath)
-        case "WWDC.SoftwareProjectSection":
+        case "WWDC.SoftwareProject":
             return getSoftwareProjectTableViewCell(indexPath)
-        case "WWDC.ContentSection":
+        case "WWDC.Content":
             return getContentTableViewCell(indexPath)
-        case "WWDC.AppSection":
+        case "WWDC.App":
             return getAppTableViewCell(indexPath)
-        case "WWDC.BlankSection":
+        case "WWDC.Blank":
             return BlankTableViewCell()
         default:
             return UITableViewCell()

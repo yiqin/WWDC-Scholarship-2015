@@ -84,7 +84,7 @@ public class ResumeDataManager: NSObject {
         hackathonSection.text = "Hackathons"
         
         hackathon3.isLastOne = true
-        hackathonSection.rowObjects = [hackathonConent, hackathon1, hackathon2, hackathon3]
+        hackathonSection.rowObjects = [hackathon1, hackathon2, hackathon3]
         
         
         
@@ -139,31 +139,37 @@ public class ResumeDataManager: NSObject {
     }
     
     func getHeight(indexPath: NSIndexPath) -> CGFloat {
-        let cellClassName = ResumeDataManager.shareInstance.getCellClass(indexPath.section)
+        // let cellClassName = ResumeDataManager.shareInstance.getCellClass(indexPath.section)
+        
+        let object: AnyObject = ResumeDataManager.shareInstance.getObject(indexPath)
+        var klass:AnyClass = object_getClass(object)
+        let cellClassName = NSStringFromClass(klass)
+        
+        println(cellClassName)
         
         switch cellClassName {
             
-        case "WWDC.ProfileSummarySection":
+        case "WWDC.ProfileSummary":
             let baseSection = objects.objectAtIndex(indexPath.section) as! ProfileSummarySection
             return ProfileSummaryTableViewCell.cellHeight()
             
-        case "WWDC.QuoteSection":
+        case "WWDC.Quote":
             let baseSection = objects.objectAtIndex(indexPath.section) as! QuoteSection
-            return QuoteTableViewCell.cellHeight(baseSection.rowObjects[indexPath.row])
+            return QuoteTableViewCell.cellHeight(object)
             
-        case "WWDC.SoftwareProjectSection":
+        case "WWDC.SoftwareProject":
             let baseSection = objects.objectAtIndex(indexPath.section) as! SoftwareProjectSection
-            return SoftwareProjectTableViewCell.cellHeight(baseSection.rowObjects[indexPath.row])
+            return SoftwareProjectTableViewCell.cellHeight(object)
         
-        case "WWDC.ContentSection":
+        case "WWDC.Content":
             let baseSection = objects.objectAtIndex(indexPath.section) as! ContentSection
-            return ContentTableViewCell.cellHeight(baseSection.rowObjects[indexPath.row])
+            return ContentTableViewCell.cellHeight(object)
         
-        case "WWDC.AppSection":
+        case "WWDC.App":
             let baseSection = objects.objectAtIndex(indexPath.section) as! AppSection
-            return AppTableViewCell.cellHeight(baseSection.rowObjects[indexPath.row])
+            return AppTableViewCell.cellHeight(object)
             
-        case "WWDC.BlankSection":
+        case "WWDC.Blank":
             return BlankTableViewCell.cellHeight()
             
         default:
@@ -201,6 +207,10 @@ public class ResumeDataManager: NSObject {
             
         case "WWDC.AppSection":
             let baseSection = objects.objectAtIndex(indexPath.section) as! AppSection
+            return baseSection.rowObjects[indexPath.row]
+            
+        case "WWDC.BlankSection":
+            let baseSection = objects.objectAtIndex(indexPath.section) as! BlankSection
             return baseSection.rowObjects[indexPath.row]
             
         default:
