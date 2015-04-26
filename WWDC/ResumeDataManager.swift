@@ -46,9 +46,6 @@ public class ResumeDataManager: NSObject {
         let contentSection1 = ContentSection()
         contentSection1.text = "About me"
         
-        
-        
-        
         content1.isLastOne = true
         contentSection1.rowObjects = [content1]
         

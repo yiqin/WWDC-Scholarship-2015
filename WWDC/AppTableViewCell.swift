@@ -10,20 +10,30 @@ import UIKit
 
 class AppTableViewCell: BaseTableViewCell {
     
-    var app:App = App()
-    
-    let titleLabel:YQDynamicHeightLabel = YQDynamicHeightLabel()
-    
+    var scrollView:UIScrollView = UIScrollView()
+    var scrollViewContainer:ScrollViewContainer = ScrollViewContainer()
     
     
     override init(style: UITableViewCellStyle, reuseIdentifier: String?) {
         
         super.init(style: style, reuseIdentifier: reuseIdentifier)
         
+        let tempWidth = screenWidth
+        let xPadding1 = SoftwareProjectTableViewCellSetting.getXPadding1()*0.5
+        let xPadding2 = SoftwareProjectTableViewCellSetting.getXPadding2()
+        let yPadding1 = SoftwareProjectTableViewCellSetting.getYPadding1()
         
-        titleLabel.textAlignment = NSTextAlignment.Left
-        titleLabel.textColor = darkGrey // UIColor.blackColor()
-        addSubview(titleLabel)
+        let imageWidth = (tempWidth-3*xPadding1)
+        let imageHeight = imageWidth*0.58
+        
+        scrollView.frame = CGRectMake(xPadding1*1, yPadding1, tempWidth-xPadding1*2, imageHeight+2*yPadding1)
+        scrollView.clipsToBounds = false
+        scrollView.pagingEnabled = true
+        
+        scrollViewContainer.frame = CGRectMake(0, 0, screenWidth,  imageHeight+2*yPadding1)
+        scrollViewContainer.scrollView = scrollView
+        scrollViewContainer.addSubview(scrollView)
+        addSubview(scrollViewContainer)
     }
 
     required init(coder aDecoder: NSCoder) {
@@ -38,14 +48,37 @@ class AppTableViewCell: BaseTableViewCell {
     
     
     func setContentValue(object:AnyObject){
-        app = object as! App
+        
+        let apps:[App] = AppDataManager.shareInstance.apps
+        
+        let viewsToRemove = scrollView.subviews
+        for v in viewsToRemove as! [UIView] {
+            v.removeFromSuperview()
+        }
         
         let tempWidth = screenWidth
-        let xPadding1 = SoftwareProjectTableViewCellSetting.getXPadding1()*0.5
-        let xPadding2 = SoftwareProjectTableViewCellSetting.getXPadding2()
-        let yPadding1 = SoftwareProjectTableViewCellSetting.getYPadding1()
+        let xPadding1:CGFloat = SoftwareProjectTableViewCellSetting.getXPadding1()*0.5
         
+        let imageWidth = CGRectGetWidth(scrollView.frame)-xPadding1*0.5
+        let imageHeight = imageWidth*0.58
         
+        let imageCount:CGFloat = CGFloat(apps.count)
+        scrollView.contentSize = CGSizeMake(CGRectGetWidth(scrollView.frame)*imageCount, CGRectGetHeight(scrollView.frame))
+        
+        var xPosition:CGFloat = xPadding1*0.25
+        for tempImage in apps {
+            let tempImageView = UIImageView(frame: CGRectMake(xPosition, 0, imageWidth, imageHeight))
+            
+            tempImageView.backgroundColor = UIColor.redColor()
+            // tempImageView.image = tempImage
+            tempImageView.contentMode = UIViewContentMode.ScaleAspectFill
+            tempImageView.clipsToBounds = true
+            
+            scrollView.addSubview(tempImageView)
+            xPosition = xPosition+xPadding1*0.5+imageWidth
+            
+        }
+        scrollView.setContentOffset(CGPointMake(0, 0), animated: false)
     }
     
     
