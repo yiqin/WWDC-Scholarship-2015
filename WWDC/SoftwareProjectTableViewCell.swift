@@ -143,7 +143,7 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         }
         
         
-        let designedImageWidth:CGFloat = (tempWidth-2*xPadding1-xPadding2-xPadding2)*0.5
+        let designedImageWidth:CGFloat = (tempWidth-2*xPadding1-xPadding2-xPadding2)*0.75
         let designedImageHeight:CGFloat = designedImageWidth*3/4
         
         projectImageView.frame = CGRectMake(xPadding1+xPadding2, yLabelPosition+yPadding1, designedImageWidth, designedImageHeight)
@@ -210,7 +210,7 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         }
         
         if let tempImage = readyObject.projectImage {
-            let designedImageWidth:CGFloat = (tempWidth-2*xPadding1-xPadding2-xPadding2)*0.5
+            let designedImageWidth:CGFloat = (tempWidth-2*xPadding1-xPadding2-xPadding2)*0.75
             let designedImageHeight:CGFloat = designedImageWidth*3/4
             
             yLabelPosition = yLabelPosition + designedImageHeight+2*yPadding1

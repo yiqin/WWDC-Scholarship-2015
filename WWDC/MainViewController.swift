@@ -81,8 +81,9 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         // taglineLabel.backgroundColor = UIColor.yellowColor()
         
         
-        nameLabel.text = "Yi Qin".uppercaseString
-        nameLabel.frame = CGRectMake(screenWidth*0.5-taglineLabelWidth*0.5, 160-26, 200, 26)
+        nameLabel.text = "  Yi   Qin".uppercaseString
+        nameLabel.textAlignment = NSTextAlignment.Center
+        nameLabel.frame = CGRectMake(0, 160-26, screenWidth, 26)// CGRectMake(screenWidth*0.5-taglineLabelWidth*0.5, 160-26, 200, 26)
         nameLabel.font = UIFont(name: "Lato-Semibold", size: 20.0)
         nameLabel.textColor = UIColor.whiteColor()
         backgroundImageScrollView.addSubview(nameLabel)
@@ -192,9 +193,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         let object: AnyObject = ResumeDataManager.shareInstance.getObject(indexPath)
         var klass:AnyClass = object_getClass(object)
         let cellClassName = NSStringFromClass(klass)
-        
-        println(cellClassName)
-        
+                
         switch cellClassName {
             
         case "WWDC.ProfileSummary":
