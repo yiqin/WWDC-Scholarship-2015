@@ -20,6 +20,8 @@ class SoftwareProject: NSObject {
     var projectImage:UIImage?
     
     
+    var shortTitle:String = ""
+    
     
     var isLastOne:Bool = false
     

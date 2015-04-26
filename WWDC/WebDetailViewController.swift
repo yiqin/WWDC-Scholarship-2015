@@ -17,7 +17,6 @@ class WebDetailViewController: UIViewController {
     var urlString:String = ""
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        
         webView = WKWebView()
         progressView = UIProgressView()
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
@@ -30,9 +29,7 @@ class WebDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
-        navigationController?.navigationBarHidden = false
-        
+
         view.addSubview(webView)
         webView.setTranslatesAutoresizingMaskIntoConstraints(false)
         let height = NSLayoutConstraint(item: webView, attribute: .Height, relatedBy: .Equal, toItem: view, attribute: .Height, multiplier: 1, constant: 0)
@@ -44,18 +41,24 @@ class WebDetailViewController: UIViewController {
         webView.loadRequest(request)
         
         
-        // navigationController?.navigationBarHidden = true
-        
-        // progressView.
         progressView.frame = CGRectMake(0, 64, screenWidth, 3)
         progressView.tintColor = UIColor.blackColor()
         view.addSubview(progressView)
         view.insertSubview(webView, belowSubview: progressView)
         
+        
+        let backButton = UIBarButtonItem(image: UIImage(named: "back_web"), style: UIBarButtonItemStyle.Plain, target: self, action: "pressedBackButton")
+        navigationItem.leftBarButtonItem = backButton
+        
+        addWebViewObserver()
+    }
+    
+    func addWebViewObserver(){
         webView.addObserver(self, forKeyPath: "estimatedProgress", options: .New, context: nil)
-        
-        
-        
+    }
+    
+    func removeWebViewObserver(){
+        webView.removeObserver(self, forKeyPath: "estimatedProgress", context: nil)
     }
     
     override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<()>) {
@@ -65,4 +68,10 @@ class WebDetailViewController: UIViewController {
         }
     }
     
+    func pressedBackButton() {
+        removeWebViewObserver()
+        navigationController!.dismissViewControllerAnimated(true, completion: { () -> Void in
+            
+        })
+    }
 }

@@ -9,7 +9,7 @@
 import UIKit
 
 protocol SoftwareProjectTableViewCellDelegate {
-    func openLink(urlString:String)
+    func openLink(urlString:String, title:String)
 }
 
 
@@ -181,7 +181,7 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
     
     
     func pressedButton(sender:UIButton!) {
-        delegate?.openLink("http://www.leaftagger.com/")
+        delegate?.openLink("http://www.leaftagger.com/", title: "leaftagger")
     }
     
 

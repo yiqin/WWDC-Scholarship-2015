@@ -31,13 +31,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func setAppNavigationBar(){
-        /*
-        [[UINavigationBar appearance] setBarTintColor:[UIColor colorFromHexString:@"f0f0f0"]];
-        [[UINavigationBar appearance] setTintColor:[UIColor colorFromHexString:@"202020"]];
-        [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:[UIColor colorFromHexString:@"202020"], NSForegroundColorAttributeName,[UIFont boldSystemFontOfSize:14], NSFontAttributeName, nil]];
-        */
         UINavigationBar.appearance().barTintColor = UIColor.whiteColor()
         UINavigationBar.appearance().tintColor = UIColor(red: 32.0/255, green: 32.0/255, blue: 32.0/255, alpha: 1.0)
+        
+        let navbarFont = UIFont(name: "OpenSans-Bold", size: 13.0) ?? UIFont.systemFontOfSize(13)
+        UINavigationBar.appearance().titleTextAttributes = [NSFontAttributeName: navbarFont, NSForegroundColorAttributeName:UIColor(red: 32.0/255, green: 32.0/255, blue: 32.0/255, alpha: 1.0)]
     }
 
     func applicationWillResignActive(application: UIApplication) {
