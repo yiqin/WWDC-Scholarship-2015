@@ -141,7 +141,7 @@ public class ResumeDataManager: NSObject {
         
         
         
-        let educationContent = Content(title: "I was a Phd at Purdue. Due to my interest in iOS, I'm studying Computer Science at University of Chicago now.")
+        let educationContent = Content(title: "Due to my interest in iOS, I'm studying Computer Science at University of Chicago now.")
         
         let education1 = SoftwareProject(title: "The University of Chicago", subtitle: "Master of Science, Computer Science\nSeptember 2014 - expected December 2015")
         education1.descriptionPoint = ["Learning the nature and fundamentals of Computer Science (algorithm and data structure)."]
