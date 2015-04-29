@@ -14,7 +14,7 @@ class AppSection: BaseSection {
         super.init()
         
         // Create App here...
-        text = "App Gallexy"
+        text = "App Gallery"
         
         let contentApp = Content(title: "Two years ago, I just would like to make an iOS app that my friends that can use every day. Then I began to learn iOS. Now I have 9 apps on App Store. Each of them has it own story. Four of them are in Swift.")
         
