@@ -10,16 +10,22 @@ import UIKit
 import WebKit
 
 class WebDetailViewController: UIViewController {
-    var webView: WKWebView
     
+    
+    var webView: WKWebView
     var progressView: UIProgressView!
     
     var urlString:String = ""
+    
     
     override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
         webView = WKWebView()
         progressView = UIProgressView()
         super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
+    }
+    
+    deinit {
+        removeWebViewObserver()
     }
     
     required init(coder aDecoder: NSCoder) {
@@ -69,7 +75,7 @@ class WebDetailViewController: UIViewController {
     }
     
     func pressedBackButton() {
-        removeWebViewObserver()
+        
         navigationController!.dismissViewControllerAnimated(true, completion: { () -> Void in
             
         })

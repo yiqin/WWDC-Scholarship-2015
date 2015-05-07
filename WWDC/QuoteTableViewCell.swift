@@ -40,7 +40,16 @@ class QuoteTableViewCell: BaseTableViewCell {
         titleLabel.font = UIFont(name: "PlayfairDisplay-BoldItalic", size: 23)
         titleLabel.textColor = UIColor.whiteColor()
         addSubview(titleLabel)
+        
+        
+        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateMove:", name: "updateMove", object: nil)
     }
+    
+    // MARK: perform the deinitialization
+    deinit {
+        NSNotificationCenter.defaultCenter().removeObserver("updateMove")
+    }
+    
     
     required init(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
@@ -89,7 +98,7 @@ class QuoteTableViewCell: BaseTableViewCell {
         backgroundImageView.image = quote.backgroundImage
         self.setupYContent = setupYContent
         
-        NSNotificationCenter.defaultCenter().addObserver(self, selector: "updateMove:", name: "updateMove", object: nil)
+        
     }
     
     class func cellHeight(object:AnyObject)->CGFloat {

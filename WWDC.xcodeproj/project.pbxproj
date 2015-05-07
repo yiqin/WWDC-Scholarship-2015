@@ -368,8 +368,8 @@
 		8DAB87CA1AECAA20008F5193 /* WebDetail */ = {
 			isa = PBXGroup;
 			children = (
-				8DAB87C21AEC49F4008F5193 /* WebDetailViewController.swift */,
 				8DAB87C41AEC7045008F5193 /* WebDetailNavigationController.swift */,
+				8DAB87C21AEC49F4008F5193 /* WebDetailViewController.swift */,
 			);
 			name = WebDetail;
 			sourceTree = "<group>";
