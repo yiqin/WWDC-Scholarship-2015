@@ -1,5 +1,4 @@
 # WWDC-Scholarship-2015
-======
 Use your creativity and coding skills to build an app that tells us about you. Your app should highlight
 development projects you’ve worked on, your educational and professional background, technical
 skills, and interests.
