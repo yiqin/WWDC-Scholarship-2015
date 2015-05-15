@@ -11,7 +11,8 @@ skills, and interests.
 - All app content must be in English. 
 
 
-<img src="https://github.com/yiqin/WWDC-Scholarship-2015/blob/master/Screenshots/screenshot1.png" alt="app screenshot 2" width="49%"/>
-<img src="https://github.com/yiqin/WWDC-Scholarship-2015/blob/master/Screenshots/screenshot2.png" alt="app screenshot 1" width="49%"/>
-<img src="https://github.com/yiqin/WWDC-Scholarship-2015/blob/master/Screenshots/screenshot3.png" alt="app screenshot 1" width="49%"/>
+<img src="https://github.com/yiqin/WWDC-Scholarship-2015/blob/master/Screenshots/screenshot1.png" alt="app screenshot 2" width="34%"/>
+<img src="https://github.com/yiqin/WWDC-Scholarship-2015/blob/master/Screenshots/screenshot2.png" alt="app screenshot 1" width="34%"/>
+=====
+<img src="https://github.com/yiqin/WWDC-Scholarship-2015/blob/master/Screenshots/screenshot3.png" alt="app screenshot 1" width="34%"/>
 
