@@ -17,4 +17,7 @@ skills, and interests.
 
 ====
 <img src="https://github.com/yiqin/WWDC-Scholarship-2015/blob/master/Screenshots/screenshot3.png" alt="app screenshot 1" width="33%"/>
+<img src="https://github.com/yiqin/WWDC-Scholarship-2015/blob/master/Screenshots/screenshot4.png" alt="app screenshot 1" width="33%"/>
+
+
 
