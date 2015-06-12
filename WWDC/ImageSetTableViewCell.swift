@@ -54,6 +54,83 @@ class ImageSetTableViewCell: BaseTableViewCell {
     func setContentValue(object:AnyObject){
         imageSet = object as! ImageSet
         
+        
+        dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0), { () -> Void in
+            // MARK: - remove the views on the scrollView
+            let viewsToRemove = self.scrollView.subviews
+            for v in viewsToRemove as! [UIView] {
+                v.removeFromSuperview()
+            }
+            
+            // MARK: Get the information for the size
+            let tempWidth = screenWidth
+            let xPadding1:CGFloat = SoftwareProjectTableViewCellSetting.getXPadding1()*0.5
+            
+            let imageWidth = CGRectGetWidth(self.scrollView.frame)-xPadding1*0.5
+            let imageHeight = imageWidth*0.58
+            
+            let imageCount:CGFloat = CGFloat(self.imageSet.pageImages.count)
+            self.scrollView.contentSize = CGSizeMake(CGRectGetWidth(self.scrollView.frame)*imageCount, CGRectGetHeight(self.scrollView.frame))
+            
+            // Note:
+            // UIImage can be anywhere
+            
+            // UIImageView must be the main queue.
+            
+            
+            // MARK: - Create image views and add them to the scrollView again.
+            var xPosition:CGFloat = xPadding1*0.25
+            for tempImage in self.imageSet.pageImages {
+                
+                
+                let tempImageView = UIImageView(frame: CGRectMake(xPosition, 0, imageWidth, imageHeight))
+                
+                tempImageView.image = tempImage
+                tempImageView.contentMode = UIViewContentMode.ScaleAspectFill
+                tempImageView.clipsToBounds = true
+                
+                
+                self.scrollView.addSubview(tempImageView)
+                xPosition = xPosition+xPadding1*0.5+imageWidth
+                
+            }
+            self.scrollView.setContentOffset(CGPointMake(0, 0), animated: false)
+            
+            dispatch_async(dispatch_get_main_queue(), { () -> Void in
+                println("The scroll view is finished. ")
+                self.addSubview(self.scrollView)
+            })
+            
+        })
+        
+        
+        // Cornor radius. 
+        // CALayer corder radios is very expensive...
+        // One or two is ok.
+        // If we have 10, take the image, put the image and other into the background, and reutn ......
+        // 
+        
+        // Last year. Advanced graphs and animations for iOS apps.
+        
+        // 
+        
+        
+        
+        // UIKit
+        // UIViewController, UIImageView
+        // UIViewController, UIView...... - must be accessed by the main queue.
+        
+        
+        
+        // NSCache 
+        // It will automataclly do it for me.
+        
+        
+        
+            
+            
+        /*
+        // MARK: - remove the views on the scrollView
         let viewsToRemove = scrollView.subviews
         for v in viewsToRemove as! [UIView] {
             v.removeFromSuperview()
@@ -68,6 +145,7 @@ class ImageSetTableViewCell: BaseTableViewCell {
         let imageCount:CGFloat = CGFloat(imageSet.pageImages.count)
         scrollView.contentSize = CGSizeMake(CGRectGetWidth(scrollView.frame)*imageCount, CGRectGetHeight(scrollView.frame))
         
+        // MARK: - Create image views and add them to the scrollView again.
         var xPosition:CGFloat = xPadding1*0.25
         for tempImage in imageSet.pageImages {
             let tempImageView = UIImageView(frame: CGRectMake(xPosition, 0, imageWidth, imageHeight))
@@ -81,6 +159,7 @@ class ImageSetTableViewCell: BaseTableViewCell {
             
         }
         scrollView.setContentOffset(CGPointMake(0, 0), animated: false)
+        */
         
     }
     

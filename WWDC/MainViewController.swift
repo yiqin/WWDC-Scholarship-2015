@@ -224,6 +224,16 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         }
     }
     
+    override func viewDidAppear(animated: Bool) {
+        // Load the first datq...
+        // just for the WWDC.ImageSet.....
+        
+        // this is called in the main thread.
+        // so we need to put into GCD...
+        
+        // each image to one dispatch_get_global_queue
+    }
+    
     func getProfileSummaryTableViewCell(indexPath: NSIndexPath) -> UITableViewCell {
         var cell = tableView.dequeueReusableCellWithIdentifier(profileSummaryCellIdentifier) as? ProfileSummaryTableViewCell
         if cell == nil {
@@ -288,6 +298,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             cell = ImageSetTableViewCell(style: UITableViewCellStyle.Default, reuseIdentifier: imageSetCellIdentifier)
         }
         let object: AnyObject = ResumeDataManager.shareInstance.getObject(indexPath)
+        // MARK: - this is reason that the scrolling frozes.
         cell?.setContentValue(object)
         
         return cell!
