@@ -200,6 +200,8 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
+        println("cellForRowAtIndexPath \(indexPath)")
+        
         let object: AnyObject = ResumeDataManager.shareInstance.getObject(indexPath)
         var klass:AnyClass = object_getClass(object)
         let cellClassName = NSStringFromClass(klass)
@@ -223,6 +225,17 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
                 return UITableViewCell()
         }
     }
+    
+    
+    
+    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
+        
+        println("willDisplayCell \(indexPath) \n")
+        
+        
+    }
+    
+    
     
     override func viewDidAppear(animated: Bool) {
         // Load the first datq...
