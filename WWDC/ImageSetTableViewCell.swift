@@ -94,8 +94,6 @@ class ImageSetTableViewCell: BaseTableViewCell {
             
         }
         self.scrollView.setContentOffset(CGPointMake(0, 0), animated: false)
-            
-
         
         
         // Cornor radius. 
@@ -119,41 +117,6 @@ class ImageSetTableViewCell: BaseTableViewCell {
         // NSCache 
         // It will automataclly do it for me.
         
-        
-        
-            
-            
-        /*
-        // MARK: - remove the views on the scrollView
-        let viewsToRemove = scrollView.subviews
-        for v in viewsToRemove as! [UIView] {
-            v.removeFromSuperview()
-        }
-        
-        let tempWidth = screenWidth
-        let xPadding1:CGFloat = SoftwareProjectTableViewCellSetting.getXPadding1()*0.5
-        
-        let imageWidth = CGRectGetWidth(scrollView.frame)-xPadding1*0.5
-        let imageHeight = imageWidth*0.58
-        
-        let imageCount:CGFloat = CGFloat(imageSet.pageImages.count)
-        scrollView.contentSize = CGSizeMake(CGRectGetWidth(scrollView.frame)*imageCount, CGRectGetHeight(scrollView.frame))
-        
-        // MARK: - Create image views and add them to the scrollView again.
-        var xPosition:CGFloat = xPadding1*0.25
-        for tempImage in imageSet.pageImages {
-            let tempImageView = UIImageView(frame: CGRectMake(xPosition, 0, imageWidth, imageHeight))
-            
-            tempImageView.image = tempImage
-            tempImageView.contentMode = UIViewContentMode.ScaleAspectFill
-            tempImageView.clipsToBounds = true
-            
-            scrollView.addSubview(tempImageView)
-            xPosition = xPosition+xPadding1*0.5+imageWidth
-            
-        }
-        scrollView.setContentOffset(CGPointMake(0, 0), animated: false)
-        */
         
     }
     
