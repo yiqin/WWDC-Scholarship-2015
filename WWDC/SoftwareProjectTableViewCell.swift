@@ -164,7 +164,7 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         shapeLayer.lineWidth = 1.5
         shapeLayer.lineJoin = kCALineJoinRound
         // dash length
-        shapeLayer.lineDashPattern = NSArray(objects: NSNumber(int: 10), NSNumber(int: 8)) as [AnyObject]
+        shapeLayer.lineDashPattern = NSArray(objects: NSNumber(int: 10), NSNumber(int: 8)) as? [NSNumber]
         
         let path = CGPathCreateMutable()
         CGPathMoveToPoint(path, nil, 15, 30)
