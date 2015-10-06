@@ -34,7 +34,7 @@ class QuoteTableViewCell: BaseTableViewCell {
         
         
         titleLabel.frame = CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame))
-        titleLabel.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
+        titleLabel.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
         titleLabel.textAlignment = NSTextAlignment.Center
         titleLabel.numberOfLines = 0
         titleLabel.font = UIFont(name: "PlayfairDisplay-BoldItalic", size: 23)
@@ -51,7 +51,7 @@ class QuoteTableViewCell: BaseTableViewCell {
     }
     
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     

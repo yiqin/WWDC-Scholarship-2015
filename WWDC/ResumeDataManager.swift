@@ -23,27 +23,27 @@ public class ResumeDataManager: NSObject {
         
 
         let quote1 = Quote(text: "Keep Building", backgroundImage: UIImage(named: "backgroundImage1")!)
-        var quoteSection1 = QuoteSection()
+        let quoteSection1 = QuoteSection()
         quoteSection1.rowObjects = [quote1]
         
         
         let quote2 = Quote(text: "Brace Yourself", backgroundImage: UIImage(named: "profileBackgroundImage1")!)
-        var quoteSection2 = QuoteSection()
+        let quoteSection2 = QuoteSection()
         quoteSection2.rowObjects = [quote2]
         
         
         let quote3 = Quote(text: "Know a good idea when you see it.", backgroundImage: UIImage(named: "backgroundImage3")!)
-        var quoteSection3 = QuoteSection()
+        let quoteSection3 = QuoteSection()
         quoteSection3.rowObjects = [quote3]
         
         
         let quote4 = Quote(text: "The world we live in is dynamic.", backgroundImage: UIImage(named: "backgroundImage4")!)
-        var quoteSection4 = QuoteSection()
+        let quoteSection4 = QuoteSection()
         quoteSection4.rowObjects = [quote4]
         
         
         let quote5 = Quote(text: "Think Different", backgroundImage: UIImage(named: "backgroundImage10")!)
-        var quoteSection5 = QuoteSection()
+        let quoteSection5 = QuoteSection()
         quoteSection5.rowObjects = [quote5]
         
         
@@ -63,7 +63,7 @@ public class ResumeDataManager: NSObject {
         softwareProject1.shortTitle = "firestop"
         
         
-        var softwareProjectSection1 = SoftwareProjectSection()
+        let softwareProjectSection1 = SoftwareProjectSection()
         softwareProjectSection1.text = "Experience"
         
         softwareProject1.isLastOne = true
@@ -182,7 +182,7 @@ public class ResumeDataManager: NSObject {
     
     func getCellClass(sectionIndex: Int) -> NSString {
         let object: AnyObject = ResumeDataManager.shareInstance.objects[sectionIndex]
-        var klass:AnyClass = object_getClass(object)
+        let klass:AnyClass = object_getClass(object)
         let cellClassName = NSStringFromClass(klass)
         // println(cellClassName)
         
@@ -201,7 +201,7 @@ public class ResumeDataManager: NSObject {
     
     func getHeight(indexPath: NSIndexPath) -> CGFloat {
         let object: AnyObject = ResumeDataManager.shareInstance.getObject(indexPath)
-        var klass:AnyClass = object_getClass(object)
+        let klass:AnyClass = object_getClass(object)
         let cellClassName = NSStringFromClass(klass)
         
         switch cellClassName {

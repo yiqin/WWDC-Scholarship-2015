@@ -43,7 +43,7 @@ class AppTableViewCell: BaseTableViewCell {
         addSubview(scrollViewContainer)
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -59,7 +59,7 @@ class AppTableViewCell: BaseTableViewCell {
         let apps:[App] = AppDataManager.shareInstance.apps
         
         let viewsToRemove = scrollView.subviews
-        for v in viewsToRemove as! [UIView] {
+        for v in viewsToRemove {
             v.removeFromSuperview()
         }
         
@@ -96,7 +96,7 @@ class AppTableViewCell: BaseTableViewCell {
             tempView.addSubview(tempTitleLabel)
             
             
-            let seeAllButton:UIButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+            let seeAllButton:UIButton = UIButton(type: UIButtonType.System)
             seeAllButton.addTarget(self, action: "pressedButton:", forControlEvents: UIControlEvents.TouchUpInside)
             seeAllButton.tag = app.tag
             seeAllButton.setTitleColor(lightBlue, forState: UIControlState.Normal)

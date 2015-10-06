@@ -28,7 +28,7 @@ class WebDetailViewController: UIViewController {
         removeWebViewObserver()
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -37,7 +37,7 @@ class WebDetailViewController: UIViewController {
         // Do any additional setup after loading the view, typically from a nib.
 
         view.addSubview(webView)
-        webView.setTranslatesAutoresizingMaskIntoConstraints(false)
+        webView.translatesAutoresizingMaskIntoConstraints = false
         let height = NSLayoutConstraint(item: webView, attribute: .Height, relatedBy: .Equal, toItem: view, attribute: .Height, multiplier: 1, constant: 0)
         let width = NSLayoutConstraint(item: webView, attribute: .Width, relatedBy: .Equal, toItem: view, attribute: .Width, multiplier: 1, constant: 0)
         view.addConstraints([height, width])
@@ -67,7 +67,7 @@ class WebDetailViewController: UIViewController {
         webView.removeObserver(self, forKeyPath: "estimatedProgress", context: nil)
     }
     
-    override func observeValueForKeyPath(keyPath: String, ofObject object: AnyObject, change: [NSObject : AnyObject], context: UnsafeMutablePointer<()>) {
+    override func observeValueForKeyPath(keyPath: String?, ofObject object: AnyObject?, change: [String : AnyObject]?, context: UnsafeMutablePointer<()>) {
         if (keyPath == "estimatedProgress") {
             progressView.hidden = webView.estimatedProgress == 1
             progressView.setProgress(Float(webView.estimatedProgress), animated: true)

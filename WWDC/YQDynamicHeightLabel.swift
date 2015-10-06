@@ -42,7 +42,7 @@ class YQDynamicHeightLabel: UILabel {
         self.frame = CGRectMake(frame.origin.x, frame.origin.y, frame.size.width, labelHeight+2*yPadding)
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
 

@@ -26,7 +26,7 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
     
     var guideLabel:UILabel = UILabel()
     
-    let titleButton:UIButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+    let titleButton:UIButton = UIButton(type: UIButtonType.System)
     
     
     // No use
@@ -71,7 +71,7 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         
     }
 
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -93,7 +93,7 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         
         
         let viewsToRemove = subviews
-        for v in viewsToRemove as! [UIView] {
+        for v in viewsToRemove {
             v.removeFromSuperview()
         }
         
@@ -112,7 +112,7 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         titleButton.contentHorizontalAlignment = UIControlContentHorizontalAlignment.Left
         addSubview(titleButton)
         
-        if count(softwareProject.urlString) > 2 {
+        if softwareProject.urlString.characters.count > 2 {
             titleLabel.hidden = true
             titleButton.hidden = false
         }
@@ -178,7 +178,7 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
         super.layoutSubviews()
         
         let viewsToAnimate = subviews
-        for v in viewsToAnimate as! [UIView] {
+        for v in viewsToAnimate {
             
             if v.isKindOfClass(UILabel) {
                 if !AnimationManager.shareInstance.checkRegular(titleLabel.text!) {
@@ -195,7 +195,7 @@ class SoftwareProjectTableViewCell: BaseTableViewCell {
                             
                             if self.titleLabel.text == "Leaftagger (Best Use of Parse from Facebook and Best iOS app from Apple at MHacks f2014)" && AnimationManager.shareInstance.checkGuide() {
                                 
-                                    println("show guide..")
+                                    print("show guide..")
                                     AnimationManager.shareInstance.updateGuideHelper()
                                 
                                     self.guideLabel = UILabel(frame: CGRectMake(CGRectGetMinX(self.titleLabel.frame), CGRectGetMinY(self.titleLabel.frame)-20, CGRectGetWidth(self.titleLabel.frame)-40, 20))

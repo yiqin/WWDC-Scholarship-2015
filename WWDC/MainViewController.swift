@@ -92,7 +92,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
 
         
         tableView.frame = CGRectMake(0, 0, CGRectGetWidth(view.frame), CGRectGetHeight(view.frame))
-        tableView.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
+        tableView.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
         tableView.backgroundColor = UIColor.clearColor()
         tableView.separatorStyle = UITableViewCellSeparatorStyle.None
         tableView.dataSource = self
@@ -101,7 +101,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         view.addSubview(tableView)
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
@@ -128,7 +128,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
             tableView.backgroundColor = UIColor.whiteColor()
         }
         
-        var selectedDateDictionary = ["yContent": tableView.contentOffset.y]
+        let selectedDateDictionary = ["yContent": tableView.contentOffset.y]
         NSNotificationCenter.defaultCenter().postNotificationName("updateMove", object: nil, userInfo: selectedDateDictionary)
     }
     
@@ -180,7 +180,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
         
         
         if baseSection.text == "App Gallexy" {
-            let seeAllButton:UIButton = UIButton.buttonWithType(UIButtonType.System) as! UIButton
+            let seeAllButton:UIButton = UIButton(type: UIButtonType.System)
             seeAllButton.addTarget(self, action: "pressedButton:", forControlEvents: UIControlEvents.TouchUpInside)
             seeAllButton.setTitleColor(lightBlue, forState: UIControlState.Normal)
             seeAllButton.titleLabel?.numberOfLines = 1
@@ -200,10 +200,10 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
-        println("cellForRowAtIndexPath \(indexPath)")
+        print("cellForRowAtIndexPath \(indexPath)")
         
         let object: AnyObject = ResumeDataManager.shareInstance.getObject(indexPath)
-        var klass:AnyClass = object_getClass(object)
+        let klass:AnyClass = object_getClass(object)
         let cellClassName = NSStringFromClass(klass)
                 
         switch cellClassName {
@@ -230,7 +230,7 @@ class MainViewController: UIViewController, UITableViewDataSource, UITableViewDe
     
     func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell, forRowAtIndexPath indexPath: NSIndexPath) {
         
-        println("willDisplayCell \(indexPath) \n")
+        print("willDisplayCell \(indexPath) \n")
         
         
     }

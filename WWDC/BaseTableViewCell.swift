@@ -18,14 +18,14 @@ class BaseTableViewCell: UITableViewCell {
         clipsToBounds = true
         
         backgroundImageView.frame = CGRectMake(0, 0, CGRectGetWidth(frame), CGRectGetHeight(frame))
-        backgroundImageView.autoresizingMask = UIViewAutoresizing.FlexibleWidth | UIViewAutoresizing.FlexibleHeight
+        backgroundImageView.autoresizingMask = [UIViewAutoresizing.FlexibleWidth, UIViewAutoresizing.FlexibleHeight]
         backgroundImageView.contentMode = UIViewContentMode.ScaleAspectFill
         addSubview(backgroundImageView)
         
         selectionStyle = UITableViewCellSelectionStyle.None
     }
     
-    required init(coder aDecoder: NSCoder) {
+    required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
     
